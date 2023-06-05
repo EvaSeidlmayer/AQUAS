@@ -311,10 +311,8 @@ def evaluate_model(model, val_inputs, val_masks, val_labels):
             logits = outputs.logits
             assert logits.size(1) == 3, "Something went terribly wrong"
             all_logits.append(logits)
-            print(logits)
 
     all_logits = torch.cat(all_logits, dim=0)
-    print('all_logits', all_logits.size())
 
     # Calculate accuracy
     # This only makes sense for single label..
@@ -381,10 +379,6 @@ def main():
     train_labels = torch.tensor(train_labels)
     val_labels = torch.tensor(val_labels)
 
-    # config = AutoConfig.from_pretrained(BERT_MODEL_IDENTIFIER)
-    # config.update({'problem_type': "multi_label_classification"})
-    # config['num_labels'] = 3
-    # print("config", config)
 
     # OUR AQUASBert INIT
     model = AQUASSlidingBERT.from_pretrained(

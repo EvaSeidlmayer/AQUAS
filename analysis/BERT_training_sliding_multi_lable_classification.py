@@ -347,7 +347,7 @@ def main():
     args = parser.parse_args()
 
     learning_rate = 3e-5
-    epochs = 5
+    epochs = 4
 
     wandb.init(
         # Set the project where this run will be logged
@@ -406,7 +406,7 @@ def main():
         )
 
     # torch.save(model, 'models/bert-base_t10k_e4_lr3e-5.p')
-    model.save_pretrained("models/bert-base_t10k_e5_lr3e-5_mlclass")
+    model.save_pretrained("models/bert-base_t10k_e4_lr3e-5_mlclass")
     print("done")
 
 

@@ -249,4 +249,70 @@ wandb:                    f1 0.98921
 
 
 ## start multilabel classifictation 
-6) valiant-jazz-99: bert-base_t10k_ **e3** _lr3e-5_ **mlclass**
+6)  fallen-energy-143: bert-base_t10k_ **e3** _lr3e-5_ **mlclass**
+[3] Accuracy: 0.7571, F1-score: 0.7254, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.77      0.87       250
+class popular science       0.94      0.91      0.92       320
+ class disinformation       0.48      0.08      0.13       167
+
+            micro avg       0.94      0.67      0.78       737
+            macro avg       0.81      0.58      0.64       737
+         weighted avg       0.86      0.67      0.73       737
+          samples avg       0.67      0.67      0.67       737
+Run history:
+wandb: accuracy ██▁
+wandb:       f1 ▁▇█
+wandb: 
+wandb: Run summary:
+wandb:              accuracy 0.75712
+wandb: classification_report                     ...
+wandb:                    f1 0.72544
+wandb: 
+
+7) bert-base_t10k_e4_lr3e-5_mlclass
+[4] Accuracy: 0.9634, F1-score: 0.9653, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.89      0.94       252
+class popular science       1.00      0.94      0.97       321
+ class disinformation       0.99      1.00      0.99       164
+
+            micro avg       1.00      0.94      0.97       737
+            macro avg       0.99      0.94      0.97       737
+         weighted avg       1.00      0.94      0.97       737
+          samples avg       0.94      0.94      0.94       737
+Run summary:
+wandb:              accuracy 0.96337
+wandb: classification_report                     ...
+wandb:                    f1 0.9653
+
+
+
+
+
+
+8) proud-plant-144: bert-base_t10k_e5_lr3e-5_mlclass
+[5] Accuracy: 0.9525, F1-score: 0.8254, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.94      0.97       242
+class popular science       0.98      0.96      0.97       325
+ class disinformation       0.97      0.21      0.35       170
+
+            micro avg       0.99      0.78      0.87       737
+            macro avg       0.98      0.70      0.76       737
+         weighted avg       0.98      0.78      0.83       737
+          samples avg       0.78      0.78      0.78       737
+
+done
+wandb: Waiting for W&B process to finish... (success).
+wandb: | 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)
+wandb: Run history:
+wandb: accuracy ▁▃█▇▇
+wandb:       f1 ▁▄▆▇█
+wandb: 
+wandb: Run summary:
+wandb:              accuracy 0.95251
+wandb: classification_report                     ...
+wandb:                    f1 0.82538
+wandb: 
+wandb: 🚀 View run proud-plant-144 at: https://wandb.ai/zbmed/AQUAS/runs/p1s2meic

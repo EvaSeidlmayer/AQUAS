@@ -406,7 +406,7 @@ def main():
             f"[{epoch+1}] Accuracy: {acc:.4f}, F1-score: {f1:.4f}, Classification_report:{class_rep}"
         )
         filename = f"models/bert-base_t512_e{epoch+1}_lr3e-5_mlclass"
-        model.save_pretained(filename)
+        model.save_pretrained(filename)
 
 
     #model.save_pretrained("models/bert-base_t10k_e4_lr3e-5_mlclass")

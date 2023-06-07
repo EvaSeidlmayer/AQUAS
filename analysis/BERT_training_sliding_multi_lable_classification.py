@@ -8,8 +8,8 @@ __license__ = "ISC license"
 __email__ = "seidlmayer@zbmed.de"
 __version__ = "1 "
 
-#BERT_MODEL_IDENTIFIER = "bert-base-uncased"
-BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
+BERT_MODEL_IDENTIFIER = "bert-base-uncased"
+#BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
 
 import pandas as pd
 from transformers import (
@@ -51,7 +51,8 @@ def tokenize(texts):
     tokenizer = BertTokenizer.from_pretrained(BERT_MODEL_IDENTIFIER)
 
     # set max_length
-    max_length = 10000
+    max_length = 512
+    #max_length = 10000
     # max_length = 15000
 
     # Tokenize the text data
@@ -404,8 +405,8 @@ def main():
         print(
             f"[{epoch+1}] Accuracy: {acc:.4f}, F1-score: {f1:.4f}, Classification_report:{class_rep}"
         )
-
-        model.save_pretained(f"models/biobert_t10k_e{epoch+1}_lr3e-5_mlclass")
+        filename = f"models/bert-base_t512_e{epoch+1}_lr3e-5_mlclass"
+        model.save_pretained(filename)
 
 
     #model.save_pretrained("models/bert-base_t10k_e4_lr3e-5_mlclass")

@@ -249,7 +249,100 @@ wandb:                    f1 0.98921
 
 
 ## start multilabel classifictation 
-6)  fallen-energy-143: bert-base_t10k_ **e3** _lr3e-5_ **mlclass**
+solar-shadow-150: bert-base ***512*** tokens
+[1] Accuracy: 0.9891, F1-score: 0.9850, Classification_report:                       precision    recall  f1-score   support                                                        
+                                                                                                                                                                                    
+     class scientific       0.98      0.98      0.98       247                                                                                                                      
+class popular science       0.99      0.99      0.99       324                                                                                                                      
+ class disinformation       1.00      0.96      0.98       166                                                                                                                      
+                                                                                                                                                                                    
+            micro avg       0.99      0.98      0.99       737                                                                                                                      
+            macro avg       0.99      0.98      0.98       737                                                                                                                      
+         weighted avg       0.99      0.98      0.98       737                                                                                                                      
+          samples avg       0.98      0.98      0.98       737                                                                                                                      
+                                                                                                                                                                                    
+
+[2] Accuracy: 0.9715, F1-score: 0.9750, Classification_report:                       precision    recall  f1-score   support                                                        
+                                                                                                                                                                                    
+     class scientific       0.95      0.99      0.97       247                                                                                                                      
+class popular science       0.98      0.97      0.97       324                                                                                                                      
+ class disinformation       1.00      0.98      0.99       166                                                                                                                      
+                                                                                                                                                                                    
+            micro avg       0.97      0.98      0.97       737                                                                                                                      
+            macro avg       0.98      0.98      0.98       737                                                                                                                      
+         weighted avg       0.97      0.98      0.97       737                                                                                                                      
+          samples avg       0.97      0.98      0.97       737                                                                                                                      
+                                                                                                                                                                                    
+
+[3] Accuracy: 0.9729, F1-score: 0.9765, Classification_report:                       precision    recall  f1-score   support                                               [86/1801]
+                                                                                                                                                                                    
+     class scientific       0.94      0.99      0.96       247                                                                                                                      
+class popular science       0.99      0.97      0.98       324                                                                                                                      
+ class disinformation       1.00      0.98      0.99       166                                                                                                                      
+                                                                                                                                                                                    
+            micro avg       0.97      0.98      0.98       737                                                                                                                      
+            macro avg       0.98      0.98      0.98       737                                                                                                                      
+         weighted avg       0.98      0.98      0.98       737
+          samples avg       0.97      0.98      0.98       737
+
+[4] Accuracy: 0.9837, F1-score: 0.9851, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.98      0.99      0.98       247
+class popular science       0.98      0.98      0.98       324
+ class disinformation       1.00      0.99      0.99       166
+
+            micro avg       0.98      0.99      0.99       737
+            macro avg       0.99      0.99      0.99       737
+         weighted avg       0.98      0.99      0.99       737
+          samples avg       0.98      0.99      0.98       737
+
+
+[5] Accuracy: 0.9837, F1-score: 0.9851, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.98      0.99      0.98       247
+class popular science       0.98      0.98      0.98       324
+ class disinformation       1.00      0.99      0.99       166
+
+            micro avg       0.98      0.99      0.99       737
+            macro avg       0.99      0.99      0.99       737
+         weighted avg       0.98      0.99      0.99       737
+          samples avg       0.98      0.99      0.98       737
+
+6] Accuracy: 0.9837, F1-score: 0.9837, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.98      0.99      0.98       247
+class popular science       0.98      0.98      0.98       324
+ class disinformation       1.00      0.98      0.99       166
+
+            micro avg       0.98      0.98      0.98       737
+            macro avg       0.99      0.98      0.98       737
+         weighted avg       0.98      0.98      0.98       737
+          samples avg       0.98      0.98      0.98       737
+
+[7] Accuracy: 0.9837, F1-score: 0.9837, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.98      0.99      0.98       247
+class popular science       0.98      0.98      0.98       324
+ class disinformation       1.00      0.98      0.99       166
+
+            micro avg       0.98      0.98      0.98       737
+            macro avg       0.99      0.98      0.98       737
+         weighted avg       0.98      0.98      0.98       737
+          samples avg       0.98      0.98      0.98       737
+
+
+Run summary:
+wandb:              accuracy 0.98372
+wandb: classification_report                     ...
+wandb:                    f1 0.98373
+
+
+
+
+
+
+
+6)  fallen-energy-143: **bert-base** _ **t10k** _ **e3** _lr3e-5_ **mlclass**
 [3] Accuracy: 0.7571, F1-score: 0.7254, Classification_report:                       precision    recall  f1-score   support
 
      class scientific       1.00      0.77      0.87       250
@@ -303,16 +396,93 @@ class popular science       0.98      0.96      0.97       325
          weighted avg       0.98      0.78      0.83       737
           samples avg       0.78      0.78      0.78       737
 
-done
-wandb: Waiting for W&B process to finish... (success).
-wandb: | 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)
-wandb: Run history:
-wandb: accuracy ▁▃█▇▇
-wandb:       f1 ▁▄▆▇█
-wandb: 
+
 wandb: Run summary:
 wandb:              accuracy 0.95251
 wandb: classification_report                     ...
 wandb:                    f1 0.82538
-wandb: 
-wandb: 🚀 View run proud-plant-144 at: https://wandb.ai/zbmed/AQUAS/runs/p1s2meic
+
+
+9) toasty-wood-152: **biobert** **10k tokens** 
+[1] Accuracy: 0.7707, F1-score: 0.5567, Classification_report:                       precision    recall  f1-score   support                           
+                                                                                                                                                       
+     class scientific       1.00      0.49      0.66       244                                                                                         
+class popular science       0.99      0.62      0.76       328                                                                                         
+ class disinformation       0.00      0.00      0.00       165                                                                                         
+                                                                                                                                                       
+            micro avg       0.99      0.44      0.61       737                                                                                         
+            macro avg       0.66      0.37      0.47       737                                                                                         
+         weighted avg       0.77      0.44      0.56       737                                                                                         
+          samples avg       0.44      0.44      0.44       737                                                                                         
+                                                                                                                                                       
+[2] Accuracy: 0.8928, F1-score: 0.7443, Classification_report:                       precision    recall  f1-score   support                           
+                                                                                                                                                       
+     class scientific       0.99      0.98      0.99       244                                                                                         
+class popular science       0.99      0.86      0.92       328                                                                                         
+ class disinformation       1.00      0.02      0.04       165                                                                                         
+                                                                                                                                                       
+            micro avg       0.99      0.71      0.83       737                                                                                         
+            macro avg       0.99      0.62      0.65       737                                                                                         
+         weighted avg       0.99      0.71      0.74       737                                                                                         
+          samples avg       0.71      0.71      0.71       737      
+
+[3] Accuracy: 0.9796, F1-score: 0.7518, Classification_report:                       precision    recall  f1-score   support                           
+
+     class scientific       1.00      0.98      0.99       244                                                                                         
+class popular science       0.99      0.89      0.94       328                                                                                         
+ class disinformation       0.33      0.02      0.03       165                                                                                         
+
+            micro avg       0.98      0.72      0.83       737                                                                                         
+            macro avg       0.77      0.63      0.65       737                                                                                         
+         weighted avg       0.85      0.72      0.75       737                                                                                         
+          samples avg       0.72      0.72      0.72       737                                                                                         
+
+                                                                                              
+[4] Accuracy: 0.8087, F1-score: 0.6250, Classification_report:                       precision    recall  f1-score   support                           
+
+     class scientific       1.00      0.90      0.95       244                                                                                         
+class popular science       0.96      0.55      0.70       328                                                                                         
+ class disinformation       0.00      0.00      0.00       165                                                                                         
+
+            micro avg       0.98      0.54      0.70       737                                                                                         
+            macro avg       0.65      0.48      0.55       737                                                                                         
+         weighted avg       0.76      0.54      0.63       737                                                                                         
+          samples avg       0.54      0.54      0.54       737                                                                                         
+
+[5] Accuracy: 0.4573, F1-score: 0.2797, Classification_report:                       precision    recall  f1-score   support                           
+
+     class scientific       0.00      0.00      0.00       244                                                                                         
+class popular science       0.70      0.57      0.63       328                                                                                         
+ class disinformation       0.00      0.00      0.00       165                                                                                         
+
+            micro avg       0.70      0.25      0.37       737                                                                                         
+            macro avg       0.23      0.19      0.21       737                                                                                         
+         weighted avg       0.31      0.25      0.28       737                                                                                         
+          samples avg       0.25      0.25      0.25       737                                                                                         
+                                                          
+[6] Accuracy: 0.4830, F1-score: 0.2611, Classification_report:                       precision    recall  f1-score   support                           
+
+     class scientific       0.00      0.00      0.00       244                                                                                         
+class popular science       0.78      0.47      0.59       328                                                                                         
+ class disinformation       0.00      0.00      0.00       165                                                                                         
+
+            micro avg       0.78      0.21      0.33       737                                                                                         
+            macro avg       0.26      0.16      0.20       737                                                                                         
+         weighted avg       0.35      0.21      0.26       737                                                                                         
+          samples avg       0.21      0.21      0.21       737                                                                                         
+
+[7] Accuracy: 0.6404, F1-score: 0.2611, Classification_report:                       precision    recall  f1-score   support                           
+
+     class scientific       0.00      0.00      0.00       244                                                                                         
+class popular science       0.78      0.47      0.59       328                                                                                         
+ class disinformation       0.00      0.00      0.00       165                                                                                         
+
+            micro avg       0.78      0.21      0.33       737                                                                                         
+            macro avg       0.26      0.16      0.20       737                                                                                         
+         weighted avg       0.35      0.21      0.26       737                                                                                         
+          samples avg       0.21      0.21      0.21       737                                                                                         
+                                    
+wandb: Run summary:                                                        
+wandb:              accuracy 0.64043                                       
+wandb: classification_report                     ...                                                                                                   
+wandb:                    f1 0.26109   

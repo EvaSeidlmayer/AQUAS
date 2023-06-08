@@ -8,8 +8,8 @@ __license__ = "ISC license"
 __email__ = "seidlmayer@zbmed.de"
 __version__ = "1 "
 
-#BERT_MODEL_IDENTIFIER = "bert-base-uncased"
-BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
+BERT_MODEL_IDENTIFIER = "bert-base-uncased"
+#BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
 
 import pandas as pd
 from transformers import (
@@ -405,7 +405,7 @@ def main():
         print(
             f"[{epoch+1}] Accuracy: {acc:.4f}, F1-score: {f1:.4f}, Classification_report:{class_rep}"
         )
-        filename = f"models/biobert_t10k_e{epoch+1}_lr3e-5_mlclass"
+        filename = f"models/bertbase_t10k_e{epoch+1}_lr3e-5_mlclass"
         model.save_pretrained(filename)
 
 

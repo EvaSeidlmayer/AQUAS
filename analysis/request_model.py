@@ -32,7 +32,7 @@ args = argparser.parse_args()
 
 
 # Load the trained model
-model = AQUASSlidingBERT.from_pretrained(args.model, return_dict=False)
+model = AQUASSlidingBERT.from_pretrained(args.model)
 
 # Preprocess the specific text
 text = "Your specific text here"
@@ -49,6 +49,7 @@ print("text is preprocessed")
 
 
 output = model(input_ids=input_ids, attention_mask= attn_mask)
+output = torch.stack(output, dim=0)
 sigmoid_output =torch.sigmoid(output)
 soft_output = torch.softmax(output)
 print('without softmax', sigmoid_output)

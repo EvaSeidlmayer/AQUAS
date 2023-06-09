@@ -386,7 +386,7 @@ def main():
 
     # OUR AQUASBert INIT
     model = AQUASSlidingBERT.from_pretrained(
-        '../models/bertbase_t10k_e7_lr3e-5_mlclass',
+        'models/bertbase_t10k_e7_lr3e-5_mlclass',
         num_labels=3,
         problem_type="multi_label_classification",
     )

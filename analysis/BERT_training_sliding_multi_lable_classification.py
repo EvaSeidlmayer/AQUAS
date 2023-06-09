@@ -10,7 +10,7 @@ __version__ = "1 "
 
 #BERT_MODEL_IDENTIFIER = "bert-base-uncased"
 #BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
-BERT_MODEL_IDENTIFIER = 'models/bertbase_t10k_e7_lr3e-5_mlclass'
+BERT_MODEL_IDENTIFIER = '../models/bertbase_t10k_e7_lr3e-5_mlclass'
 
 
 

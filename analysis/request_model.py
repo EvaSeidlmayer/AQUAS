@@ -32,7 +32,7 @@ args = argparser.parse_args()
 
 
 # Load the trained model
-model = AQUASSlidingBERT.from_pretrained(args.model)
+model = AQUASSlidingBERT.from_pretrained(args.model, return_dict= False)
 
 # Preprocess the specific text
 text = "Your specific text here"

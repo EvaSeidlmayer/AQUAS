@@ -49,7 +49,6 @@ print("text is preprocessed")
 
 
 output = model(input_ids=input_ids, attention_mask= attn_mask)
-output = torch.stack(output, dim=0)
 soft_output = torch.softmax(output)
 logits = output['logits']
 sigmoid_output =torch.sigmoid(logits)

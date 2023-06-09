@@ -8,8 +8,11 @@ __license__ = "ISC license"
 __email__ = "seidlmayer@zbmed.de"
 __version__ = "1 "
 
-BERT_MODEL_IDENTIFIER = "bert-base-uncased"
+#BERT_MODEL_IDENTIFIER = "bert-base-uncased"
 #BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
+BERT_MODEL_IDENTIFIER = 'models/bertbase_t10k_e7_lr3e-5_mlclass'
+
+
 
 import pandas as pd
 from transformers import (
@@ -348,7 +351,7 @@ def main():
     args = parser.parse_args()
 
     learning_rate = 3e-5
-    epochs = 7
+    epochs = 43
 
     wandb.init(
         # Set the project where this run will be logged
@@ -394,7 +397,8 @@ def main():
     print("weight and biases is tracking")
 
     # each loop is one epoch
-    for epoch in range(epochs):
+    #for epoch in range(epochs):
+    for epoch in range(7, 7+epochs):
         print("start new epoch")
         train_epoch(model, optimizer, train_inputs, train_labels, train_masks)
         acc, f1, class_rep = evaluate_model(model, val_inputs, val_masks, val_labels)

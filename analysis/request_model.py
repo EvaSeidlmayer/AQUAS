@@ -52,9 +52,9 @@ output = model(input_ids=input_ids, attention_mask= attn_mask)
 
 logits = output['logits']
 sigmoid_output =torch.sigmoid(logits)
-soft_output = torch.softmax(logits)
+#soft_output = torch.softmax(logits)
 
 
 print('without softmax', sigmoid_output)
-print('with softmax', soft_output)
+#print('with softmax', soft_output)
 

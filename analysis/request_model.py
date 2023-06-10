@@ -49,10 +49,10 @@ print("text is preprocessed")
 
 
 output = model(input_ids=input_ids, attention_mask= attn_mask)
-soft_output = torch.softmax(output)
+
 logits = output['logits']
 sigmoid_output =torch.sigmoid(logits)
-
+soft_output = torch.softmax(logits)
 
 
 print('without softmax', sigmoid_output)

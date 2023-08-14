@@ -1,0 +1,505 @@
+
+ready_dataset.csv: 927 items (3 x 309)
+BERT:
+- epochs=3, batch_size=8
+  optimizer = tf.keras.optimizers.Adam(learning_rate=2e-5, epsilon=1e-08, clipnorm=1.0)
+  Validation Loss: 9.3224 Accuracy: 0.3297
+
+- epoch 6, batch_size = 8
+  Validation Loss: 10.5421 Accuracy: 0.3459
+
+
+
+    BERT-dmis-lab/biobert-v1.1
+
+Tokenz 2048
+epochs: 5
+ Run history:
+wandb: accuracy ▆▁▇▃█
+wandb:       f1 ▆▁▇▄█
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.96608
+wandb:       f1 0.96618
+wandb:
+wandb: 🚀 View run dark-cantina-63 at: https://wandb.ai/zbmed/AQUAS/runs/iq2w99fh
+
+Tokenz 2048
+epochs 10
+ Run history:
+wandb: accuracy ▆▇█▃▄▂▄▂▁▂
+wandb:       f1 ▅▇█▃▄▂▄▂▁▂
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.42741
+wandb:       f1 0.27495
+wandb:
+wandb: 🚀 View run devoted-silence-69 at: https://wandb.ai/zbmed/AQUAS/runs/64hlj2xu
+
+Tokens 2048
+epochs 15
+ accuracy ▇█▆▇█▁████
+wandb:       f1 ▇█▆▇█▁████
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.96065
+wandb:       f1 0.96063
+wandb:
+wandb: 🚀 View run dazzling-sponge-70 at: https://wandb.ai/zbmed/AQUAS/runs/evd8282r
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230510_081203-evd8282r/logs
+
+
+
+
+
+
+
+Tokenz 10k
+Epochs 5
+ Run history:
+wandb: accuracy ██▁▁█
+wandb:       f1 ██▁▁█
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.59566
+wandb:       f1 0.47973
+wandb:
+wandb: 🚀 View run stellar-fleet-64 at: https://wandb.ai/zbmed/AQUAS/runs/e3ekztxw
+
+
+
+
+Tokenz 10k:
+epochs: 10
+   wandb: Run history:
+ wandb: accuracy █▃▄▇▄▇▁▁▁▁
+   wandb:       f1 █▄▅█▅█▁▁▁▁
+   wandb:
+   wandb: Run summary:
+   wandb: accuracy 0.31343
+   wandb:       f1 0.14959
+   wandb: expert-snowflake-58
+
+
+Tokens 10k
+epochs: 15
+
+accuracy ▅▆███▆▁▁▂▂▂▂▂▂▂
+wandb:       f1 ▅▇███▅▁▁▂▃▂▃▃▂▂
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.43691
+wandb:       f1 0.26569
+  https://wandb.ai/zbmed/AQUAS/runs/hes6ebv2
+
+
+
+
+
+
+
+
+
+    BERT base uncased
+okens 2048
+epochs 5
+accuracy ▁▆▇█▇█████
+wandb:       f1 ▁▆▇█▇█████
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.98372
+wandb:       f1 0.98379
+wandb:
+wandb: 🚀 View run bumbling-snowflake-72 at: https://wandb.ai/zbmed/AQUAS/runs/r1it4j1o
+
+
+
+Tokenz: 2048
+epochs: 10
+ Run history:
+wandb: accuracy ▂▇█▅▁▅▇▇▇█
+wandb:       f1 ▂▇█▅▁▅▇▇▇█
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.97422
+wandb:       f1 0.97436
+wandb:
+wandb: 🚀 View run winter-durian-60 at: https://wandb.ai/zbmed/AQUAS/runs/202v9ovs
+
+Tokens: 2048
+epochs: 15
+db: accuracy ▇█▃▁▁▁▁▃▃▃
+wandb:       f1 ▇█▃▁▁▁▁▃▃▃
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.6445
+wandb:       f1 0.54669
+wandb:
+wandb: 🚀 View run fresh-river-71 at: https://wandb.ai/zbmed/AQUAS/runs/c58u1cd8
+wandb:
+
+
+Tokens 10k
+epochs: 5
+accuracy █▇██▄▄▄▄▄▁
+wandb:       f1 █▇██▄▃▃▄▄▁
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.43826
+wandb:       f1 0.26709
+wandb:
+wandb: 🚀 View run different-snowflake-73 at: https://wandb.ai/zbmed/AQUAS/runs/a20sj6fu
+
+
+Tokens: 10k
+epochs: 10
+ Waiting for W&B process to finish... (success).
+wandb: / 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)
+wandb: Run history:
+wandb: accuracy ▇███▄▃▁▁▁▁
+wandb:       f1 ▇███▅▃▁▁▁▁
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.44776
+wandb:       f1 0.27697
+wandb:
+wandb: 🚀 View run holographic-ewok-62 at: https://wandb.ai/zbmed/AQUAS/runs/u14vrskl
+
+
+tokens: 10k
+Epochs 15
+accuracy ▁▆▇▇███████████
+wandb:       f1 ▁▆█▇███████████
+wandb:
+wandb: Run summary:
+wandb: accuracy 0.90366
+wandb:       f1 0.90324
+wandb:
+wandb: 🚀 View run stellar-admiral-65 at: https://wandb.ai/zbmed/AQUAS/runs/n8zorpxt
+
+
+
+# new run
+## with single label classification
+1) dashing-waterfall-96: bert-base_t10k_ **e3** _lr3e-5
+  precision    recall  f1-score   support
+     class scientific       1.00      0.93      0.97       246
+class popular science       0.99      0.98      0.98       321
+ class disinformation       0.90      1.00      0.95       170
+
+             accuracy                           0.97       737
+            macro avg       0.96      0.97      0.97       737
+         weighted avg       0.97      0.97      0.97       737
+
+Run summary:
+wandb:              accuracy 0.97015
+wandb: classification_report                     ...
+wandb:                    f1 0.97038
+
+2) twilight-music-97: bert-base_t10k_ **e4** _lr3e-5
+[4] Accuracy: 0.8548 F1-score: 0.8555, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.76      0.98      0.85       255
+class popular science       0.99      0.78      0.87       321
+ class disinformation       0.84      0.81      0.83       161
+
+             accuracy                           0.85       737
+            macro avg       0.86      0.86      0.85       737
+         weighted avg       0.88      0.85      0.86       737
+
+Run summary:
+wandb:              accuracy 0.85482
+wandb: classification_report                     ...
+wandb:                    f1 0.85548
+
+
+3) flowing-elevator-98: bert-base_t10k_ **e5** _lr3e-5
+[5] Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.99      0.99       244
+class popular science       1.00      0.98      0.99       329
+ class disinformation       0.96      1.00      0.98       164
+
+             accuracy                           0.99       737
+            macro avg       0.99      0.99      0.99       737
+         weighted avg       0.99      0.99      0.99       737
+Run summary:
+wandb:              accuracy 0.98915
+wandb: classification_report                     ...
+wandb:                    f1 0.98921
+
+
+
+## start multilabel classifictation
+solar-shadow-150: bert-base ***512*** tokens
+[1] Accuracy: 0.9891, F1-score: 0.9850, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.98      0.98      0.98       247
+class popular science       0.99      0.99      0.99       324
+ class disinformation       1.00      0.96      0.98       166
+
+            micro avg       0.99      0.98      0.99       737
+            macro avg       0.99      0.98      0.98       737
+         weighted avg       0.99      0.98      0.98       737
+          samples avg       0.98      0.98      0.98       737
+
+
+[2] Accuracy: 0.9715, F1-score: 0.9750, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.95      0.99      0.97       247
+class popular science       0.98      0.97      0.97       324
+ class disinformation       1.00      0.98      0.99       166
+
+            micro avg       0.97      0.98      0.97       737
+            macro avg       0.98      0.98      0.98       737
+         weighted avg       0.97      0.98      0.97       737
+          samples avg       0.97      0.98      0.97       737
+
+
+[3] Accuracy: 0.9729, F1-score: 0.9765, Classification_report:                       precision    recall  f1-score   support                                               [86/1801]
+
+     class scientific       0.94      0.99      0.96       247
+class popular science       0.99      0.97      0.98       324
+ class disinformation       1.00      0.98      0.99       166
+
+            micro avg       0.97      0.98      0.98       737
+            macro avg       0.98      0.98      0.98       737
+         weighted avg       0.98      0.98      0.98       737
+          samples avg       0.97      0.98      0.98       737
+
+[4] Accuracy: 0.9837, F1-score: 0.9851, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.98      0.99      0.98       247
+class popular science       0.98      0.98      0.98       324
+ class disinformation       1.00      0.99      0.99       166
+
+            micro avg       0.98      0.99      0.99       737
+            macro avg       0.99      0.99      0.99       737
+         weighted avg       0.98      0.99      0.99       737
+          samples avg       0.98      0.99      0.98       737
+
+
+[5] Accuracy: 0.9837, F1-score: 0.9851, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.98      0.99      0.98       247
+class popular science       0.98      0.98      0.98       324
+ class disinformation       1.00      0.99      0.99       166
+
+            micro avg       0.98      0.99      0.99       737
+            macro avg       0.99      0.99      0.99       737
+         weighted avg       0.98      0.99      0.99       737
+          samples avg       0.98      0.99      0.98       737
+
+6] Accuracy: 0.9837, F1-score: 0.9837, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.98      0.99      0.98       247
+class popular science       0.98      0.98      0.98       324
+ class disinformation       1.00      0.98      0.99       166
+
+            micro avg       0.98      0.98      0.98       737
+            macro avg       0.99      0.98      0.98       737
+         weighted avg       0.98      0.98      0.98       737
+          samples avg       0.98      0.98      0.98       737
+
+[7] Accuracy: 0.9837, F1-score: 0.9837, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.98      0.99      0.98       247
+class popular science       0.98      0.98      0.98       324
+ class disinformation       1.00      0.98      0.99       166
+
+            micro avg       0.98      0.98      0.98       737
+            macro avg       0.99      0.98      0.98       737
+         weighted avg       0.98      0.98      0.98       737
+          samples avg       0.98      0.98      0.98       737
+
+
+Run summary:
+wandb:              accuracy 0.98372
+wandb: classification_report                     ...
+wandb:                    f1 0.98373
+
+
+
+
+
+
+
+6)  fallen-energy-143: **bert-base** _ **t10k**  _lr3e-5_ **mlclass**
+[3] Accuracy: 0.7571, F1-score: 0.7254, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.77      0.87       250
+class popular science       0.94      0.91      0.92       320
+ class disinformation       0.48      0.08      0.13       167
+
+            micro avg       0.94      0.67      0.78       737
+            macro avg       0.81      0.58      0.64       737
+         weighted avg       0.86      0.67      0.73       737
+          samples avg       0.67      0.67      0.67       737
+
+[4] Accuracy: 0.9634, F1-score: 0.9653, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.89      0.94       252
+class popular science       1.00      0.94      0.97       321
+ class disinformation       0.99      1.00      0.99       164
+
+            micro avg       1.00      0.94      0.97       737
+            macro avg       0.99      0.94      0.97       737
+         weighted avg       1.00      0.94      0.97       737
+          samples avg       0.94      0.94      0.94       737
+
+[4] Accuracy: 0.9267, F1-score: 0.7309, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.94      0.98      0.96       239
+class popular science       1.00      0.80      0.89       325
+ class disinformation       1.00      0.06      0.12       173
+
+            micro avg       0.97      0.69      0.80       737
+            macro avg       0.98      0.61      0.66       737
+         weighted avg       0.98      0.69      0.73       737
+          samples avg       0.68      0.69      0.68       737
+
+
+[5] Accuracy: 0.9701, F1-score: 0.7623, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.97      0.98      0.98       239
+class popular science       1.00      0.90      0.95       325
+ class disinformation       1.00      0.06      0.12       173
+
+            micro avg       0.99      0.73      0.84       737
+            macro avg       0.99      0.65      0.68       737
+         weighted avg       0.99      0.73      0.76       737
+          samples avg       0.73      0.73      0.73       737
+
+
+[6] Accuracy: 0.9701, F1-score: 0.9344, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.97      0.98       239
+class popular science       1.00      0.87      0.93       325
+ class disinformation       0.92      0.84      0.88       173
+
+            micro avg       0.98      0.90      0.93       737
+            macro avg       0.97      0.89      0.93       737
+         weighted avg       0.98      0.90      0.93       737
+          samples avg       0.89      0.90      0.89       737
+
+[7] Accuracy: 0.9783, F1-score: 0.9337, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.95      0.97       239
+class popular science       0.99      0.93      0.96       325
+ class disinformation       0.97      0.74      0.84       173
+
+            micro avg       0.99      0.89      0.94       737
+            macro avg       0.98      0.87      0.92       737
+         weighted avg       0.99      0.89      0.93       737
+          samples avg       0.89      0.89      0.89       737
+
+
+
+
+
+8) proud-plant-144: bert-base_t10k_e5_lr3e-5_mlclass
+[5] Accuracy: 0.9525, F1-score: 0.8254, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.94      0.97       242
+class popular science       0.98      0.96      0.97       325
+ class disinformation       0.97      0.21      0.35       170
+
+            micro avg       0.99      0.78      0.87       737
+            macro avg       0.98      0.70      0.76       737
+         weighted avg       0.98      0.78      0.83       737
+          samples avg       0.78      0.78      0.78       737
+
+
+wandb: Run summary:
+wandb:              accuracy 0.95251
+wandb: classification_report                     ...
+wandb:                    f1 0.82538
+
+
+9) toasty-wood-152: **biobert** **10k tokens**
+[1] Accuracy: 0.7707, F1-score: 0.5567, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.49      0.66       244
+class popular science       0.99      0.62      0.76       328
+ class disinformation       0.00      0.00      0.00       165
+
+            micro avg       0.99      0.44      0.61       737
+            macro avg       0.66      0.37      0.47       737
+         weighted avg       0.77      0.44      0.56       737
+          samples avg       0.44      0.44      0.44       737
+
+[2] Accuracy: 0.8928, F1-score: 0.7443, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.99      0.98      0.99       244
+class popular science       0.99      0.86      0.92       328
+ class disinformation       1.00      0.02      0.04       165
+
+            micro avg       0.99      0.71      0.83       737
+            macro avg       0.99      0.62      0.65       737
+         weighted avg       0.99      0.71      0.74       737
+          samples avg       0.71      0.71      0.71       737
+
+[3] Accuracy: 0.9796, F1-score: 0.7518, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.98      0.99       244
+class popular science       0.99      0.89      0.94       328
+ class disinformation       0.33      0.02      0.03       165
+
+            micro avg       0.98      0.72      0.83       737
+            macro avg       0.77      0.63      0.65       737
+         weighted avg       0.85      0.72      0.75       737
+          samples avg       0.72      0.72      0.72       737
+
+
+[4] Accuracy: 0.8087, F1-score: 0.6250, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       1.00      0.90      0.95       244
+class popular science       0.96      0.55      0.70       328
+ class disinformation       0.00      0.00      0.00       165
+
+            micro avg       0.98      0.54      0.70       737
+            macro avg       0.65      0.48      0.55       737
+         weighted avg       0.76      0.54      0.63       737
+          samples avg       0.54      0.54      0.54       737
+
+[5] Accuracy: 0.4573, F1-score: 0.2797, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.00      0.00      0.00       244
+class popular science       0.70      0.57      0.63       328
+ class disinformation       0.00      0.00      0.00       165
+
+            micro avg       0.70      0.25      0.37       737
+            macro avg       0.23      0.19      0.21       737
+         weighted avg       0.31      0.25      0.28       737
+          samples avg       0.25      0.25      0.25       737
+
+[6] Accuracy: 0.4830, F1-score: 0.2611, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.00      0.00      0.00       244
+class popular science       0.78      0.47      0.59       328
+ class disinformation       0.00      0.00      0.00       165
+
+            micro avg       0.78      0.21      0.33       737
+            macro avg       0.26      0.16      0.20       737
+         weighted avg       0.35      0.21      0.26       737
+          samples avg       0.21      0.21      0.21       737
+
+[7] Accuracy: 0.6404, F1-score: 0.2611, Classification_report:                       precision    recall  f1-score   support
+
+     class scientific       0.00      0.00      0.00       244
+class popular science       0.78      0.47      0.59       328
+ class disinformation       0.00      0.00      0.00       165
+
+            micro avg       0.78      0.21      0.33       737
+            macro avg       0.26      0.16      0.20       737
+         weighted avg       0.35      0.21      0.26       737
+          samples avg       0.21      0.21      0.21       737
+
+wandb: Run summary:
+wandb:              accuracy 0.64043
+wandb: classification_report                     ...
+wandb:                    f1 0.26109
+
+
+

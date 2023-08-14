@@ -12,7 +12,7 @@ __version__ = "1 "
 BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
 #BERT_MODEL_IDENTIFIER = '../models/bertbase_t10k_e7_lr3e-5_mlclass' ---> 389 replace again!!!!
 
-
+EPOCH_AMOUNT = 7
 
 import pandas as pd
 from transformers import (
@@ -351,7 +351,7 @@ def main():
     args = parser.parse_args()
 
     learning_rate = 3e-5
-    epochs = 43
+    epochs = EPOCH_AMOUNT
 
     wandb.init(
         # Set the project where this run will be logged

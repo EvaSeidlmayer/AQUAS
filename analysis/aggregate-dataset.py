@@ -14,8 +14,10 @@ import pandas as pd
 
 cols = ['category-id', 'text']
 science_df_1 = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/PMC-doi_text-2022-12-19.csv', sep=',', usecols=cols)
+science_df_plosone = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/scientific_PlosONE_text.csv', sep=',', usecols=cols)
 science_df_2 = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/PMC-doi_text-2023-02-26.csv', sep=',', usecols=cols)
-science_df = pd.concat([science_df_1, science_df_2], ignore_index=True)
+science_df = pd.concat([science_df_1, science_df_plosone], ignore_index=True)
+science_df = pd.concat([science_df, science_df_2])
 #print(science_df.head())
 print('number of science paper:', len(science_df))
 
@@ -25,15 +27,19 @@ popscience_df_2 = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/po
 popscience_df = pd.concat([popscience_df_1, popscience_df_2], ignore_index= True)
 print('number of popscience paper:', len(popscience_df))
 
+poynter_cols = ['label', 'text']
 desinfo_df_1 = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/desinfo_alternativenews_text-2.csv', sep=',', usecols=cols)
 desinfo_df_2 = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/desinfo_collectiveevolution_text.csv', sep=',', usecols=cols)
 desinfo_df_3 = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/desinfo_healthcancer_text.csv', sep=',', usecols=cols)
 desinfo_df_4 = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/desinfo_alternativenews_text-2.csv', sep=',', usecols=cols)
+desinfo_df_5 = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/kaggle/Covid19-misinformation/poynter_data.csv', sep=',', usecols= poynter_cols)
+desinfo_df_5 = desinfo_df_5.replace(['misleading', 'false'], 3)
 desinfo_df = pd.concat([desinfo_df_1, desinfo_df_2], ignore_index = True)
-print(desinfo_df.head())
+print(desinfo_df_5.head())
 desinfo_df = pd.concat([desinfo_df, desinfo_df_3], ignore_index= True)
 desinfo_df = pd.concat([desinfo_df, desinfo_df_4], ignore_index=True)
-print('number of popscience paper:', len(desinfo_df))
+desinfo_df = pd.concat([desinfo_df, desinfo_df_5], ignore_index=True)
+print('number of desinfo paper:', len(desinfo_df))
 
 number_desinfo = len(desinfo_df)
 ready_dataset = pd.concat([science_df.head(number_desinfo), popscience_df.head(number_desinfo)], ignore_index=True)
@@ -41,4 +47,7 @@ ready_dataset = pd.concat([science_df.head(number_desinfo), popscience_df.head(n
 ready_dataset = pd.concat([ready_dataset, desinfo_df], ignore_index=True)
 print('number of final data set', len(ready_dataset))
 
-#ready_dataset.to_csv('data/ready_dataset.csv', index=False)
+
+
+ready_dataset.to_csv('data/2023-07_ready_dataset_inklPoynter.csv', index=False)
+print('done')

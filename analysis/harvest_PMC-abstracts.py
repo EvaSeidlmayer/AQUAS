@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 __description__ = """ A script for fast harvesting of PMC tar.gz 
-                    for authors, title, journal, year, abstract, text, """
+                    for authors, title, journal, year, abstract, text, 
+                    PMC tar.gz at: e.g. data/oa_comm_xml,incr.2023-02-28.tar.gz"""
 __author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>"
 __copyright__ = "2023 by Eva Seidlmayer"
 __license__ = "ISC license"

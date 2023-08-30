@@ -32,9 +32,9 @@ def get_doi_text(tree):
 def main():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('csv_folder_path')
+    parser.add_argument('xml_folder_path')
     args = parser.parse_args()
-    xml_files = glob.glob(args.csv_folder_path + '/*.xml')
+    xml_files = glob.glob(args.xml_folder_path + '/*.xml')
     #df_list = (pd.read_xml(file, xpath='//body') for file in xml_files)
     for file in xml_files:
         xmlfile = pd.read_xml(file, xpath='//sec')

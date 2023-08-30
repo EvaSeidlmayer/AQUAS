@@ -38,7 +38,10 @@ for index, row in df.iterrows():
                     clean_text = clean_text[0]
                 else: continue
                 clean_text = clean_text[0]
-                info = pd.DataFrame({'category-id': 3, 'text-id': [url], 'text': [clean_text]})
+                print(clean_text)
+                cleaned_text = " ".join(clean_text.split())
+                print('2')
+                info = pd.DataFrame({'category-id': 3, 'text-id': [url], 'text': [cleaned_text]})
                 print(info)
                 infos_df = pd.concat([infos_df, info], ignore_index=True)
                 #sys.exit()

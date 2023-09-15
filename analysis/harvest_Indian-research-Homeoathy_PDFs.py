@@ -54,7 +54,7 @@ def pdf_to_text(path):
     with open(path, 'rb') as f:
         pdf = pdftotext.PDF(f)
         pdf_txt = "\n\n".join(pdf)
-        return pdf_txt
+    return pdf_txt
 
 def clean_text(pdf_txt):
     cleaned_txt = ' '.join(pdf_txt.split())

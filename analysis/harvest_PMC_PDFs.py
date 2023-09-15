@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-__description__ = (".")
+__description__ = ("get data from https://ftp.ncbi.nlm.nih.gov/pub/pmc/oa_pdf/ oline archive which contains PDF of Open "
+                   "access articles indexed in Pub Med Central")
 __author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>"
 __copyright__ = "2023 by Eva Seidlmayer"
 __license__ = "ISC license"
@@ -14,12 +15,14 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import re
-
+import csv
+from time import sleep
 
 
 def aggrgate_all_links(base_url):
     # construct all possible combinations in archive
     complete_links = []
+
     range = ['00/', '01/', '02/', '03/', '04/', '05/', '06/', '07/', '08/', '09/', 'a0/', 'b0/', 'c0/', 'd0/', 'e0/', 'f0/',
              '10/', '11/', '12/', '13/', '14/', '15/', '16/', '17/', '18/', '19/', 'a1/', 'b1/', 'c1/', 'd1/', 'e1/', 'f1/',
              '20/', '21/', '22/', '23/', '24/', '25/', '26/', '27/', '28/', '29/', 'a2/', 'b2/', 'c2/', 'd2/', 'e2/', 'f2/',
@@ -30,17 +33,20 @@ def aggrgate_all_links(base_url):
              '70/', '71/', '72/', '73/', '74/', '75/', '76/', '77/', '78/', '79/', 'a7/', 'b7/', 'c7/', 'd7/', 'e7/', 'f7/',
              '80/', '81/', '82/', '83/', '84/', '85/', '86/', '87/', '88/', '89/', 'a8/', 'b8/', 'c8/', 'd8/', 'e8/', 'f8/',
              '90/', '91/', '92/', '93/', '94/', '95/', '96/', '97/', '98/', '99/', 'a9/', 'b9/', 'c9/', 'd9/', 'e9/', 'f9/',
-             'aa/', 'ba/', 'ca/', 'da/', 'ea/', 'fa/', 'ab/', 'bb/', 'cb/', 'db/', 'eb/', 'fb/','ac/', 'bc/', 'cc/', 'dc/', 'ec/', 'fc/',
-             'ad/', 'bd/', 'cd/', 'dd/', 'ed/', 'fd/', 'ae/', 'be/', 'ce/', 'de/', 'ee/', 'fe/','af/', 'bf/', 'cf/', 'df/', 'ef/', 'ff/']
+             'aa/', 'ba/', 'ca/', 'da/', 'ea/', 'fa/', 'ab/', 'bb/', 'cb/', 'db/', 'eb/', 'fb/','ac/', 'bc/', 'cc/', 'dc/',
+             'ec/', 'fc/', 'ad/', 'bd/', 'cd/', 'dd/', 'ed/', 'fd/', 'ae/', 'be/', 'ce/', 'de/', 'ee/', 'fe/','af/', 'bf/',
+             'cf/', 'df/', 'ef/', 'ff/']
 
-    print(len(range))
-    #for ending_1 in range:
-    for ending_2 in range:
-        url =base_url + '00/' + ending_2
-        complete_links = get_urls(url, complete_links)
-        print('Current number of aggregated links:', len(complete_links))
-
+    for ending_1 in range:
+        for ending_2 in range:
+            url =base_url + ending_1 + ending_2
+            complete_links = get_urls(url, complete_links)
+            print('Current number of aggregated links:', len(complete_links))
     print('Number of all links:',len(complete_links))
+
+    with open('data/science_PMC_complete_url_list_2023-09-15.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(complete_links)
     return complete_links
 
 
@@ -67,7 +73,7 @@ def download_pdf(complete_link, i):
         response = requests.get(complete_link)
 
         # Write content in pdf file dummy
-        path = "data/science_PMC-PDF_dummy.pdf"
+        path = "data/dummy_science_PMC-PDF.pdf"
         pdf = open(path, 'wb')
         pdf.write(response.content)
         pdf.close()
@@ -81,29 +87,23 @@ def pdf_to_text(path):
     with open(path, 'rb') as f:
         pdf = pdftotext.PDF(f)
         pdf_txt = "\n\n".join(pdf)
-        return pdf_txt
+    return pdf_txt
 
 def clean_text(pdf_txt):
     cleaned_txt = ' '.join(pdf_txt.split())
     return cleaned_txt
 
-def identify_text_id(cleaned_txt, complete_link):
-    #https//doi.org/10.* refers to referenced papers not to DOI of the original paper
-
-    if "DOI: 10." in cleaned_txt:
-        pattern = 'DOI: 10.[^ ]+'
-
-        doi = re.search(pattern, cleaned_txt)
-        text_id = doi.group(0).split('DOI: ')[1]
-    elif "doi:10." in cleaned_txt:
-        pattern_ = 'doi:10.[^ ]+'
-        doi_ = re.search(pattern_, cleaned_txt).group(0).split('doi:', -1)[1]
-        text_id = doi_
-
-    elif "PMC" in complete_link:
+def identify_text_id(complete_link):
+    """
+    https//doi.org/10.* refers to referenced papers not to DOI of the original paper
+    """
+    if "PMC" in complete_link:
         pattern__ = 'PMC[^.]+'
-        pmc = re.search(pattern__, complete_link).group(0)
-        text_id = pmc
+        try:
+            pmc = re.search(pattern__, complete_link).group(0)
+            text_id = pmc
+        except:
+            text_id = ''
 
     else:
         text_id = ''
@@ -112,29 +112,28 @@ def identify_text_id(cleaned_txt, complete_link):
 
 
 def compile_infos(pdf_txt, df, text_id, complete_link, i):
-
-    row = pd.DataFrame({'category-id':'scientific',
-                        'text-id':text_id,
+    row = pd.DataFrame({'category_id':'scientific',
+                        'text_id':text_id,
                         'venue':'',
-                        'data-source':'PMC',
+                        'data_source':'PMC',
                         'url':complete_link,
                         'tags':'',
+                        'title':'',
                         'text':pdf_txt}, index=[0])
     df = pd.concat([df, row], ignore_index=True)
     return df
 
-
-
-
 def main():
+
     # arcive url
     base_url = 'https://ftp.ncbi.nlm.nih.gov/pub/pmc/oa_pdf/'
 
     # initiate index
     i = 0
 
-    # initiate df with information columns
-    df = pd.DataFrame(columns=['category-id','text-id','venue','data-source','url','tags','text'])
+
+    #initiate df with information columns
+    df = pd.DataFrame(columns=['category-id','text-id','venue','data-source','url','tags','title', 'text'])
 
     # compile all possible urls in archive
     complete_links = aggrgate_all_links(base_url)
@@ -142,7 +141,7 @@ def main():
     # loop through each document-url
     for complete_link in complete_links:
         i += 1
-        print("Processing file:", i)
+        print("From complete number", len(complete_links), "Processing file:", i)
 
         # download pdf in dummy
         path = download_pdf(complete_link, i)
@@ -154,13 +153,14 @@ def main():
         cleaned_txt = clean_text(pdf_txt)
 
         # seach for doi, PMC-id
-        text_id = identify_text_id(cleaned_txt, complete_link)
+        text_id = identify_text_id(complete_link)
 
         # compile information  df
         df = compile_infos(cleaned_txt, df, text_id, complete_link, i)
-    
+    sleep(2)
+
     #print(df)
-    df.to_csv('data/scientific_PMC-PDF-2023-08-29_00.csv', index=False)
+    df.to_csv('data/scientific_PMC-PDF-2023-09-15_00.csv', mode ='a', index=False, header=False)
     print('done')
 
 

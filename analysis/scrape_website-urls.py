@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+__description__ = " get linked url from a given website url "
+__author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>"
+__copyright__ = "2023 by Eva Seidlmayer"
+__license__ = "ISC license"
+__email__ = "seidlmayer@zbmed.de"
+__version__ = "1 "
+
+
+
 import scrapy
 from scrapy.linkextractors import LinkExtractor
 import requests

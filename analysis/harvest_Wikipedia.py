@@ -3,7 +3,7 @@
 
 __description__ = (" search terms for potential wikipedia articles compiled by me and by ChatGPT3 asking for terms from the "
                    "fields life sciences, antrophosophic medicine, homeopathy, internal medicine, Cardiological Medicine, "
-                   "Visceral Surgery, Esoterik ")
+                   "Visceral Surgery, Esoteric, nutrition, pregnancy, tobacco  ")
 __author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>"
 __copyright__ = "2021 by Eva Seidlmayer"
 __license__ = "ISC license"
@@ -13,10 +13,9 @@ __version__ = "1 "
 
 import wikipedia
 wikipedia.set_lang('en')
-import csv
 import argparse
 import pandas as pd
-import numpy as np
+import re
 
 argsparser = argparse.ArgumentParser()
 args = argsparser.parse_args()
@@ -340,38 +339,94 @@ topics = ["Biodiversity", "Ecosystem", "Habitat", "Conservation", "Sustainable d
           "Self-Realization", "Esoteric Literature", "Occult Literature", "Esoteric Community", "Esoteric Philosophy", "Esoteric Interpretation",
           "Spiritual Exploration", "Esoteric Practices", "Divine Mysteries", "Higher Realms", "Universal Laws", "Esoteric Healing",
           "Transformational Journey", "Inner Universe", "Transpersonal Experience", "Cosmic Connection", "Esoteric Wisdom Traditions",
-          "Divine Connection", "Higher Dimensions", "Esoteric Wisdom Teachings"]
+          "Divine Connection", "Higher Dimensions", "Esoteric Wisdom Teachings",
+          "Nutrients", "Diet", "Food Groups", "Macronutrients", "Micronutrients", "Vitamins", "Minerals", "Protein", "Carbohydrates",
+          "Fats", "Fiber", "Calories", "Metabolism", "Balanced Diet", "Dietary Guidelines", "Healthy Eating", "Nutritional Value",
+          "Nutrient Absorption", "Nutrient Deficiency", "Nutrient Supplements", "Food Pyramid", "Portion Control", "Meal Planning",
+          "Nutritional Labels", "Recommended Daily Allowance (RDA)", "Water Intake", "Hydration", "Antioxidants", "Omega-3 Fatty Acids",
+          "Probiotics", "Prebiotics", "Superfoods", "Organic Food", "GMOs (Genetically Modified Organisms)", "Food Additives",
+          "Food Allergies", "Food Sensitivities", "Food Intolerances", "Food Safety", "Nutritional Assessment", "Dietitian", "Nutritionist",
+          "Dietary Patterns", "Mediterranean Diet", "Vegan Diet", "Vegetarian Diet", "Paleo Diet", "Keto Diet", "Gluten-Free Diet",
+          "Low-Carb Diet", "Low-Fat Diet", "Fad Diets", "Weight Management", "Obesity", "Body Mass Index (BMI)", "Caloric Restriction",
+          "Intermittent Fasting", "Nutritional Counseling", "Nutritional Education", "Eating Disorders", "Anorexia Nervosa",
+          "Bulimia Nervosa", "Binge Eating Disorder", "Food Psychology", "Mindful Eating", "Emotional Eating", "Food Cravings",
+          "Sugar Addiction", "Nutritional Supplements", "Multivitamins", "Herbal Supplements", "Sports Nutrition", "Diet and Exercise",
+          "Nutritional Research", "Nutritional Epidemiology", "Public Health Nutrition", "Nutritional Guidelines", "Child Nutrition",
+          "Teenage Nutrition", "Maternal Nutrition", "Elderly Nutrition", "Malnutrition", "Undernutrition", "Overnutrition",
+          "Nutritional Diseases", "Diabetes Management", "Heart-Healthy Diet", "Cancer Prevention Diet", "Osteoporosis Prevention",
+          "Nutritional Biochemistry", "Food Processing", "Food Storage", "Cooking Methods", "Nutritional Cooking", "Food and Culture",
+          "Sustainable Nutrition", "Food Security", "Nutritional Policy", "Dietary Restrictions", "Nutritional Supplements Safety",
+          "Pregnancy", "Pregnant", "Maternity", "Expecting", "Prenatal Care", "Antenatal Care", "Fetal Development", "Pregnancy Symptoms",
+          "Maternal Health", "Fertility", "Conception", "Ovulation", "Implantation", "Embryo", "Fetus", "Ultrasound", "Pregnancy Test",
+          "Gestational Age", "Due Date", "Obstetrics", "Obstetrician", "Midwife", "Doula", "Pregnancy Complications", "High-Risk Pregnancy",
+          "Preeclampsia", "Gestational Diabetes", "Ectopic Pregnancy", "Miscarriage", "Stillbirth", "Preterm Birth", "Labor", "Childbirth",
+          "Delivery", "Cesarean Section", "Vaginal Birth", "Labor Contractions", "Birth Plan", "Natural Childbirth", "Water Birth", "Home Birth",
+          "Postpartum", "Postpartum Depression", "Breastfeeding", "Infant Care", "Maternal Nutrition", "Pregnancy Diet", "Pregnancy Weight Gain",
+          "Prenatal Vitamins", "Morning Sickness", "Cravings", "Pregnancy Exercises", "Prenatal Yoga", "Pregnancy Classes", "Baby Bump",
+          "Maternity Clothes", "Pregnancy Books", "Baby Shower", "Nursery", "Pregnancy Apps", "Pregnancy Calendar", "Pregnancy Apps",
+          "Fetal Monitoring", "Amniocentesis", "Chorionic Villus Sampling (CVS)", "Fetal Ultrasound", "Pregnancy Check-ups", "Multiple Pregnancy",
+          "Twins", "Triplets", "Quadruplets", "Pregnancy Nutrition", "Pregnancy Hormones", "Hormonal Changes", "Pregnancy Discomforts",
+          "Pregnancy Health Tips", "Pregnancy Stages", "First Trimester", "Second Trimester", "Third Trimester", "Baby Development",
+          "Pregnancy Test Accuracy", "Maternal Bonding", "Pregnancy Support", "Baby Names", "Baby Registry", "Newborn Essentials",
+          "Maternity Leave", "Pregnancy Health Risks", "Teen Pregnancy", "Advanced Maternal Age", "Pregnancy and Work", "Pregnancy Rights",
+          "Pregnancy Planning", "Pregnancy After Miscarriage", "Pregnancy After 35", "Pregnancy After 40", "Pregnancy Myths", "Pregnancy Facts",
+          "Pregnancy Education", "Pregnancy Apps", "Pregnancy Calendar", "Fetal Development", "Pregnancy Diet", "Pregnancy Weight Gain",
+          "Pregnancy Exercises", "Pregnancy Classes", "Fetal Monitoring", "Amniocentesis", "Chorionic Villus Sampling (CVS)", "Fetal Ultrasound",
+          "Pregnancy Check-ups", "Multiple Pregnancy", "Twins", "Triplets", "Quadruplets", "Pregnancy Nutrition", "Pregnancy Hormones",
+          "Hormonal Changes", "Pregnancy Discomforts", "Pregnancy Health Tips", "Pregnancy Stages", "First Trimester", "Second Trimester",
+          "Third Trimester", "Baby Development", "Pregnancy Test Accuracy", "Maternal Bonding", "Pregnancy Support", "Baby Names", "Baby Registry",
+          "Newborn Essentials", "Maternity Leave", "Pregnancy Health Risks", "Teen Pregnancy", "Advanced Maternal Age", "Pregnancy and Work",
+          "Pregnancy Rights", "Pregnancy Planning", "Pregnancy After Miscarriage", "Pregnancy After 35", "Pregnancy After 40", "Pregnancy Myths",
+          "Pregnancy Facts", "Pregnancy Education",
+          "Tobacco", "Smoking", "Cigarettes", "Nicotine", "Tobacco Industry", "Tobacco Control", "Tobacco Use", "Tobacco Products",
+          "Smoking Addiction", "Secondhand Smoke", "Smoking Cessation", "Tobacco Health Effects", "Lung Cancer", "Heart Disease",
+          "Respiratory Diseases", "Oral Cancer", "Throat Cancer", "Smoking and Pregnancy", "Tobacco and Youth", "Tobacco Regulations",
+          "Tobacco Taxes", "Anti-Smoking Campaigns", "Smoke-Free Policies", "Tobacco Advertising", "Tobacco Marketing",
+          "Tobacco Addiction Treatment", "Quitting Smoking", "Smokeless Tobacco", "Electronic Cigarettes", "Vaping", "Hookah Smoking",
+          "Tobacco and Public Health", "Tobacco-related Diseases", "Tobacco-related Mortality", "Tobacco Control Programs",
+          "Tobacco-Free Initiatives", "Tobacco Education", "Tobacco-Free Generation", "Tobacco Prevention", "Tobacco Harm Reduction",
+          "Tobacco Use Surveillance", "Tobacco Policy Advocacy", "Tobacco-Free Communities", "Tobacco Awareness",
+          "Tobacco and Youth Smoking Prevention", "Tobacco Use Reduction", "Tobacco-Free Workplace", "Tobacco and Social Impact",
+          "Tobacco and Environmental Impact", "Tobacco-Free Schools", "Tobacco Cessation Programs", "Tobacco Control Measures",
+          "Tobacco Use Prevention", "Tobacco-Free Advocacy", "Tobacco and Health Disparities", "Tobacco-related Illnesses",
+          "Tobacco and Cancer Risk", "Tobacco and Heart Health", "Tobacco and Lung Health", "Tobacco and Oral Health", "Tobacco and Mental Health",
+          "Tobacco and Substance Abuse", "Tobacco-related Policies", "Tobacco Research", "Tobacco Epidemiology", "Tobacco Surveys",
+          "Tobacco Statistics", "Tobacco Prevention Strategies", "Tobacco Use Reduction Initiatives", "Tobacco-Free Legislation",
+          "Tobacco-Free Advocacy Groups", "Tobacco Control Organizations", "Tobacco-Free Campaigns", "Tobacco-Free Initiatives",
+          "Tobacco and Health Education", "Tobacco and Health Promotion", "Tobacco and Health Awareness"]
 
 
 
 
-print(len(topics))
-topics = list(dict.fromkeys(topics))
-print(len(topics))
 
-#csvfile= csv.writer(open(args.output, 'a'))
-#csvfile.writerow(['title', 'text'])
+def main(topics):
+    print('number of key words before deduplication:', len(topics))
+    topics = list(dict.fromkeys(topics))
+    print('number of key words after deduplication:', len(topics))
 
-df = pd.DataFrame(columns=['category-id', 'text-id', 'text'])
-for i in topics:
-    try:
-        item = wikipedia.page(i)
+    df = pd.DataFrame(columns=['category_id','text_id','venue','data-source','url','tags','text'])
+    for i in topics:
+        try:
+            item = wikipedia.page(i)
+            title = item.title
+            row = pd.DataFrame({'category_id': 'popular_science',
+                                'text_id':'Wikipedia'+title,
+                                'venue':'',
+                                'data-source':'Wikipedia',
+                                'url':'https://en.wikipedia.org/wiki/'+ title,
+                                'tags': '',
+                                'text':[item.content]})
+            df = pd.concat([df, row], ignore_index=True)
+            df = df.replace(r'\n', ' ', regex=True)
+            df['text'] = df['text'].str.replace('=', '')
+            df['text'] = re.sub('[^a-zA-Z0-9 \n\.]', '', df['text'].str)
 
-        row = pd.DataFrame({'category-id': 2, 'text-id':[item.title], 'text':[item.content]})
-
-        df = pd.concat([df, row], ignore_index=True)
-        df = df.replace(r'\n', ' ', regex=True)
-        df['text'] = df['text'].str.replace('=', '')
-        #df.dropna(inplace=True)
 
 
-        #titel = item.title
-        #content = item.content
-        #content = content.strip()
-        #infos = titel, content
-        #print(df)
-        #csvfile.writerow(infos)
-    except Exception as e:
-        print("Exception", e)
-print(df.shape[0])
-df.to_csv('data/popscience_wikipedia-text_2023-08-22.csv', index=False)
+        except Exception as e:
+            print("Exception", e)
+    print(df.shape[0])
+    df.to_csv('data/popscience_wikipedia-text_2023-10-07.csv', index=False)
+
+if __name__ == '__main__':
+    main(topics)

@@ -28,8 +28,8 @@ AQUAS at [ZB MED](https://www.zbmed.de/forschen/laufende-projekte/aquas/)
 
 
 ## data set
-- 3 categories
-- 3 retrieval modi: PDF scraped, HTML scraped, reused data set
+- 4 categories
+- retrieval modi: PDF scraped, HTML scraped, reused data set
   - URLs retrieved with  /home/ruth/ProgrammingProjects/AQUS/AQUAS/analysis/scrap_website-urls.py
   URLs manually checked.
 
@@ -43,7 +43,8 @@ AQUAS at [ZB MED](https://www.zbmed.de/forschen/laufende-projekte/aquas/)
       - healthimpactnews.com: 78
       - cevo.mykajabi.com: 10
       - 7553 items: Covid-misinformation data set retrieved from Poynter.org
-       
+    - alternative science  
+     
 **collecting enough data for disinformation category is the bottle neck of the data set. If you like to inprove te datas set please inform us if you find an article which should be classified as disinformation. please write an email to seidlmayer@zbmed.de** 
 
 

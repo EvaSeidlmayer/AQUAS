@@ -8,8 +8,8 @@ __license__ = "ISC license"
 __email__ = "seidlmayer@zbmed.de"
 __version__ = "1 "
 
-#BERT_MODEL_IDENTIFIER = "bert-base-uncased"
-BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
+BERT_MODEL_IDENTIFIER = "bert-base-uncased"
+#BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
 #BERT_MODEL_IDENTIFIER = '../models/bertbase_t10k_e7_lr3e-5_mlclass' ---> 389 replace again!!!!
 
 EPOCH_AMOUNT = 7
@@ -41,10 +41,12 @@ except ImportError:
 def load_dataset(input_file_csv):
     # Load dataset
     df = pd.read_csv(input_file_csv, sep=",")
+    df = df.replace(r'^\s*$', np.nan, regex=True)
+    df = df.dropna()
     df = df.sample(frac=1)
     df = df.astype(str)
     texts = df["text"].to_list()
-    labels = df["category-id"].to_list()
+    labels = df["category_id"].to_list()
     print("data input lists created")
     return texts, labels
 
@@ -68,10 +70,10 @@ def tokenize(texts):
 
 def convert_labels(labels):
     # Convert labels to numerical values
-    label_map = {"1": 0, "2": 1, "3": 2}
+    label_map = {'scientific': 0, 'popular_science': 1, 'disinfo': 2, 'alternative_science':3}
     labels_conv = [label_map[label] for label in labels]
     labels_conv = torch.tensor(labels_conv, dtype=torch.long)
-    labels_onehot = torch.nn.functional.one_hot(labels_conv, num_classes=3).float()
+    labels_onehot = torch.nn.functional.one_hot(labels_conv, num_classes=4).float()
     print("labels converted")
     return labels_onehot
 
@@ -313,7 +315,7 @@ def evaluate_model(model, val_inputs, val_masks, val_labels):
         for batch_input, batch_mask in val_loader:
             outputs = model(input_ids=batch_input, attention_mask=batch_mask)
             logits = outputs.logits
-            assert logits.size(1) == 3, "Something went terribly wrong"
+            assert logits.size(1) == 4, "Something went terribly wrong"
             all_logits.append(logits)
 
     all_logits = torch.cat(all_logits, dim=0)
@@ -336,7 +338,7 @@ def evaluate_model(model, val_inputs, val_masks, val_labels):
     f1 = f1_score(val_labels, predictions, average="weighted")
 
     # calculate accuracy per class
-    target_class = ["class scientific", "class popular science", "class disinformation"]
+    target_class = ["class scientific", "class popular scientific", "class disinformation", "class alternative science"]
 
     # classification report
     class_rep = classification_report(
@@ -409,7 +411,7 @@ def main():
         print(
             f"[{epoch+1}] Accuracy: {acc:.4f}, F1-score: {f1:.4f}, Classification_report:{class_rep}"
         )
-        filename = f"models/biobert_t512_e{epoch+1}_lr3e-5_mlclass"
+        filename = f"models/bertbase_t512_e{epoch+1}_lr3e-5_mlclass"
         model.save_pretrained(filename)
 
 

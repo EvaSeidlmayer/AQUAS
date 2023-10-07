@@ -46,36 +46,17 @@ def pdf_to_text(path):
 
 def clean_text(pdf_txt):
     cleaned_txt = ' '.join(pdf_txt.split())
+    cleaned_txt = re.sub('[^a-zA-Z0-9 \n\.]', '', cleaned_txt)
+
     return cleaned_txt
 
-def identify_text_id(cleaned_txt):
-
-    if "DOI: 10." in cleaned_txt:
-        pattern = 'DOI: 10.[^ ]+'
-        try:
-            text_id = re.search(pattern, cleaned_txt).group(0).split('DOI: ')[1]
-        except:
-            text_id = ''
-
-    elif "doi:10." in cleaned_txt:
-        pattern_ = 'doi:10.[^ ]+'
-        try:
-            doi_ = re.search(pattern_, cleaned_txt).group(0).split('doi:', -1)[1]
-            text_id = doi_
-        except:
-            text_id = ''
-
-    else:
-        text_id = ''
-
-    return text_id
 
 
 def compile_infos(pdf_txt, df, text_id, url, i):
-    row = pd.DataFrame({'category-id':'scientific',
-                        'text-id':text_id,
+    row = pd.DataFrame({'category_id':'alternative_science',
+                        'text_id':text_id,
                         'venue':'',
-                        'data-source':'PAAM/Goetheaneum-list',
+                        'data_source':'PAAM/Goetheaneum-list',
                         'url': url,
                         'tags':'',
                         'text':pdf_txt}, index=[0])
@@ -86,20 +67,22 @@ def compile_infos(pdf_txt, df, text_id, url, i):
 def main():
 
     # read csv with URLS
-    urls_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/antroposophic-medicine_urls.csv', skiprows=3)['url']
+    urls_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/antroposophic-medicine_urls.csv', skiprows=3).reset_index()
+    print(urls_df.head())
 
     # initiate index
     i = 0
 
     #initiate df with information columns
-    df = pd.DataFrame(columns=['category-id','text-id','venue','data-source','url','tags','text'])
+    df = pd.DataFrame(columns=['category-id','text_id','venue','data-source','url','tags','text'])
 
     # loop through each document-url
-    for url in urls_df:
+    for index, row in urls_df.iterrows():
         i += 1
-        print("Processing file:", i)
+        print("Processing file:", i, 'DOI', row['doi'])
 
         # download pdf in dummy
+        url = row['url']
         path = download_pdf(url, i)
 
         # parse pdf to string
@@ -111,14 +94,14 @@ def main():
         # preprocess string
         cleaned_txt = clean_text(pdf_txt)
 
-        # seach for doi, PMC-id
-        text_id = identify_text_id(cleaned_txt)
+        # get doi
+        text_id = row['doi']
 
         # compile information  df
         df = compile_infos(cleaned_txt, df, text_id, url, i)
 
     #print(df)
-    df.to_csv('data/anthropo_PAAM-goetheaneum-PDF-2023-09-07.csv', mode ='a', index=False, header=False)
+    df.to_csv('data/alternative_PAAM-goetheaneum-PDF-2023-10-07.csv', mode ='a', index=False, header=False)
     print('done')
 
 

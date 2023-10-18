@@ -30,10 +30,10 @@ def get_infos(row):
                 text = re.sub('[^a-zA-Z0-9 \n\.]', '', text)
                 article_title = get_article_title(url)
                 text = " ".join(text.split())
-                infos = pd.DataFrame({'category-id': 'popular_science',
-                                      'text-id': 'MedlinePlus',
+                infos = pd.DataFrame({'category_id': 'popular_science',
+                                      'text_id': 'MayoClinic_'+article_title,
                                       'venue': '',
-                                      'data-source': 'MedlinePlus' + article_title,
+                                      'data-source': 'MayoClinic' ,
                                       'url': [url],
                                       'tags': '',
                                       'text': [text]})
@@ -54,7 +54,7 @@ def get_article_title(url):
 def main():
     urls_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/popscience_MayoClinic_Healthibrary-Website_urls.csv', skiprows=[3],  sep=',')
     urls_df.drop_duplicates(inplace=True)
-    infos_df = pd.DataFrame(columns=['category-id','text_id','venue','data-source','url','tags','text'])
+    infos_df = pd.DataFrame(columns=['category_id','text_id','venue','data-source','url','tags','text'])
     for index, row in urls_df.iterrows():
         row = str(row[0])
 

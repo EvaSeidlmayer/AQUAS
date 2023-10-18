@@ -12,7 +12,7 @@ BERT_MODEL_IDENTIFIER = "bert-base-uncased"
 #BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
 #BERT_MODEL_IDENTIFIER = '../models/bertbase_t10k_e7_lr3e-5_mlclass' ---> 389 replace again!!!!
 
-EPOCH_AMOUNT = 7
+EPOCH_AMOUNT = 3
 
 import pandas as pd
 from transformers import (
@@ -389,7 +389,7 @@ def main():
     # OUR AQUASBert INIT
     #'models/bertbase_t10k_e7_lr3e-5_mlclass'
     model = AQUASSlidingBERT.from_pretrained(BERT_MODEL_IDENTIFIER,
-        num_labels=3,
+        num_labels=4,
         problem_type="multi_label_classification",
     )
     # config= config

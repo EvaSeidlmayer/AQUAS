@@ -27,6 +27,8 @@ from typing import Optional, Union, Tuple
 from transformers.modeling_outputs import SequenceClassifierOutput
 
 
+EPOCH_AMOUNT = 10
+
 try:
     import wandb
 except ImportError:
@@ -36,10 +38,12 @@ except ImportError:
 def load_dataset(input_file_csv):
     # Load dataset
     df = pd.read_csv(input_file_csv, sep=",")
+    #df = df.replace(r'^\s*$', np.nan, regex=True)
+    #df = df.dropna()
     df = df.sample(frac=1)
-    df = df.astype(str)
+    #df = df.astype(str)
     texts = df["text"].to_list()
-    labels = df["category-id"].to_list()
+    labels = df["category_id"].to_list()
     print("data input lists created")
     return texts, labels
 
@@ -49,7 +53,8 @@ def tokenize(texts):
     tokenizer = BertTokenizer.from_pretrained(BERT_MODEL_IDENTIFIER)
 
     # set max_length
-    max_length = 10000
+    max_length = 512
+    #max_length = 10000
     #max_length = 2048
 
 
@@ -63,7 +68,7 @@ def tokenize(texts):
 
 def convert_labels(labels):
     # Convert labels to numerical values
-    label_map = {"1": 0, "2": 1, "3": 2}
+    label_map = {'scientific': 0, 'popular_science': 1, 'disinfo': 2, 'alternative_science':3}
     labels_conv = [label_map[label] for label in labels]
     print("labels converted")
     return labels_conv
@@ -126,7 +131,7 @@ class AQUASSlidingBERT(BertForSequenceClassification):
         assert batch_size == 1, "Please use batch size = 1"
 
         length = attention_mask.sum(1)
-        print("length before sliding window", length)
+        #print("length before sliding window", length)
         length = int(length.item())
         if length > 512:
             #print("Len > 512, sliding")
@@ -306,7 +311,7 @@ def evaluate_model(model, val_inputs, val_masks, val_labels):
         for batch_input, batch_mask in val_loader:
             outputs = model(input_ids=batch_input, attention_mask=batch_mask)
             logits = outputs.logits
-            assert logits.size(1) == 3, "Something went terribly wrong"
+            assert logits.size(1) == 4, "Something went terribly wrong"
             predicted_class = torch.argmax(logits, dim=1)
 
             predictions.append(predicted_class.item())
@@ -320,7 +325,7 @@ def evaluate_model(model, val_inputs, val_masks, val_labels):
     f1 = f1_score(val_labels, predictions, average="weighted")
 
     #calculate accuracy per class
-    target_class = ['class scientific', 'class popular science', 'class disinformation']
+    target_class = ['class scientific', 'class popular science', 'class disinformation', 'class alternative_science']
     class_rep = classification_report(val_labels, predictions, target_names=target_class)
     return accuracy, f1, class_rep
 
@@ -331,7 +336,7 @@ def main():
     args = parser.parse_args()
 
     learning_rate = 3e-5
-    epochs = 3
+    epochs = EPOCH_AMOUNT
 
     wandb.init(
         # Set the project where this run will be logged
@@ -348,6 +353,7 @@ def main():
     tokens = tokenize(texts)
     labels_conv = convert_labels(labels)
     split_ratio = calc_split_ratio(labels_conv)
+    print("SPLIT RATIO:", split_ratio)
     (
         train_inputs,
         val_inputs,
@@ -366,7 +372,7 @@ def main():
 
     # OUR AQUASBert INIT
     model = AQUASSlidingBERT.from_pretrained(
-        BERT_MODEL_IDENTIFIER, num_labels=3
+        BERT_MODEL_IDENTIFIER, num_labels=4
     )  # BioBERT statt bert-base-uncased
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
     wandb.watch(model)
@@ -381,8 +387,8 @@ def main():
         class_rep = str(class_rep)
         wandb.log({"accuracy": acc, "f1": f1, "classification_report" : class_rep})
 
-        print(f"[{epoch+1}] Accuracy: {acc:.4f} F1-score: {f1:.4f}, Classification_report:{class_rep:.4f}")
-
+        print(f"[{epoch+1}] Accuracy: {acc:.4f} F1-score: {f1:.4f}")
+        print(class_rep)
     #torch.save(model, 'models/bert-base_t10k_e4_lr3e-5.p')
     model.save_pretrained('models/bert-base_t10k_e3_lr3e-5')
 

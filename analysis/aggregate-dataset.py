@@ -27,6 +27,7 @@ def compile_pop():
     # popular scientific
     popscience_df_1 = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/popscience_wikipedia-text_2023-10-07.csv', sep=',', usecols=cols)
     popscience_df_2 = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/popscience_medlineplus_text_2023-10-07.csv', sep=',', usecols=cols)
+    # mayoclinic!
     popscientific_df = pd.concat([popscience_df_1, popscience_df_2], ignore_index= True)
     popscientific_df = popscientific_df.sample(frac=1)
     print('number of popscience paper:', len(popscientific_df))

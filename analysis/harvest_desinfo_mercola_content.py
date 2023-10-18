@@ -60,7 +60,7 @@ def get_article_title(url):
 
 
 def main():
-    urls_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/disinfo_mercola_2023-10-05_urls.csv' , sep=',')
+    urls_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/disinfo_mercola_urls_2023-10-16.csv' , sep=',')
     urls_df.drop_duplicates(inplace=True)
 
 
@@ -73,7 +73,7 @@ def main():
         infos_df = pd.concat([infos_df, infos], ignore_index=True)
 
 
-    infos_df.to_csv('data/disinfo_Mercola_text_2023-10-05.csv', index=False)
+    infos_df.to_csv('data/disinfo_Mercola_text_2023-10-16.csv', index=False)
     print('done')
 
 

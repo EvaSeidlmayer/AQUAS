@@ -50,21 +50,25 @@ def get_infos_from_crossref(doi):
         return None
 
 
-df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/scientific_PMC-PDF-2023-09-04_00.csv')
+def main():
+    df = pd.read_csv('/AQUS/AQUAS/data/alternative/science/scientific_PMC-PDF-2023-09-04_00.csv')
 
-for index, row in df.iterrows():
-    pmcid = row['text_id']
+    for index, row in df.iterrows():
+        pmcid = row['text_id']
 
-    doi = get_doi_by_pmcid(pmcid)
-    title, venue, tags = get_infos_from_crossref(doi)
-    if None in (title, venue, tags):
-        continue
+        doi = get_doi_by_pmcid(pmcid)
+        title, venue, tags = get_infos_from_crossref(doi)
+        if None in (title, venue, tags):
+            continue
 
-    df.loc[df.index == index, 'text_id'] = doi
-    df.loc[df.index == index, 'title'] = title
-    df.loc[df.index == index, 'venue'] = venue
-    df.loc[df.index == index, 'tags'] = tags
+        df.loc[df.index == index, 'text_id'] = doi
+        df.loc[df.index == index, 'title'] = title
+        df.loc[df.index == index, 'venue'] = venue
+        df.loc[df.index == index, 'tags'] = tags
 
-df.to_csv('data/scientific_PMC-PDF-enrichted_2023-09-15.csv', index=None, header=None )
+    df.to_csv('data/scientific_PMC-PDF-enrichted_2023-09-15.csv', index=None, header=None )
 
+
+if __name__ == '__main__':
+    main()
 

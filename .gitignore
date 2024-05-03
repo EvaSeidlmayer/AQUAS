@@ -8,7 +8,8 @@ __pycache__/
 
 # data
 /data/*
-analysis/protocoll.md
+/UCLA_Tobacco_industryfiles
+/AQUAS_retractions
 
 # Distribution / packaging
 .Python

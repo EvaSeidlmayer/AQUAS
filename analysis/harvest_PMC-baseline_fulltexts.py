@@ -73,7 +73,7 @@ def main():
                 continue
     df.replace('', np.nan, inplace=True)
     df.dropna(inplace=True)
-    df.to_csv('data/PMC-doi_text-2023-08-23.csv', index=False)
+    df.to_csv('data/PMC-doi_text-2024-04-25.csv', index=False)
     print('done')
 
 if __name__ == '__main__':

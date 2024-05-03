@@ -73,7 +73,7 @@ def identify_doi(cleaned_txt):
 def compile_infos(cleaned_txt, df, doi, complete_link, i):
     print('this is dokument #', i)
 
-    row = pd.DataFrame({'category-id':'scientific',
+    row = pd.DataFrame({'category-id':'alternative',
                         'text-id':doi,
                         'venue':'Indian-research-Homeopathy',
                         'data-source':'Indian-research-Homeopathy',
@@ -107,7 +107,7 @@ def main():
     #print(pdf_txt)
     #print(df)
     print("All PDF files downloaded")
-    df.to_csv('data/homeopathy_Indian-research-Homeopathy_PDF-2023-08-25.csv', index=False)
+    df.to_csv('data/alternative_Indian-research-Homeopathy_PDF-2023-10-06.csv', index=False)
     print('done')
 
 

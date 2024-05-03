@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 import re
 import sys
 
-df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/desinfo_collectiveevolution_urls.csv', sep=',')
+df = pd.read_csv('/AQUS/AQUAS/data/disinfo/desinfo_collectiveevolution_urls.csv', sep=',')
 df.drop_duplicates(inplace=True)
 infos_df = pd.DataFrame(columns=['category-id', 'text-id', 'text'])
 

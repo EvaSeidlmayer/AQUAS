@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Vol. 2 Issue 3 Part A" />
+<meta name="keywords" content="temperaments, phlegmatic, sanguine, sanguino-choleric, lymphatic, nervous, bilious, hawthorn, cardiac tonic, anti-oxidant, flavonoids, pancreas, iris versicolor, organopathy, homeopathy, pancreatinum, alloxanum, carica papaya, hyponatremia, sodium, body, blood, dioscorea villosa, diosgenin, homoeopathic pathogeneses, altered cholesterol metabolism, type 2 diabetes mellitus, diet, management, outcome, abscess, constipation, eczema, tonsillitis, homoeopathy, outcome, thermoregulation, fever, antipyretic, cancer treatment, conventional complementary, case report, homoeopthy, silicea, outcome" />
+<meta name="Author" content="International Journal of Homoeopathic Sciences-info@homoeopathicjournal.com" />
+<meta name="Robots" content="index, follow" />
+<title>Vol. 2 Issue 3 Part A | International Journal of Homoeopathic Sciences</title>
+<link rel="canonical" href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A">
+<link rel="shortcut icon" href="https://www.homoeopathicjournal.com/images/favicon.ico" />
+<style type="text/css">
+*{margin:0;padding:0;box-sizing:border-box;outline:none}
+body{color:#333;font-size:13px;font-family:'Roboto-Regular';width:100%;height:100%;background:#ddd url('https://www.homoeopathicjournal.com/images/bg.png') left top repeat-x;overflow-y:scroll}
+
+@font-face{font-family:'Roboto-Regular';src:url('https://www.homoeopathicjournal.com/fonts/Roboto-Regular.eot');src:url('https://www.homoeopathicjournal.com/fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),url('https://www.homoeopathicjournal.com/fonts/Roboto-Regular.woff') format('woff'),url('https://www.homoeopathicjournal.com/fonts/Roboto-Regular.ttf') format('truetype')}
+@font-face{font-family:'Roboto-Medium';src:url('https://www.homoeopathicjournal.com/fonts/Roboto-Medium.ttf')}
+
+a{text-decoration:none}a:hover{text-decoration:underline}img,a img{border:none;overflow:hidden}select{padding:0px}textarea{resize:none}
+b,strong,label,h1,h2,h3,h4,h5,h6,th{font-family:'Roboto-Medium';font-weight:normal}
+
+.holder,.header,.nav,.footer,.fluid,.head,.body,.foot,.row,.form,.flbl,.field,.output{float:left;width:100%;height:auto}
+
+.field{height:27px;background-color:#fff;border:1px solid #d9d9d9;border-top-color:#c0c0c0;font-size:13px;font-family:'Roboto-Regular';padding:5px;resize:none}
+.field:focus{border-color:#1d89e4}
+.field-file{padding:2px}
+.field-textarea{height:100px}
+.field:disabled,.field[readonly]{background-color:#ebebe4;border-color:#d9d9d9;border-top-color:#c0c0c0}
+
+.button,.loader{float:left;width:64px;height:27px;line-height:25px;background-color:#1d89e4;border:1px solid #187bcf;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;color:#fff;font-size:11px;font-family:'Roboto-Medium';text-align:center;text-transform:uppercase;cursor:pointer}
+.button:active{background-color:#187bcf}
+.button.default{width:auto;padding:0 10px;background-color:#fff;border-color:#d9d9d9;color:#333}
+.button.default:active{border-color:#1d89e4;box-shadow:0px 1px 1px #e5e5e5 inset;-moz-box-shadow:0px 1px 1px #e5e5e5 inset;-webkit-box-shadow:0px 1px 1px #e5e5e5 inset}
+
+.loader{width:auto;padding:0px 10px;cursor:default;opacity:0.5;display:none}
+
+.output{margin-top:10px;padding:6px 10px;border:1px solid transparent;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;text-align:center;display:none}
+.output.s{color:#3c763d;background:#dff0d8;border-color:#d6e9c6}
+.output.e{color:#a94442;background:#f2dede;border-color:#ebccd1}
+
+.fl{float:left;width:auto;height:auto}
+.fr{float:right;width:auto;height:auto}
+
+.container{width:1000px;height:auto;margin:0px auto}
+
+.topbar{line-height:32px;background-color:#13a1ad;color:#fff;font-size:12px;font-family:'Roboto-Medium';text-transform:uppercase}
+.topbar .fl{font-size:12px}
+.topbar .fr a{margin-left:20px;color:#fff}
+
+.header{padding:10px 0px}
+
+.header a img{float:left;width:200px}
+
+.header .fl ul{padding-left:50px;line-height:18px;font-family:'Roboto-Medium';}
+
+.header form{width:300px;border:1px solid #ddd;border-radius:2px;overflow:hidden;display:flex}
+.header form .field{width:100%;height:28px;border:none;box-shadow:none;flex:1}
+.header form .field:focus{border-color:#3e7ce4}
+.header form .btn{width:28px;height:28px;background-color:#fff;fill:#999;border:none;cursor:pointer}
+
+.header .fr h2{float:right;margin-top:10px;clear:both;color:#f00;font-family:'Cambria';text-transform:uppercase}
+
+.nav{background:linear-gradient(#13a1ad, #01848f);border-radius:5px 5px 0 0;-moz-border-radius:5px 5px 0 0;-webkit-border-radius:5px 5px 0 0}
+.nav button{float:right;width:100%;height:31px;background-color:#01848f;border:none;color:#fff;font-size:11px;font-family:'Roboto-Medium';text-transform:uppercase;cursor:pointer;display:none}
+.nav button:active{background-color:#13a1ad}
+.nav ul{list-style:none;display:flex;flex-direction:row;justify-content:space-between;flex-flow:row wrap;overflow:hidden}
+.nav ul li{padding:7px 10px;border-left:1px solid #027680;border-right:1px solid #24aeba;flex-grow:1}
+.nav ul li:first-child{border-left:none}
+.nav ul li:last-child{border-right:none}
+.nav ul li:nth-child(6){background-color: #ad1457;}
+.nav ul li a{padding:7px 0px;color:#fff;font-size:12px;font-family:'Roboto-Medium';text-align:center;text-transform:uppercase;display:block;transition-duration:0.4s;-moz-transition-duration:0.4s;-webkit-transition-duration:0.4s}
+.nav ul li a:hover{background-color:#017a84;text-decoration:none}
+.nav ul li a:active{background-color:#006e77;transition-duration:0s;-moz-transition-duration:0s;-webkit-transition-duration:0s}
+
+.banner img{float:left;width:100%;max-width:100%}
+
+.holder{padding:10px;background-color:#fff;border-radius:0px 0px 5px 5px}
+
+.sidebar{width:22%}
+.sidebar .head{height:32px;padding:8px;background:linear-gradient(#13a1ad, #01848f);border-radius:5px 5px 0 0;-moz-border-radius:5px 5px 0 0;-webkit-border-radius:5px 5px 0 0;color:#fff;font-family:'Roboto-Medium'}
+.sidebar .body{margin-bottom:10px;border:1px solid #01848f;border-top:none}
+.sidebar ul{list-style:none}
+.sidebar ul li{padding:7px;color:#01848f}
+.sidebar ul li a{color:#333}
+.sidebar img{max-width:100%;height:auto}
+.sidebar.fl.l{display:none}
+.sidebar .body.subs{padding:10px 0;border:1px solid #01848f;color:#333;text-align:center}
+.sidebar .body.subs img{margin:5px auto 0;display:block}
+
+.justify{width:78%;padding:0px 10px;line-height:18px;text-align:justify}
+.justify .phead{margin-bottom:10px;padding-bottom:5px;border-bottom:2px solid #01848f}
+.justify .phead h1{font-size:20px;font-family:Georgia, "Times New Roman", Times, serif;font-weight:normal;text-align:center}
+.justify .chead{margin-bottom:10px;padding-bottom:5px;border-bottom:1px dotted #ccc;font-size:16px;font-family:Georgia, "Times New Roman", Times, serif;text-align:center}
+.justify a{color:#01848f}.justify img{max-width:100%;height:auto}.justify ul,.justify ol{padding-left:15px}
+
+.boards{background-color:#fff;border-collapse:collapse}
+.boards th{border:1px solid #ddd;font-size:12px;font-weight:normal;text-transform:uppercase;padding:7px 6px 5px}
+.boards td{padding:6px;border:1px solid #ddd;-ms-word-break:break-all;word-break:break-all;word-break:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;overflow-wrap:break-word;font-size:12px}
+.boards td img{float:left;width:100%;height:auto}
+.boards td.f{width:80px}
+
+.regboard{background-color:#ea4335;color:#fff;font-size:12px;margin-top:10px;padding:10px}
+.regboard a{color:#fff;text-decoration:underline}
+.regboard a:hover{text-decoration:none}
+
+.archives{margin-bottom:10px}
+.archives .head{color:#900;text-transform:uppercase}
+.archives .vi{font-size:12px}
+.archives .vi i{color:#777;font-size:13px}
+.archives .body{margin-bottom:10px;padding:10px 10px 5px;border:1px solid #d5d5d5;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px}
+.archives .body ul{margin-bottom:10px;clear:both;line-height:24px}
+.archives .body ul li{float:left;width:25%;list-style-type:square}
+.archives .body ul li a{font-size:12px;font-family:'Roboto-Medium';text-transform:uppercase}
+
+.articles{background-color:#fff;border-collapse:collapse}
+.articles th,.articles td{border:1px solid #ddd}
+.articles th{padding:5px;font-size:12px}
+.articles th.xs{width:50px}.articles th.sm{width:80px}
+.articles td{padding:5px 5px 0px;font-size:12px}
+.articles td .row{margin-bottom:5px;text-align:justify}
+.articles td .row.doi{font-size:12px}
+.articles td .row.doi a{color:#333;font-size:13px}
+.articles td a{font-size:11px}
+.articles td span.hidden{display:none}
+
+.abstract .thead{margin-bottom:15px}
+.abstract .row{margin-bottom:10px}
+.abstract .row .heading{color:#c40002}
+.abstract .row.stats{border-bottom:1px dotted #ccc;padding-bottom:3px}
+
+.graphics{text-align:center}
+
+.citation{margin-top:20px;padding:10px;background-color:#cbe0cb;border:1px solid #990000;color:#0000cc}
+.citation .head{margin-bottom:5px;padding-bottom:5px;border-bottom:1px dashed #999;font-family:'Roboto-Medium'}
+.citation .body{line-height:18px;-ms-word-break:break-all;word-break:break-all;word-break:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+.citation .body a{color:#0000cc;text-decoration:underline}
+
+table.indexing{float:left;width:100%;margin-bottom:10px;background-color:#eee;border-radius:5px;border-collapse:collapse}
+table.indexing td{padding:10px;}
+table.indexing td h3{float:left;padding:8px 12px;background-color: #000;border-radius:5px;color: #fff;}
+table.indexing td img{float: right;}
+
+.form{margin-top:10px}
+.form .body{background-color:#eee;padding:20px 25px 15px}
+.form .row{margin-bottom:10px}
+.form .row .fl,.form .row .fr{width:48%}
+.form .flbl{font-size:12px;font-family:'Roboto-Medium'}
+.form .flbl span{float:right;color:#f00}
+.form .img-captcha{float:left;border:1px solid #ddd;margin-bottom:10px}
+.form .field-captcha{width:70px;font-weight:bold;text-align:center;letter-spacing:2px;clear:both}
+.form .refresh{width:42px;background:#fff url('https://www.homoeopathicjournal.com/images/refresh.png') center center no-repeat;border:1px solid #d9d9d9;box-shadow:none;margin-left:10px}
+
+.form .row .flex{display:flex}
+.form .row .flex .field{flex:1}
+.form .row .flex .button{width:auto;padding:0px 10px;border-top-left-radius:0px;border-bottom-left-radius:0px}
+
+.footer{padding:20px 0px;color:#333;font-size:12px;text-align:center}
+.footer a{color:#01848f}
+
+.ads{width:140px;height:170px;background-color:#fff;border:1px solid #000;position:fixed;bottom:1px;display:none}
+.ads.l.f{bottom:180px}
+.ads.l{left:1px}.ads.r{right:1px}
+.ads [role=button]{float:right;width:14px;height:14px;background:url(https://www.homoeopathicjournal.com/images/close.png) 0px 0px no-repeat;position:absolute;top:1px;right:1px;cursor:pointer;z-index:1}
+.ads a{float:left;width:100%;height:168px;padding:10px 0;text-align:center;color:#000;font-size:12px}
+.ads a:hover{text-decoration:none}
+.ads a img{max-width:100px;height:auto;margin:auto;clear:both}
+.ads a b{float:left;width:100%;clear:both}
+.ads a b.f{margin-bottom:5px}
+.ads a b.l{margin-top:5px}
+
+.noscript{display:none}
+
+.whatsapp{width:40px;height:140px;margin:auto;position:fixed;bottom:5px;right:0;z-index:99999;display:none}
+
+.statusbar .head{margin-bottom:10px}
+.statusbar table{table-layout:fixed}
+.statusbar table tr{border:none}
+.statusbar table td{height:40px;padding:5px 0px;font-weight:500;text-align:center;vertical-align:middle}
+.statusbar table tfoot td{font-size:11px;text-transform:uppercase;vertical-align:top}
+.statusbar table td.l{background:url(https://www.homoeopathicjournal.com/images/gray-bar.png) center center no-repeat}
+.statusbar table td.c{background:url(https://www.homoeopathicjournal.com/images/gray-circle.png) center center no-repeat;background-size:contain}
+.statusbar table td.r{background:url(https://www.homoeopathicjournal.com/images/gray-bar.png) center center no-repeat}
+.statusbar table td.l.act{background:url(https://www.homoeopathicjournal.com/images/green-bar.png) center center no-repeat}
+.statusbar table td.c.act{background:url(https://www.homoeopathicjournal.com/images/green-circle.png) center center no-repeat;background-size:contain}
+.statusbar table td.r.act{background:url(https://www.homoeopathicjournal.com/images/green-bar.png) center center no-repeat}
+
+.w-md-100{width: 48%;}
+
+@media (min-width:1280px){
+.ads{display:block}
+}
+@media (max-width:1024px){
+.container{width:100%;padding:0px 10px}
+}
+@media (max-width:768px){
+.fl,.fr{width:100%}
+.topbar .fl,.topbar .fr{width:auto}
+.header{padding:10px 0px;text-align:center}
+.header .fl img{float:none}
+.header form{width:100%;margin-top:10px}
+.nav button{display:block}.nav ul{display:none}
+.nav ul li{float:left;width:100%;height:auto;padding:0px;border-top:1px solid #2cb4bf;clear:both}
+.nav ul li a{padding:7px 0px}
+.sidebar.fl.f{display:none}.sidebar.fl.l{display:block}
+.sidebar .head,.sidebar .body{text-align:center}
+.justify{margin-bottom:10px;padding:0px}
+.w-md-100{width: 100% !important;margin-bottom: 15px !important;}
+}
+@media (max-width:600px){
+.justify .phead h1{font-size:16px}
+.boards td.f{width:70px}
+.hide-on-med-and-down{display:none;}
+.whatsapp{display:block}
+.header ul{list-style-type: none;padding: 0 !important;margin: 0 !important;}
+}
+@media (max-width:480px){
+body{background:#ddd}
+.topbar .fl,.topbar .fr{width:100%;text-align:center;border:none}
+.topbar .fr{margin-bottom:5px}
+.topbar .fr a{float:none;line-height:normal;margin:0px 10px;padding:0px;border:none}.topbar .fr a:hover{background-color:transparent}
+.justify .phead h1{font-size:14px}
+.boards td.f{width:60px}
+.archives ul li{width:33.3333% !important}
+.articles th.xs,.articles th.sm,.articles td.xs,.articles td.sm{display:none}
+.articles td span.hidden{display:inline}
+.form .body{padding:10px 15px 0px}
+.form .fl,.form .fr{width:100% !important;clear:both}.form .fr{margin-top:10px}
+}
+@media (max-width:320px){
+.justify .phead h1{font-size:13px}
+.boards td.f{width:50px}
+.archives ul li{width:50% !important}
+.form .body{padding:10px 10px 0px}
+}
+</style>
+<!--[if IE]>
+<style type="text/css">
+body{font-family:Arial, Helvetica, sans-serif;font-size:12px}
+.noscript{display:block}
+.form{display:none}
+</style>
+<![endif]-->
+<script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+<body>
+<div class="fluid topbar">
+	<div class="container">
+		<div class="fr">
+			<a href="https://www.homoeopathicjournal.com/">Home</a>
+			<a href="https://www.homoeopathicjournal.com/login">Login</a><a href="https://www.homoeopathicjournal.com/signup">Signup</a>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="fluid">
+		<div class="header">
+			<div class="fl">
+				<a href="https://www.homoeopathicjournal.com/"><img src="https://www.homoeopathicjournal.com/images/logo.png" alt="International Journal of Homoeopathic Sciences" /></a>
+			</div>
+			<div class="fl l">
+				<ul class="fluid">
+					<li>Printed Journal</li>
+					<li>Indexed Journal</li>
+					<li>Refereed Journal</li>
+					<li>Peer Reviewed Journal</li>
+				</ul>
+			</div>
+			<div class="fr">
+				<div class="fl hide-on-med-and-down" style="margin-right:100px"><img src="https://www.homoeopathicjournal.com/images/indexing.jpg" alt="International Journal of Homoeopathic Sciences" /></div>
+				<div class="fr">
+					<form action="https://www.homoeopathicjournal.com/search" method="get" name="searchform" class="fluid" onsubmit="if (this.keyword.value) { let key = this.keyword.value; location = this.action + '/' + key.replace(/ /gi, '+'); } return false;">
+						<input type="text" name="keyword" placeholder="Search" autocomplete="off" class="field" />
+						<button type="submit" class="btn"><svg xmlns="https://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 20"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+		<div class="nav"><button type="button" onclick="$('.nav ul').slideToggle(100);">Menu</button><ul class="fluid"><li><a href="https://www.homoeopathicjournal.com">Home</a></li><li><a href="https://www.homoeopathicjournal.com/board">Editorial Board</a></li><li><a href="https://www.homoeopathicjournal.com/archives">Archives</a></li><li><a href="https://www.homoeopathicjournal.com/instructions">Instructions</a></li><li><a href="https://www.homoeopathicjournal.com/indexing">Indexing</a></li><li><a href="https://www.homoeopathicjournal.com/submission">Article Submission</a></li><li><a href="https://www.homoeopathicjournal.com/contact">Contact Us</a></li></ul></div>
+		<div class="fluid banner"><img src="https://www.homoeopathicjournal.com/uploads/banners/170906053452.jpg" alt="International Journal of Homoeopathic Sciences" /></div>
+		<div class="holder">
+			<div class="sidebar fl f">
+				<a href="https://www.homoeopathicjournal.com/homoeopathic-journal-subscription" class="body subs"><b>Subscribe Print Journal</b><br clear="all"><img src="https://www.homoeopathicjournal.com/images/recommend-this-journal.png" alt="Subscribe Print Journal" /></a>
+				<div class="head">Important Information</div><ul class="body"><li class="fluid"><strong>Toll Free: 1800-1234070</strong></li><li class="fluid"><strong>Working hours 10:00 AM-06:00 PM</strong></li></ul><div class="head">Journal&#39;s Code</div><ul class="body"><li class="fluid">E-ISSN: 2616-4493</li><li class="fluid">P-ISSN: 2616-4485</li></ul><div class="head">Issue Bar</div><ul class="body"><li class="fluid"><a href="https://www.homoeopathicjournal.com/archives">Past Issue</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/invitation">Coming Issue</a></li></ul><div class="head">Open Access</div><ul class="body"><li class="fluid"><a href="https://www.homoeopathicjournal.com/oa">Click here for more information</a></li></ul><div class="head">Copyright Form</div><ul class="body"><li class="fluid"><a href="https://www.homoeopathicjournal.com/docs/CopyrightAgreementAndAuthorshipResponsibility.pdf" target="_blank">Download Copyright Form</a></li></ul><div class="head">Side Bar</div><ul class="body"><li class="fluid"><a href="https://www.homoeopathicjournal.com">Home</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/board">Editorial Board</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/instructions">Instructions to Author</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/archives">Archives</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/indexing">Indexing and Abstracting</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/contact">Contact Us</a></li></ul><div class="head">Identifier</div><ul class="body"><li class="fluid"><a href="https://www.crossref.org/titleList/" target="_blank"><img src="https://www.homoeopathicjournal.com/uploads/200615025643.jpg" alt="CrossRef Member"></a></li></ul>
+			</div>
+			<div class="justify fl">
+				<div class="head phead"><h1>International Journal of Homoeopathic Sciences</h1></div>	<div class="head chead">2018, Vol. 2 Issue 3, Part A</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="fluid articles">
+		<tr>
+			<th align="center" valign="middle" class="xs">S. No.</th>
+			<th align="left" valign="middle">Title and Authors Name</th>
+		</tr><tr><td align="center" valign="top" class="xs">1.</td><td align="left" valign="top"><div class="row"><b>Temperaments: An inroad to cure, as per the stalwarts way</b></div><div class="row">Dr. Yashika Arora</div><div class="row doi"><b>DOI:</b>&nbsp;<a href="https://doi.org/10.33545/26164485.2018.v2.i3a.29" target="_blank">https://doi.org/10.33545/26164485.2018.v2.i3a.29</a></div><div class="row link"><a href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A/2-3-1"><b>ABSTRACT</b></a>&nbsp;&nbsp;&nbsp;<a href="https://www.homoeopathicjournal.com/articles/29/2-3-1-181.pdf" target="_blank"><b>DOWNLOAD</b></a></div><div class="row">Pages: <b>01-02</b>&nbsp;&nbsp;-&nbsp;&nbsp;Viewed: <b>4622</b>&nbsp;&nbsp;-&nbsp;&nbsp;Downloaded: <b>3484</b>&nbsp;&nbsp;-&nbsp;&nbsp;Country: <b>India</b></div></td></tr><tr><td align="center" valign="top" class="xs">2.</td><td align="left" valign="top"><div class="row"><b>Therapeutic efficacy of <em>crategus oxyacantha</em> L. For treatment of heart diseases: a cross-sectional study</b></div><div class="row">Farah-Saeed, Syed Mahboob Alam and Mansoor Ahmad</div><div class="row doi"><b>DOI:</b>&nbsp;<a href="https://doi.org/10.33545/26164485.2018.v2.i3a.30" target="_blank">https://doi.org/10.33545/26164485.2018.v2.i3a.30</a></div><div class="row link"><a href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A/2-3-2"><b>ABSTRACT</b></a>&nbsp;&nbsp;&nbsp;<a href="https://www.homoeopathicjournal.com/articles/30/2-3-2-433.pdf" target="_blank"><b>DOWNLOAD</b></a></div><div class="row">Pages: <b>03-07</b>&nbsp;&nbsp;-&nbsp;&nbsp;Viewed: <b>4056</b>&nbsp;&nbsp;-&nbsp;&nbsp;Downloaded: <b>2491</b>&nbsp;&nbsp;-&nbsp;&nbsp;Country: <b>Pakistan</b></div></td></tr><tr><td align="center" valign="top" class="xs">3.</td><td align="left" valign="top"><div class="row"><b>Belly sweetbread: A homeopathic purview</b></div><div class="row">Dr. K John Paul</div><div class="row doi"><b>DOI:</b>&nbsp;<a href="https://doi.org/10.33545/26164485.2018.v2.i3a.31" target="_blank">https://doi.org/10.33545/26164485.2018.v2.i3a.31</a></div><div class="row link"><a href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A/2-3-3"><b>ABSTRACT</b></a>&nbsp;&nbsp;&nbsp;<a href="https://www.homoeopathicjournal.com/articles/31/2-3-3-678.pdf" target="_blank"><b>DOWNLOAD</b></a></div><div class="row">Pages: <b>08-10</b>&nbsp;&nbsp;-&nbsp;&nbsp;Viewed: <b>3636</b>&nbsp;&nbsp;-&nbsp;&nbsp;Downloaded: <b>2439</b>&nbsp;&nbsp;-&nbsp;&nbsp;Country: <b>India</b></div></td></tr><tr><td align="center" valign="top" class="xs">4.</td><td align="left" valign="top"><div class="row"><b>Hyponatremia: A case study with homoeopathic treatment</b></div><div class="row">Dr. Yogeshwari Gupta</div><div class="row doi"><b>DOI:</b>&nbsp;<a href="https://doi.org/10.33545/26164485.2018.v2.i3a.32" target="_blank">https://doi.org/10.33545/26164485.2018.v2.i3a.32</a></div><div class="row link"><a href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A/2-3-4"><b>ABSTRACT</b></a>&nbsp;&nbsp;&nbsp;<a href="https://www.homoeopathicjournal.com/articles/32/2-3-4-676.pdf" target="_blank"><b>DOWNLOAD</b></a></div><div class="row">Pages: <b>11-14</b>&nbsp;&nbsp;-&nbsp;&nbsp;Viewed: <b>16507</b>&nbsp;&nbsp;-&nbsp;&nbsp;Downloaded: <b>15356</b>&nbsp;&nbsp;-&nbsp;&nbsp;Country: <b>India</b></div></td></tr><tr><td align="center" valign="top" class="xs">5.</td><td align="left" valign="top"><div class="row"><b>Homoeopathic pathogeneses of dioscorea villosa and the role of dysregulated cholesterol metabolism by the action of diosgenin: A review</b></div><div class="row">Dr. Kisor Kumar Naskar and Dr. Ompriya Mishra</div><div class="row doi"><b>DOI:</b>&nbsp;<a href="https://doi.org/10.33545/26164485.2018.v2.i3a.33" target="_blank">https://doi.org/10.33545/26164485.2018.v2.i3a.33</a></div><div class="row link"><a href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A/2-3-5"><b>ABSTRACT</b></a>&nbsp;&nbsp;&nbsp;<a href="https://www.homoeopathicjournal.com/articles/33/2-3-5-379.pdf" target="_blank"><b>DOWNLOAD</b></a></div><div class="row">Pages: <b>15-19</b>&nbsp;&nbsp;-&nbsp;&nbsp;Viewed: <b>2928</b>&nbsp;&nbsp;-&nbsp;&nbsp;Downloaded: <b>1761</b>&nbsp;&nbsp;-&nbsp;&nbsp;Country: <b>India</b></div></td></tr><tr><td align="center" valign="top" class="xs">6.</td><td align="left" valign="top"><div class="row"><b>A case report on dietary management of a patient with type 2 diabetes mellitus</b></div><div class="row">Dr. Siva Rami Reddy E</div><div class="row doi"><b>DOI:</b>&nbsp;<a href="https://doi.org/10.33545/26164485.2018.v2.i3a.34" target="_blank">https://doi.org/10.33545/26164485.2018.v2.i3a.34</a></div><div class="row link"><a href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A/2-3-6"><b>ABSTRACT</b></a>&nbsp;&nbsp;&nbsp;<a href="https://www.homoeopathicjournal.com/articles/34/2-3-6-835.pdf" target="_blank"><b>DOWNLOAD</b></a></div><div class="row">Pages: <b>20-23</b>&nbsp;&nbsp;-&nbsp;&nbsp;Viewed: <b>1682</b>&nbsp;&nbsp;-&nbsp;&nbsp;Downloaded: <b>473</b>&nbsp;&nbsp;-&nbsp;&nbsp;Country: <b>India</b></div></td></tr><tr><td align="center" valign="top" class="xs">7.</td><td align="left" valign="top"><div class="row"><b>Homoeopathy for some common disease: A review</b></div><div class="row">Dr. Siva Rami Reddy E</div><div class="row doi"><b>DOI:</b>&nbsp;<a href="https://doi.org/10.33545/26164485.2018.v2.i3a.35" target="_blank">https://doi.org/10.33545/26164485.2018.v2.i3a.35</a></div><div class="row link"><a href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A/2-3-7"><b>ABSTRACT</b></a>&nbsp;&nbsp;&nbsp;<a href="https://www.homoeopathicjournal.com/articles/35/2-3-7-666.pdf" target="_blank"><b>DOWNLOAD</b></a></div><div class="row">Pages: <b>24-34</b>&nbsp;&nbsp;-&nbsp;&nbsp;Viewed: <b>9045</b>&nbsp;&nbsp;-&nbsp;&nbsp;Downloaded: <b>7885</b>&nbsp;&nbsp;-&nbsp;&nbsp;Country: <b>India</b></div></td></tr><tr><td align="center" valign="top" class="xs">8.</td><td align="left" valign="top"><div class="row"><b>Thermoregulation and fever: A brief review</b></div><div class="row">Saeed Ahmad and Tayyeba Rehman</div><div class="row doi"><b>DOI:</b>&nbsp;<a href="https://doi.org/10.33545/26164485.2018.v2.i3a.36" target="_blank">https://doi.org/10.33545/26164485.2018.v2.i3a.36</a></div><div class="row link"><a href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A/2-3-8"><b>ABSTRACT</b></a>&nbsp;&nbsp;&nbsp;<a href="https://www.homoeopathicjournal.com/articles/36/2-3-8-247.pdf" target="_blank"><b>DOWNLOAD</b></a></div><div class="row">Pages: <b>35-37</b>&nbsp;&nbsp;-&nbsp;&nbsp;Viewed: <b>2157</b>&nbsp;&nbsp;-&nbsp;&nbsp;Downloaded: <b>959</b>&nbsp;&nbsp;-&nbsp;&nbsp;Country: <b>Pakistan</b></div></td></tr><tr><td align="center" valign="top" class="xs">9.</td><td align="left" valign="top"><div class="row"><b>Use of homoeopathy in cancer treatment</b></div><div class="row">Saira Bilal</div><div class="row doi"><b>DOI:</b>&nbsp;<a href="https://doi.org/10.33545/26164485.2018.v2.i3a.37" target="_blank">https://doi.org/10.33545/26164485.2018.v2.i3a.37</a></div><div class="row link"><a href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A/2-3-9"><b>ABSTRACT</b></a>&nbsp;&nbsp;&nbsp;<a href="https://www.homoeopathicjournal.com/articles/37/2-3-9-941.pdf" target="_blank"><b>DOWNLOAD</b></a></div><div class="row">Pages: <b>38-41</b>&nbsp;&nbsp;-&nbsp;&nbsp;Viewed: <b>7416</b>&nbsp;&nbsp;-&nbsp;&nbsp;Downloaded: <b>6186</b>&nbsp;&nbsp;-&nbsp;&nbsp;Country: <b>Pakistan</b></div></td></tr><tr><td align="center" valign="top" class="xs">10.</td><td align="left" valign="top"><div class="row"><b>Effect of homoeopathic medicine on gingivitis: A case report</b></div><div class="row">Siva Rami Reddy E and Parveen Kumar Sharma</div><div class="row doi"><b>DOI:</b>&nbsp;<a href="https://doi.org/10.33545/26164485.2018.v2.i3a.38" target="_blank">https://doi.org/10.33545/26164485.2018.v2.i3a.38</a></div><div class="row link"><a href="https://www.homoeopathicjournal.com/archives/2018/vol2issue3/A/2-3-11"><b>ABSTRACT</b></a>&nbsp;&nbsp;&nbsp;<a href="https://www.homoeopathicjournal.com/articles/38/2-3-11-373.pdf" target="_blank"><b>DOWNLOAD</b></a></div><div class="row">Pages: <b>42-45</b>&nbsp;&nbsp;-&nbsp;&nbsp;Viewed: <b>2209</b>&nbsp;&nbsp;-&nbsp;&nbsp;Downloaded: <b>1059</b>&nbsp;&nbsp;-&nbsp;&nbsp;Country: <b>India</b></div></td></tr>	</table>			</div>
+			<div class="sidebar fl l">
+				<a href="https://www.homoeopathicjournal.com/homoeopathic-journal-subscription" class="body subs"><b>Subscribe Print Journal</b><br clear="all"><img src="https://www.homoeopathicjournal.com/images/recommend-this-journal.png" alt="Subscribe Print Journal" /></a>
+				<div class="head">Important Information</div><ul class="body"><li class="fluid"><strong>Toll Free: 1800-1234070</strong></li><li class="fluid"><strong>Working hours 10:00 AM-06:00 PM</strong></li></ul><div class="head">Journal&#39;s Code</div><ul class="body"><li class="fluid">E-ISSN: 2616-4493</li><li class="fluid">P-ISSN: 2616-4485</li></ul><div class="head">Issue Bar</div><ul class="body"><li class="fluid"><a href="https://www.homoeopathicjournal.com/archives">Past Issue</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/invitation">Coming Issue</a></li></ul><div class="head">Open Access</div><ul class="body"><li class="fluid"><a href="https://www.homoeopathicjournal.com/oa">Click here for more information</a></li></ul><div class="head">Copyright Form</div><ul class="body"><li class="fluid"><a href="https://www.homoeopathicjournal.com/docs/CopyrightAgreementAndAuthorshipResponsibility.pdf" target="_blank">Download Copyright Form</a></li></ul><div class="head">Side Bar</div><ul class="body"><li class="fluid"><a href="https://www.homoeopathicjournal.com">Home</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/board">Editorial Board</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/instructions">Instructions to Author</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/archives">Archives</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/indexing">Indexing and Abstracting</a></li><li class="fluid"><a href="https://www.homoeopathicjournal.com/contact">Contact Us</a></li></ul><div class="head">Identifier</div><ul class="body"><li class="fluid"><a href="https://www.crossref.org/titleList/" target="_blank"><img src="https://www.homoeopathicjournal.com/uploads/200615025643.jpg" alt="CrossRef Member"></a></li></ul>
+			</div>
+		</div>
+	</div>	<br clear="all">
+</div>
+<div class="footer"><a href="https://www.homoeopathicjournal.com/">International Journal of Homoeopathic Sciences</a><br><br>Copyright &copy; 2023. All Rights Reserved.</div>
+<a href="https://wa.me/919718222251?text=Hi, I have a query regarding publication in International Journal of Homoeopathic Sciences." target="_blank" class="show-on-medium-and-down whatsapp"><img src="https://www.akinik.com/images/whatsapp-logo.png" alt="International Journal of Homoeopathic Sciences" /></a>
+
+<style>
+.cS4bPe{float:left;width:98px;height:480px;margin:auto;position:fixed;left:10px;top:0;bottom:0}.cS4bPe img{float:left;width:auto;height:480px;border:1px solid #000}
+</style>
+<div class="cS4bPe hide-on-med-and-down"><a href="https://www.integratedpublications.in/publish-book-chapter/1605872307-Recent-Research-Trends-in-Ayush-Ayurveda-Yoga-Unani-Siddha-and-Homeopathy" target="_blank"><img src="https://www.homoeopathicjournal.com/images/bookchapterads.jpg" alt="Call for book chapter" /></a></div><script type="text/javascript" src="https://www.akinik.com/js/jquery.js" defer></script>
+<script type="text/javascript">
+function downloadJSAtOnload() {
+var element = document.createElement("script");
+element.src = "https://www.homoeopathicjournal.com/js/defer.js?url=https://www.homoeopathicjournal.com/";
+document.body.appendChild(element);
+}
+if (window.addEventListener)
+window.addEventListener("load", downloadJSAtOnload, false);
+else if (window.attachEvent)
+window.attachEvent("onload", downloadJSAtOnload);
+else window.onload = downloadJSAtOnload;
+</script>
+</body>
+</html>

@@ -63,7 +63,7 @@ AQUAS at [ZB MED](https://www.zbmed.de/forschen/laufende-projekte/aquas/)
 Eva Seidlmayer, Dr. phil., M.LIS <br/>
 Data Sciences and Services, Research Fellow <br/>
 ORCID: 0000-0001-7258-0532 <br/>
-Twitter: @kivilih <br/>
+Mastodon: @eta_kivilih | Bluesky: @etakivilih.bsky.social <br/>
 <br/>
 ZB MED – Informations Centre for Life Sciences <br/>
 Gleueler Straße 60 <br/>
@@ -82,3 +82,10 @@ FO 984/6-1
 
 ## License
 >>>>>>> 16abf1e4419ea0c154748f0336cf3138056dc945
+Copyright (c) 2024 Eva Seidlmayer, Lukas Galke, Konrad U. Förstner
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

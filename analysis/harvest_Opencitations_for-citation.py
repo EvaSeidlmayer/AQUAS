@@ -75,10 +75,11 @@ def main():
         else:
             print("No DOI detected.")
     print(df.shape)
+    df.to_csv(f'data/data-set-topic-wise_2024/content/raw_content/df_number-citations_{mesh}.csv')
     number_df = df.shape[0]
     ten_most = number_df/10
     ten_most = round(ten_most)
-    print(ten_most)
+    print('absolut number of ten percent most cited:', ten_most)
     df['citedby'] = df['citedby'].astype(str).astype(int)
 
     #df['citedby'] = pd.to_numeric(df['citedby'], errors='coerce')

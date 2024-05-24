@@ -82,23 +82,23 @@ new: 1) scientific (specialized?) 2) non-scientific
 
 # Data Sets 
 ## Data Set, third approach: topic wise
-| topic        | scientific                   | popular_scientific                          | alternative_scientific                            | disinformativ                  |
-|--------------|------------------------------|---------------------------------------------|---------------------------------------------------|--------------------------------|
-| cumin        | 2 PMC (10% most cited-by)    | 4 WebMD, 0 HHP, 2 MH, 0 WH, 0 MPM           | 15 JEBIM, 0 AM, 30 CMT,  0 HomeoJour, 0 Goethe    | 4 NN,  10 HIN, 0 MCL, 0 H.N    | 
-| dementia     | -     (10% most cited-by)    | 122 WebMD, 22 HHP, 5 MH, 6 WH, 19 MPM       | 33 JEBIM, 0 AM, 172 CMT, 12 HomeoJour, 1 Goethe   | 14 NN,  49 HIN, 11 MCL, 5 H.N  |
-| heart attack | 902 PMC (10% most cited-by)  | 84 WebMD, 6 HHP, 12 MH, 10 WH, 9 MPM        | 45 JEBIM, 0 AM,45 CMT, 3 HomeoJour, 0 Goethe      | 30 NN, 22 HIN, 19 MCL, 2 H.N   |
-| insomnia     | 130 PMC  (10% most cited-by) | 132 WebMD, 11 HHP, 0 MH, 6 WH, 5 MPM        | 40 JEBIM, 1 AM,84 CMT, 16 HomeoJour, 3 Goethe     | 56 NN, - HIN, 7 MCL, 0 H.N     |
-| menopause    | 388 PMC (10% most cited-by)  | 129 WebMD, 9 HHP, 0 MH, 5 WH, 4 MPM         | 12 JEBIM, 1 AM,42 CMT, 25 HomeoJour, 2 Goethe     | 41 NN,  21 HIN, 5 MCL, 2 H.N   |
-| stroke       | -      (10% most cited-by)   | 117 WebMD, 1 HHP, 6 MH, 3 WH, 22 MPM        | 46 JEBIM, 0 AM,41 CMT, 28 HomeoJour, 0 Goethe     | 130 NN,  23 HIN, 14 MCL, 5 H.N |
-| tobacco      | 133 PMC (10% most cited-by)  | 0 WebMD, 1 HHP, 6 MH, 1 WH, 5 MPM           | 61 JEBIM, 0 AM, 25 CMT, 19 HomeoJour, 1 Goethe    | 24 NN, 3 HIN, 4 MCL, 1 H.N     |
-| turmeric     | 28 PMC (10% most cited-by)   | 31 WebMD, 3 HHP, 10 MH, 6 WH, 0 MPM         | 11 JEBIM, 0 AM,121 CMT, 1 HomeoJour, 0 Goethe     | 71 NN, 2 HIN, 4 MCL, 6 H.N     |
-| measles      | -                            | 34 WebMD, 5 HHP, 3 MH, 1 WH, 14 MPM         | 8 JEBIM,                                          | -                              |
-| inflammation | -                            | 32 WebMD, 21 HHP, 37 MH, 19 WH, 13 MPM      | 32 JEBIM,                                         | -                              |
-| vaccination  | -                            | 18 WebMD, 53 HHP,50 MH, 42 WH, 29 MPM       | 17 JEBIM,                                         | -                              |
-| transgender  | -                            | 21 WebMD, 10 HHP, 35 MH, 19 WH, 0 MPM       | 1 JEBIM,                                          | -                              |
-| abortion     | -                            | 18 WebMD, 3 HHP, 9 MH, 37 WH, 0 WPM         | 13 JEBIM,                                         | -                              |
-| sum          | 1583 PMC                     | 742 WebMD, 145 HHP, 175 MH, 155 WH, 120 MPM | 263 JEBIM, 2 AM, 560 CMT, 104 HomeoJour, 7 Goethe | 370 NN, 130 HIN, 64 MCL, 21 H.N |
-| all_sum      | 1583                         | 1337                                        | 936                                               | 585                            |
+| topic        | scientific                           | popular_scientific                          | alternative_scientific                            | disinformativ                    |
+|--------------|--------------------------------------|---------------------------------------------|---------------------------------------------------|----------------------------------|
+| cumin        | 2 PMC (10% most cited-by)            | 4 WebMD, 0 HHP, 2 MH, 0 WH, 0 MPM           | 15 JEBIM, 0 AM, 30 CMT,  0 HomeoJour, 0 Goethe    | 4 NN,  10 HIN, 1 MCL, 0 H.N      | 
+| dementia     | - denbi    (10% most cited-by)       | 122 WebMD, 22 HHP, 5 MH, 6 WH, 19 MPM       | 33 JEBIM, 0 AM, 172 CMT, 12 HomeoJour, 1 Goethe   | 14 NN,  49 HIN, 17 MCL, 5 H.N    |
+| heart attack | 902 PMC (10% most cited-by)          | 84 WebMD, 6 HHP, 12 MH, 10 WH, 9 MPM        | 45 JEBIM, 0 AM,45 CMT, 3 HomeoJour, 0 Goethe      | 30 NN, 22 HIN, 19 MCL, 2 H.N     |
+| insomnia     | 130 PMC  (10% most cited-by)         | 132 WebMD, 11 HHP, 0 MH, 6 WH, 5 MPM        | 40 JEBIM, 1 AM,84 CMT, 16 HomeoJour, 3 Goethe     | 56 NN, - HIN, 9 MCL, 0 H.N       |
+| menopause    | 388 PMC (10% most cited-by)          | 129 WebMD, 9 HHP, 0 MH, 5 WH, 4 MPM         | 12 JEBIM, 1 AM,42 CMT, 25 HomeoJour, 2 Goethe     | 41 NN,  21 HIN, 5 MCL, 2 H.N     |
+| stroke       | - denbi     (10% most cited-by)      | 117 WebMD, 1 HHP, 6 MH, 3 WH, 22 MPM        | 46 JEBIM, 0 AM,41 CMT, 28 HomeoJour, 0 Goethe     | 130 NN,  23 HIN, 16 MCL, 5 H.N   |
+| tobacco      | 133 PMC (10% most cited-by)          | 0 WebMD, 1 HHP, 6 MH, 1 WH, 5 MPM           | 61 JEBIM, 0 AM, 25 CMT, 19 HomeoJour, 1 Goethe    | 24 NN, 3 HIN, 4 MCL, 1 H.N       |
+| turmeric     | 28 PMC (10% most cited-by)           | 31 WebMD, 3 HHP, 10 MH, 6 WH, 0 MPM         | 11 JEBIM, 0 AM,121 CMT, 1 HomeoJour, 0 Goethe     | 71 NN, 2 HIN, 6 MCL, 6 H.N       |
+| measles      | 139 PMC (10% most cited-by)          | 34 WebMD, 5 HHP, 3 MH, 1 WH, 14 MPM         | 8 JEBIM, -AM, 6 CMT, 8 HomeoJour,                 | -            , 3 MCL,            |
+| inflammation | -                                    | 32 WebMD, 21 HHP, 37 MH, 19 WH, 13 MPM      | 32 JEBIM, - AM, 364 CMT, 122 HomeoJour,           | -                   , 53 MCL,    |
+| vaccination  | - -> df_number_citations_vaccination | 18 WebMD, 53 HHP,50 MH, 42 WH, 29 MPM       | 17 JEBIM, - AM, 15 CMT, 13 HomeoJour,             | -              , 37 MCL,         |
+| transgender  | 121 PMC (10% most cited-by)          | 21 WebMD, 10 HHP, 35 MH, 19 WH, 0 MPM       | 1 JEBIM, - AM, - CMT, 0 HomeoJour,                | -       , 1 MCL ,                |
+| abortion     | 215 PMC (10% most cited-by)          | 18 WebMD, 3 HHP, 9 MH, 37 WH, 0 WPM         | 13 JEBIM, - AM, 13 CMT,  15 HomeoJour,            | -        , 1MCL ,                |
+| sum          | 2058                                 | 742 WebMD, 145 HHP, 175 MH, 155 WH, 120 MPM | 334 JEBIM, 2 AM, 958 CMT, 262 HomeoJour, 7 Goethe | 370 NN, 130 HIN, 172 MCL, 21 H.N |
+| all_sum      | 2058                                 | 1337                                        | 1563                                              | 693                              |
 
 - scientific
   - PMC = PubMed Central
@@ -127,6 +127,7 @@ new: 1) scientific (specialized?) 2) non-scientific
   - JEBIM = Journal of evidence based integrative medicine
   - AM = Anthropmed.org: https://www.anthromed.org/
   - CMT = BMC Complementary Medicine and Therapies
+    - texts complete?
   - HomeoJour = Homeopathic Journal: https://www.homoeopathicjournal.com/archives
   - Goethe = School of Spiritual Science Medical Section at the Goetheanum https://medsektion-goetheanum.org/en/research/publications/journal-contributions-on-research-in-anthroposophic-medicine-2017-2019
 

@@ -53,19 +53,19 @@ def pdf_to_text(path):
 
 def clean_text(pdf_txt):
     cleaned_txt = ' '.join(pdf_txt.split())
-    cleaned_txt = re.sub('[^a-zA-Z0-9 \n\.]', '', cleaned_txt)
+    cleaned_txt = re.sub('[^a-zA-Z0-9 \n\.]', ' ', cleaned_txt)
 
     return cleaned_txt
 
 
 
-def compile_infos(pdf_txt, df, text_id, url, i, tag):
+def compile_infos(pdf_txt, df, text_id, url, tag):
     row = pd.DataFrame({'category_id':'alternative_science',
                         'text_id':text_id,
+                        'tags': tag,
                         'venue':'',
                         'data_source':'CompMedTherapies',
                         'url': url,
-                        'tags':tag,
                         'text':pdf_txt}, index=[0])
     df = pd.concat([df, row], ignore_index=True)
     return df
@@ -75,23 +75,24 @@ def main():
 
     # read csv with URLS
     urls_df = pd.read_csv(
-        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/urls/alternative_complementarymedandtherapies_urls.csv').reset_index()
+        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/urls/alternative_complementarymedandtherapies_urls-2.csv').reset_index()
     i = 0
 
     #initiate df with information columns
-    df = pd.DataFrame(columns=['category-id','text_id','venue','data-source','url','tags','text'])
+    df = pd.DataFrame(columns=['category-id','text_id','tags','venue','data-source','url','text'])
 
     # loop through each document-url
     for index, row in urls_df.iterrows():
         i += 1
-        url = row['url']
+        url = row[2]
         text_id = url.split('pdf/')[1].split('?')[0]
-        tag = row['topic']
+        tag = row[1]
 
         # download pdf in dummy
         path = download_pdf(url, i)
         # parse pdf to string
         pdf_txt = pdf_to_text(path)
+        #print(pdf_txt)
 
         if pdf_txt is None:
             continue
@@ -101,10 +102,11 @@ def main():
 
 
         # compile information  df
-        df = compile_infos(cleaned_txt, df, text_id, url, i, tag)
+        df = compile_infos(cleaned_txt, df, text_id, url, tag)
+        print(df)
 
     #print(df)
-    df.to_csv('data/data-set-topic-wise_2024/content/alternative_CompMedTherapies_texts.csv', mode ='a', index=False, header=False)
+    df.to_csv('data/data-set-topic-wise_2024/content/alternative_CompMedTherapies_texts-2.csv', mode ='a', index=False, header=False)
     print('done')
 
 

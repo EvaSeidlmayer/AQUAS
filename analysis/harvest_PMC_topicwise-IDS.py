@@ -15,7 +15,6 @@ import argparse
 
 
 def get_PMID(file, mesh):
-    print('111')
     url = f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pmc&term={mesh}[MeSH%20Terms]+AND+medline[sb]&retmode=json&retmax=1000"
     response = requests.get(url)
     data = response.json()
@@ -36,11 +35,19 @@ def get_PMID(file, mesh):
         data = response.json()
 
         # Extract PMIDs
-        pmids = data["esearchresult"]["idlist"]
+        try:
+            pmids = data["esearchresult"]["idlist"]
+        except Exception as e:
+            print(e)
     
         # Save PMIDs to a text file
-        for pmid in pmids:
-            file.write(pmid + "\n")
+
+        try:
+            for pmid in pmids:
+                file.write(pmid + "\n")
+        except Exception as e:
+            print(e)
+
 
 
 def main():

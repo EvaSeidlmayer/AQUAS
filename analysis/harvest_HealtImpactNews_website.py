@@ -54,10 +54,11 @@ def get_infos(row, i):
 
     infos = pd.DataFrame({'category_id': 'disinfo',
                           'text_id': 'HealthImpactNews:' + str(article_title),
+                          'tags': tag,
                           'venue': '',
+
                           'data_source': 'HealthImpactNews',
                           'url': [url],
-                          'tags': tag,
                           'text': [clean]})
 
     return infos, i
@@ -84,18 +85,19 @@ def get_article_title(url):
 
 
 def main():
-    urls_df = pd.read_csv('/AQUS/AQUAS/data/data-set-topic-wise_2024/disinfo_healthimpactnews_urls.csv', sep=',')
+    urls_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/urls/disinfo_healthimpactnews_urls-2.csv', sep=',')
+
     urls_df.drop_duplicates(inplace=True)
     print(urls_df.tail())
     print('nachher', urls_df.shape)
     i = 0
-    infos_df = pd.DataFrame(columns=['category_id','text_id','venue','data_source','url','tags','text'])
+    infos_df = pd.DataFrame(columns=['category_id','text_id','tags', 'venue','data_source','url','text'])
     for index, row in urls_df.iterrows():
         infos, i = get_infos(row, i)
         infos_df = pd.concat([infos_df, infos], ignore_index=True)
 
 
-        infos_df.to_csv('data/data-set-topic-wise_2024/disinfo_healthimpactnews_2024-04-10.csv', index=False)
+        infos_df.to_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/disinfo_healthimpactnews-2.csv', index=False)
     print(i)
     print('done')
 

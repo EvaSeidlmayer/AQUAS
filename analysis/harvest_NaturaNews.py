@@ -62,7 +62,7 @@ def get_article_title(url):
 
 
 def main():
-    urls_df = pd.read_csv('/AQUS/AQUAS/data/data-set-topic-wise_2024/disinfo_naturalnews_urls.csv', sep=',')
+    urls_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/urls/disinfo_naturalnews_urls3.csv', sep=',')
     urls_df.drop_duplicates(inplace=True)
 
 
@@ -76,7 +76,7 @@ def main():
         infos_df = pd.concat([infos_df, infos], ignore_index=True)
 
 
-        infos_df.to_csv('data/data-set-topic-wise_2024/disinfo_naturalnews_2024-04-11.csv', index=False)
+        infos_df.to_csv('data/data-set-topic-wise_2024/disinfo_naturalnews_2024-05-24.csv', index=False)
     print(i)
     print('done')
 

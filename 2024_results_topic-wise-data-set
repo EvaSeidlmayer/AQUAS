@@ -1,0 +1,149 @@
+
+
+# 2024-06-14
+BERT_tokenize_dataset.py
+
+Epoch 1/10
+56/56 [==============================] - 755s 13s/step - loss: 7.9276 - accuracy: 0.3016 - val_loss: 8.5106 - val_accuracy: 0.2649
+Epoch 2/10
+56/56 [==============================] - 746s 13s/step - loss: 8.5171 - accuracy: 0.2698 - val_loss: 7.7261 - val_accuracy: 0.4103
+Epoch 3/10
+56/56 [==============================] - 734s 13s/step - loss: 7.7126 - accuracy: 0.3107 - val_loss: 8.5380 - val_accuracy: 0.2694
+Epoch 4/10
+56/56 [==============================] - 734s 13s/step - loss: 8.8083 - accuracy: 0.2880 - val_loss: 8.4741 - val_accuracy: 0.2688
+Epoch 5/10
+56/56 [==============================] - 731s 13s/step - loss: 9.2834 - accuracy: 0.3220 - val_loss: 8.4741 - val_accuracy: 0.2688
+Epoch 6/10
+56/56 [==============================] - 729s 13s/step - loss: 8.6634 - accuracy: 0.3061 - val_loss: 10.1981 - val_accuracy: 0.2649
+Epoch 7/10
+56/56 [==============================] - 724s 13s/step - loss: 8.4063 - accuracy: 0.2766 - val_loss: 8.4102 - val_accuracy: 0.2677
+Epoch 8/10
+56/56 [==============================] - 729s 13s/step - loss: 9.0276 - accuracy: 0.3197 - val_loss: 8.4102 - val_accuracy: 0.2688
+Epoch 9/10
+56/56 [==============================] - 741s 13s/step - loss: 9.0276 - accuracy: 0.3333 - val_loss: 8.4102 - val_accuracy: 0.2688
+Epoch 10/10
+56/56 [==============================] - 723s 13s/step - loss: 9.4296 - accuracy: 0.3197 - val_loss: 8.4102 - val_accuracy: 0.2688
+BERT fine tuned
+221/221 [==============================] - 415s 2s/step - loss: 8.4102 - accuracy: 0.2688
+56/56 [==============================] - 421s 7s/step
+Validation Loss: 8.4102 Accuracy: 0.2688 F1-score: 0.1201
+
+
+
+#BERT_training_sliding_multi_lable_classification.py
+
+[3] Accuracy: 0.9457, F1-score: 0.9456, Classification_report:                           precision    recall  f1-score   support
+
+         class scientific       1.00      0.86      0.92       371
+ class popular scientific       0.97      0.96      0.97       480
+     class disinformation       0.95      0.96      0.95       460
+class alternative science       0.88      0.99      0.93       456
+
+                micro avg       0.95      0.95      0.95      1767
+                macro avg       0.95      0.94      0.94      1767
+             weighted avg       0.95      0.95      0.95      1767
+              samples avg       0.94      0.95      0.95      1767
+
+
+
+# BERT_training sliding multi label classification. py
+## "dmis-lab/biobert-v1.1"
+### 10 Epochs
+
+    class scientific       0.99      1.00      0.99       367
+ class popular scientific       0.97      0.98      0.98       473
+     class disinformation       0.97      0.99      0.98       469
+class alternative science       1.00      0.97      0.98       458
+
+                micro avg       0.98      0.98      0.98      1767
+                macro avg       0.98      0.99      0.98      1767
+             weighted avg       0.98      0.98      0.98      1767
+              samples avg       0.98      0.98      0.98      1767
+
+
+wandb: Run history:
+wandb: accuracy ▁██
+wandb:       f1 ▁██
+wandb:
+wandb: Run summary:
+wandb:              accuracy 0.98302
+wandb: classification_report                     ...
+wandb:                    f1 0.98306
+wandb:
+wandb: 🚀 View run lunar-eon-213 at: https://wandb.ai/zbmed/AQUAS/runs/diddfw49
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240616_155744-diddfw49/logs
+
+
+
+## models/bertbase_t10k_e7_lr3e-5_mlclass
+10 epochs
+[3] Accuracy: 0.9061, F1-score: 0.9067, Classification_report:                           precision    recall  f1-score   support
+
+         class scientific       0.76      1.00      0.86       348
+ class popular scientific       0.97      0.96      0.96       478
+     class disinformation       0.96      0.92      0.94       488
+class alternative science       1.00      0.73      0.84       453
+
+                micro avg       0.92      0.90      0.91      1767
+                macro avg       0.92      0.90      0.90      1767
+             weighted avg       0.93      0.90      0.91      1767
+              samples avg       0.90      0.90      0.90      1767
+
+done
+wandb: Waiting for W&B process to finish... (success).
+wandb: / 0.398 MB of 0.398 MB uploaded (0.000 MB deduped)
+wandb: Run history:
+wandb: accuracy ▂█▁
+wandb:       f1 ▂█▁
+wandb:
+wandb: Run summary:
+wandb:              accuracy 0.90606
+wandb: classification_report                     ...
+wandb:                    f1 0.90671
+wandb:
+wandb: 🚀 View run hopeful-shadow-215 at: https://wandb.ai/zbmed/AQUAS/runs/9vhc8u4z
+
+
+bert -base
+wandb: Run history:
+wandb: accuracy ▁▆█
+wandb:       f1 ▁▇█
+wandb:
+wandb: Run summary:
+wandb:              accuracy 0.96265
+wandb: classification_report                     ...
+wandb:                    f1 0.96159
+wandb:
+wandb: 🚀 View run electric-tree-216 at: https://wandb.ai/zbmed/AQUAS/runs/4abis1fb
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+
+
+
+
+## scibert
+     class scientific       0.97      1.00      0.98       372
+ class popular scientific       0.97      0.91      0.94       467
+     class disinformation       0.99      0.86      0.92       471
+class alternative science       0.86      0.97      0.91       457
+
+                micro avg       0.94      0.93      0.94      1767
+                macro avg       0.95      0.94      0.94      1767
+             weighted avg       0.95      0.93      0.94      1767
+              samples avg       0.93      0.93      0.93      1767
+
+done
+wandb: Waiting for W&B process to finish... (success).
+wandb:
+wandb: Run history:
+wandb: accuracy ▅▁█
+wandb:       f1 ▅▁█
+wandb:
+wandb: Run summary:
+wandb:              accuracy 0.93605
+wandb: classification_report                     ...
+wandb:                    f1 0.93657
+wandb:
+wandb: 🚀 View run hardy-wind-217 at: https://wandb.ai/zbmed/AQUAS/runs/vhxyxktu
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240617_145914-vhxyxktu/logs

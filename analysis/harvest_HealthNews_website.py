@@ -107,14 +107,14 @@ def main():
     print(urls_df.tail())
     print('nachher', urls_df.shape)
     i = 0
-    infos_df = pd.DataFrame(columns=['category_id','text_id','venue','data_source','url','tags','text'])
+    infos_df = pd.DataFrame(columns=['category_id','text_id','tags', 'venue','data_source','url','text'])
     for index, row in urls_df.iterrows():
         row = str(row[0])
         infos, i = get_infos(row, i)
         infos_df = pd.concat([infos_df, infos], ignore_index=True)
 
 
-        infos_df.to_csv('data/disinfo_healthnews_2023-09-29.csv', index=False)
+        infos_df.to_csv('data/disinfo_healthnews_2024-05-28.csv', index=False)
     print(i)
     print('done')
 

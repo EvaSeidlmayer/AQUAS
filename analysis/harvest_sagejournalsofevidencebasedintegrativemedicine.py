@@ -29,19 +29,6 @@ def download_pdf(url):
     r = urllib.request.urlopen(req).read().decode('utf-8')
     with open(path, 'w', encoding="utf-8") as f:
         f.write(r)
-    '''
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',}
-    # response = requests.get(url, headers=headers)
-    response = urllib.request.urlopen()
-    pdf = open(path, 'wb')
-    pdf.write(response.content)
-    pdf.close()
-    '''
-    print('rrrrrrrrrrrrrrr', r)
-
-
-
 
 
     return path
@@ -53,7 +40,6 @@ def pdf_to_text(path):
     print(path)
     try:
         reader = PdfReader(path, strict=False)
-        print('ppppppppppp', reader)
         page = reader.pages[0]
         pdf_text = page.extract_text()
         print(pdf_text)
@@ -83,7 +69,7 @@ def compile_infos(pdf_txt, df, text_id, pdf, tag):
                         'text_id':text_id,
                         'tags': tag,
                         'venue':'',
-                        'data_source':'sage_journalevidencebasedintegrativemedicine',
+                        'data_source':'JEBIM',
                         'url': pdf,
                         'text':pdf_txt}, index=[0])
     df = pd.concat([df, row], ignore_index=True)
@@ -122,7 +108,7 @@ def main():
         df = compile_infos(cleaned_txt, df, text_id, pdf, tag)
 
 
-    df.to_csv('data/data-set-topic-wise_2024/content/alternative_sagejournalofevidencebasedintegrativemeicine_text-3.csv ', mode ='a', index=False, header=False)
+    df.to_csv('data/data-set-topic-wise_2024/content/alternative_sagejournalofevidencebasedintegrativemeicine_text-3_2024-06-11.csv ', mode ='a', index=False, header=False)
     print('done')
 
 

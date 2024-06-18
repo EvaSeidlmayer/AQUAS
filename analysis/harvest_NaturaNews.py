@@ -70,7 +70,7 @@ def main():
 
     print('vorher', urls_df.shape)
     i = 0
-    infos_df = pd.DataFrame(columns=['category_id','text_id','venue','data_source','url','tags','text'])
+    infos_df = pd.DataFrame(columns=['category_id','text_id','tags', 'venue','data-source','url','text'])
     for index, row in urls_df.iterrows():
         infos, i = get_infos(row, i)
         infos_df = pd.concat([infos_df, infos], ignore_index=True)

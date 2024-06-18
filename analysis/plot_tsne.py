@@ -19,7 +19,7 @@ import seaborn as sns
 
 # Load the data
 
-corpus_df = pd.read_csv('/AQUS/AQUAS/data/data-set_2023/2023-10-13_fewshot_testing.csv', delimiter=",")
+corpus_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_2024-06-13.csv', delimiter=",")
 print('len complete corpus', len(corpus_df))
 
 

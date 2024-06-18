@@ -18,17 +18,17 @@ import gensim
 import pandas as pd
 
 # Set file names for train and test data
-df = pd.read_csv('/AQUS/AQUAS/data/data-set_2023/2023-10-13_fewshot_testing.csv')
+df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_2024-06-13.csv')
 
 scientific_df = df.loc[df['category_id'] == 'scientific']
-pop_df = df.loc[df['category_id'] == 'popular_science']
+pop_df = df.loc[df['category_id'] == 'popular']
 disinfo_df = df.loc[df['category_id'] == 'disinfo']
 alternative_science_df = df.loc[df['category_id'] == 'alternative_science']
 
 print('len corpus dataframe', len(df))
 
 text = df['text'].tolist()
-test_file = pd.read_csv('/AQUS/AQUAS/data/data-set_2023/2023-10-13_fewshot_testing.csv')
+test_file = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_2024-06-13.csv')
 test_file = df['text'].tolist()
 
 
@@ -65,5 +65,5 @@ for doc_id in range(len(train_corpus)):
     vecs.append(inferred_vector)
 corpus_matrix_MEDLINE1 = pd.DataFrame(vecs)
 print(type(corpus_matrix_MEDLINE1))
-pickle.dump(corpus_matrix_MEDLINE1, open('data/2023-10-18_gensim_embedding_.p', 'wb'))
+pickle.dump(corpus_matrix_MEDLINE1, open('data/data-set-topic-wise_2024/2023-10-18_gensim_embedding_.p', 'wb'))
 print('matrix created and dumped')

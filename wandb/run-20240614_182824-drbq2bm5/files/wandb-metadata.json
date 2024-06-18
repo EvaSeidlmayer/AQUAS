@@ -1,0 +1,82 @@
+{
+    "os": "Linux-6.5.0-41-generic-x86_64-with-glibc2.38",
+    "python": "3.11.6",
+    "heartbeatAt": "2024-06-14T16:28:25.027920",
+    "startedAt": "2024-06-14T16:28:24.123193",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_2024-06-13.csv"
+    ],
+    "state": "running",
+    "program": "/home/ruth/ProgrammingProjects/AQUS/AQUAS/analysis/BERT_training_sliding_multi_lable_classification.py",
+    "codePathLocal": "analysis/BERT_training_sliding_multi_lable_classification.py",
+    "codePath": "analysis/BERT_training_sliding_multi_lable_classification.py",
+    "git": {
+        "remote": "git@github.com:EvaSeidlmayer/AQUAS.git",
+        "commit": "5671fb408f281cf78cc19a7abd3bffc0f4ccb6b8"
+    },
+    "email": "seidlamyer@zbmed.de",
+    "root": "/home/ruth/ProgrammingProjects/AQUS/AQUAS",
+    "host": "ruth-ThinkPad-X1-Carbon-6th",
+    "username": "ruth",
+    "executable": "/home/ruth/ProgrammingProjects/venv/bin/python3",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2113.243,
+        "min": 400.0,
+        "max": 4000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2799.991,
+            "min": 400.0,
+            "max": 4000.0
+        },
+        {
+            "current": 2799.935,
+            "min": 400.0,
+            "max": 4000.0
+        },
+        {
+            "current": 2800.002,
+            "min": 400.0,
+            "max": 4000.0
+        },
+        {
+            "current": 2799.995,
+            "min": 400.0,
+            "max": 4000.0
+        },
+        {
+            "current": 2800.712,
+            "min": 400.0,
+            "max": 4000.0
+        },
+        {
+            "current": 400.0,
+            "min": 400.0,
+            "max": 4000.0
+        },
+        {
+            "current": 1139.487,
+            "min": 400.0,
+            "max": 4000.0
+        },
+        {
+            "current": 2800.335,
+            "min": 400.0,
+            "max": 4000.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 915.3232879638672,
+            "used": 158.67778778076172
+        }
+    },
+    "memory": {
+        "total": 15.506690979003906
+    }
+}

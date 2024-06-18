@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -15,6 +16,8 @@ import tensorflow as tf
 import argparse
 import os
 from sklearn.metrics import f1_score
+
+
 
 
 def load_dataset(input_file_csv):
@@ -41,7 +44,7 @@ def tokenize(texts):
 
 def convert_labels(labels):
     # Convert labels to numerical values
-    label_map = {'scientific': 0, 'popular_science': 1, 'disinfo': 2, 'alternative_science':3}
+    label_map = {'scientific': 0, 'popular': 1, 'alternative_science': 2, 'disinfo':3}
     labels = [label_map[label] for label in labels]
     labels_conv = tf.keras.utils.to_categorical(labels, num_classes=4)
     print('labels converted')
@@ -66,7 +69,7 @@ def fine_tune_BERT(train_inputs, val_inputs, train_masks, val_masks, train_label
     model = TFBertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=4)
     optimizer = tf.keras.optimizers.Adam(learning_rate=2e-5, epsilon=1e-08, clipnorm=1.0)
     model.compile(optimizer=optimizer, loss=tf.keras.losses.CategoricalCrossentropy(), metrics=['accuracy'])
-    model.fit([train_inputs, train_masks], train_labels, validation_data=([val_inputs, val_masks], val_labels), epochs=3, batch_size=8)
+    model.fit([train_inputs, train_masks], train_labels, validation_data=([val_inputs, val_masks], val_labels), epochs=10, batch_size=8)
     print('BERT fine tuned')
     return model
 

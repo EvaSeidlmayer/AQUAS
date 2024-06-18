@@ -94,10 +94,11 @@ def compile_infos(pdf_txt, df_all, text_id, complete_link, i):
         {
             "category_id": "alternative_science",
             "text_id": text_id,
-            "venue": "",
-            "data_source": "homeopathicjournal",
-            "url": complete_link,
             "tags": "",
+            "venue": "",
+            "data-source": "homeopathicjournal",
+            "url": complete_link,
+
             "title": "",
             "text": pdf_txt,
         },
@@ -119,10 +120,10 @@ def main():
         columns=[
             "category_id",
             "text_id",
+            "tags",
             "venue",
             "data_source",
             "url",
-            "tags",
             "title",
             "text",
         ]

@@ -8,11 +8,12 @@ __license__ = "ISC license"
 __email__ = "seidlmayer@zbmed.de"
 __version__ = "1 "
 
-BERT_MODEL_IDENTIFIER = "bert-base-uncased"
+#BERT_MODEL_IDENTIFIER = "bert-base-uncased"
 #BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
 #BERT_MODEL_IDENTIFIER = '../models/bertbase_t10k_e7_lr3e-5_mlclass' ---> 389 replace again!!!!
+BERT_MODEL_IDENTIFIER = "allenai / scibert_scivocab_uncased"
 
-EPOCH_AMOUNT = 3
+EPOCH_AMOUNT = 10
 
 import pandas as pd
 from transformers import (
@@ -70,7 +71,7 @@ def tokenize(texts):
 
 def convert_labels(labels):
     # Convert labels to numerical values
-    label_map = {'scientific': 0, 'popular_science': 1, 'disinfo': 2, 'alternative_science':3}
+    label_map = {'scientific': 0, 'popular': 1, 'disinfo': 2, 'alternative_science':3}
     labels_conv = [label_map[label] for label in labels]
     labels_conv = torch.tensor(labels_conv, dtype=torch.long)
     labels_onehot = torch.nn.functional.one_hot(labels_conv, num_classes=4).float()
@@ -387,7 +388,7 @@ def main():
 
 
     # OUR AQUASBert INIT
-    #'models/bertbase_t10k_e7_lr3e-5_mlclass'
+   # 'models/bertbase_t10k_e7_lr3e-5_mlclass'
     model = AQUASSlidingBERT.from_pretrained(BERT_MODEL_IDENTIFIER,
         num_labels=4,
         problem_type="multi_label_classification",

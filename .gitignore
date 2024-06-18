@@ -10,6 +10,7 @@ __pycache__/
 /data/*
 /UCLA_Tobacco_industryfiles
 /AQUAS_retractions
+/wandb
 
 # Distribution / packaging
 .Python

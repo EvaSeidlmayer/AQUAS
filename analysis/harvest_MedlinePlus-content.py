@@ -49,11 +49,11 @@ def get_infos(url, tags):
                         #"MedlinePlusSkip navigation National Library of MedicineMenuHealth TopicsDrugs & SupplementsGeneticsMedical TestsMedical EncyclopediaAbout MedlinePlusSearchSearch MedlinePlusGOAbout MedlinePlusWhat's NewSite MapCustomer SupportHealth TopicsDrugs & SupplementsGeneticsMedical TestsMedical EncyclopediaEspaÃ±olYou Are Here:Home						Health Topics",
                         #" ")
                     infos = pd.DataFrame({'category_id': 'popular',
-                                         'text_id': 'MedlinePlus',
+                                         'text_id': 'MedlinePlus'+article_title,
+                                          'tags': tags,
                                          'venue':'',
-                                         'data-source':'MedlinePlus'+article_title,
+                                         'data-source': 'MedlinePlus',
                                          'url':[url],
-                                         'tags': tags,
                                          'text': [cleaned_text]})
                     return infos
 
@@ -82,7 +82,7 @@ def main():
 
 
 
-    infos_df.to_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/popular_MedlinePlus_text-2.csv', index=False)
+    infos_df.to_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/before_cleaning/popular_MedlinePlus_text-2_2024-06-12.csv', index=False)
     print('done')
 if __name__ == '__main__':
     main()

@@ -56,7 +56,7 @@ def compile_infos(pdf_txt, df, text_id, url, i):
     row = pd.DataFrame({'category_id':'alternative_science',
                         'text_id':text_id,
                         'venue':'',
-                        'data_source':'PAAM/Goetheaneum-list',
+                        'data-source':'PAAM/Goetheaneum-list',
                         'url': url,
                         'tags':'',
                         'text':pdf_txt}, index=[0])

@@ -15,32 +15,50 @@ from spacy.lang.en import English
 from spacy.lang.en.stop_words import STOP_WORDS
 import textstat
 import sys
+from spacy.language import Language
 
 
-df = pd.read_csv('/AQUS/AQUAS/data/data-set_2023/2023-10-13_fewshot_testing.csv')
-all_text = df['text']
+df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_2024-06-13.csv')
+all_text = df['text'].dropna()
+
+
 #print(df.head())
 
 #########################################################################################################
 ############################ calculate flesch's score of readabilty #####################################
 # Flesch, R. F. (1979). How to write plain English: A book for lawyers and consumers. Harpercollins #####
 #########################################################################################################
-'''
-scientific_df = df.loc[df['category_id'] == 'scientific']
-science_text = scientific_df['text']
-science_value = 0
+
+#scientific_df = df.loc[df['category_id'] == 'scientific']
+#science_text = scientific_df['text'].dropna()
+all_value = 0
 number = 0
+
 for i, text in all_text.items():
+    i += 1
+    if isinstance(text, str):
+        value = textstat.flesch_reading_ease(text)
+        all_value += value
+        number += 1
+    else:
+        ...
+
+print('Flesch s reading score for all texts:', all_value/i)
+
+science_df = df.loc[df['category_id'] == 'scientific']
+sc_txt = science_df['text'].dropna()
+sc_txt_value = 0
+number = 0
+for i, text in sc_txt.items():
+    i += 1
     value = textstat.flesch_reading_ease(text)
-    science_value += value
+    sc_txt_value += value
     number += 1
-print('Flesch s reading score for all texts:', science_value/i)
-sys.exit()
-#science_text = ''.join(science_text_list)
+print('Flesch reading score for scientific texts:', sc_txt_value/i)
 
 
-pop_df = df.loc[df['category_id'] == 'popular_science']
-pop_text = pop_df['text']
+pop_df = df.loc[df['category_id'] == 'popular']
+pop_text = pop_df['text'].dropna()
 pop_value = 0
 number  = 0
 for i, text in pop_text.items():
@@ -53,7 +71,7 @@ print('Flesch reading score for pop texts:', pop_value/i)
 
 
 disinfo_df = df.loc[df['category_id'] == 'disinfo']
-disinfo_txt = disinfo_df['text']
+disinfo_txt = disinfo_df['text'].dropna()
 disinfo_value = 0
 number = 0
 for i, text in disinfo_txt.items():
@@ -63,7 +81,7 @@ for i, text in disinfo_txt.items():
 print('Flesch reading score for disino texts:', disinfo_value/i)
 
 alternative_science_df = df.loc[df['category_id'] == 'alternative_science']
-alt_txt = alternative_science_df['text']
+alt_txt = alternative_science_df['text'].dropna()
 alt_txt_value = 0
 number = 0
 for i, text in alt_txt.items():
@@ -71,8 +89,9 @@ for i, text in alt_txt.items():
     alt_txt_value += value
     number += 1
 print('Flesch reading score for alt texts:', alt_txt_value/i)
-'''
-'''
+
+
+
 alternative_science_df = df.loc[df['category_id'] == 'alternative_science']
 alt_txt = alternative_science_df['text']
 alt_txt_list = []
@@ -81,11 +100,11 @@ for i, text in alt_txt.items():
 alt_science_text = ''.join(alt_txt_list)
 
 
-print('Flesch reading score for scientific texts:', textstat.flesch_reading_ease(science_text))
+print('Flesch reading score for scientific texts:', textstat.flesch_reading_ease(sc_txt))
 print('Flesch reading score for pop texts:', textstat.flesch_reading_ease(pop_text))
-print('Flesch reading score for disinfo texts:', textstat.flesch_reading_ease(disinfo_text))
-print('Flesch reading score for alt science texts:', textstat.flesch_reading_ease(alt_science_text))
-'''
+print('Flesch reading score for disinfo texts:', textstat.flesch_reading_ease(disinfo_txt))
+print('Flesch reading score for alt science texts:', textstat.flesch_reading_ease(alt_txt))
+
 
 
 '''

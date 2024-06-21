@@ -3,16 +3,17 @@
 
 __description__ = "train datatset with BERT using sliding windows approach"
 __author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>, Lukas Galke"
-__copyright__ = "2023 by Eva Seidlmayer"
+__copyright__ = "2023-2024 by Eva Seidlmayer"
 __license__ = "ISC license"
 __email__ = "seidlmayer@zbmed.de"
 __version__ = "1 "
 
-#BERT_MODEL_IDENTIFIER = "bert-base-uncased"
+BERT_MODEL_IDENTIFIER = "bert-base-uncased"
 #BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
-#BERT_MODEL_IDENTIFIER = '../models/bertbase_t10k_e7_lr3e-5_mlclass' ---> 389 replace again!!!!
-BERT_MODEL_IDENTIFIER = "allenai / scibert_scivocab_uncased"
-
+#BERT_MODEL_IDENTIFIER = 'models/bertbase_t10k_e7_lr3e-5_mlclass'
+#---> line 392 replace again!!!!
+#BERT_MODEL_IDENTIFIER = "allenai/scibert_scivocab_uncased"
+#BERT_MODEL_IDENTIFIER = 'allenai/specter'
 EPOCH_AMOUNT = 10
 
 import pandas as pd
@@ -30,8 +31,7 @@ import torch
 import torch.nn as nn
 from typing import Optional, Union, Tuple
 from transformers.modeling_outputs import SequenceClassifierOutput
-import tensorflow as tf
-from sklearn.metrics import accuracy_score
+
 
 try:
     import wandb
@@ -57,8 +57,8 @@ def tokenize(texts):
     tokenizer = BertTokenizer.from_pretrained(BERT_MODEL_IDENTIFIER)
 
     # set max_length
-    max_length = 512
-    #max_length = 10000
+    #max_length = 512
+    max_length = 10000
     # max_length = 15000
 
     # Tokenize the text data
@@ -388,13 +388,12 @@ def main():
 
 
     # OUR AQUASBert INIT
-   # 'models/bertbase_t10k_e7_lr3e-5_mlclass'
+    #'models/bert-base_t10k_e5_lr3e-5'
     model = AQUASSlidingBERT.from_pretrained(BERT_MODEL_IDENTIFIER,
         num_labels=4,
         problem_type="multi_label_classification",
     )
-    # config= config
-    # BioBERT statt bert-base-uncased
+
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
     wandb.watch(model)
     print("weight and biases is tracking")
@@ -416,9 +415,8 @@ def main():
         model.save_pretrained(filename)
 
 
-    #model.save_pretrained("models/bert-base_t10k_e4_lr3e-5_mlclass")
+    model.save_pretrained("models/bert-base_t10k_e10_lr3e-5_mlclass")
     print("done")
-
 
 if __name__ == "__main__":
     main()

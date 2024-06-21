@@ -42,7 +42,7 @@ def get_infos(row):
                 infos = pd.DataFrame({'category_id': 'disinfo',
                                       'text_id': 'Mercola:'+article_title,
                                       'venue': '',
-                                      'data_source': 'Mercola',
+                                      'data-source': 'Mercola',
                                       'url': [url],
                                       'tags': '',
                                       'text': [clean_text]})

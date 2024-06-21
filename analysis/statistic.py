@@ -16,9 +16,10 @@ from spacy.lang.en.stop_words import STOP_WORDS
 import textstat
 import sys
 from spacy.language import Language
+import nlp
 
 
-df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_2024-06-13.csv')
+df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_2024-06-13.csv')
 all_text = df['text'].dropna()
 
 
@@ -99,6 +100,11 @@ for i, text in alt_txt.items():
     alt_txt_list.append(text)
 alt_science_text = ''.join(alt_txt_list)
 
+sc_txt = ', '.join(sc_txt.astype(str))
+pop_text = ', '.join(pop_text.astype(str))
+disinfo_txt = ', '.join(disinfo_txt.astype(str))
+alt_txt = ', '.join(alt_txt.astype(str))
+
 
 print('Flesch reading score for scientific texts:', textstat.flesch_reading_ease(sc_txt))
 print('Flesch reading score for pop texts:', textstat.flesch_reading_ease(pop_text))
@@ -110,8 +116,8 @@ print('Flesch reading score for alt science texts:', textstat.flesch_reading_eas
 '''
 #remove stoppwords
 token_list = []
-print('oooooo',type(science_text))
-for token in science_text:
+#print('oooooo',type(science_text))
+for token in sc_txt:
     token_list.append(token)
 filtered_sentence = []
 for word in token_list:

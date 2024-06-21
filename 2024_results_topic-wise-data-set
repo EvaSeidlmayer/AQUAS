@@ -30,49 +30,69 @@ Validation Loss: 8.4102 Accuracy: 0.2688 F1-score: 0.1201
 
 
 
-#BERT_training_sliding_multi_lable_classification.py
-
-[3] Accuracy: 0.9457, F1-score: 0.9456, Classification_report:                           precision    recall  f1-score   support
-
-         class scientific       1.00      0.86      0.92       371
- class popular scientific       0.97      0.96      0.97       480
-     class disinformation       0.95      0.96      0.95       460
-class alternative science       0.88      0.99      0.93       456
-
-                micro avg       0.95      0.95      0.95      1767
-                macro avg       0.95      0.94      0.94      1767
-             weighted avg       0.95      0.95      0.95      1767
-              samples avg       0.94      0.95      0.95      1767
-
 
 
 # BERT_training sliding multi label classification. py
+## Bert base
+[10] Accuracy: 0.9740, F1-score: 0.9737, Classification_report:                           precision    recall  f1-score   support
+
+         class scientific       0.98      1.00      0.99       361
+ class popular scientific       0.95      0.98      0.97       464
+     class disinformation       0.98      0.95      0.96       488
+class alternative science       0.98      0.98      0.98       454
+
+                micro avg       0.97      0.97      0.97      1767
+                macro avg       0.97      0.98      0.97      1767
+             weighted avg       0.97      0.97      0.97      1767
+              samples avg       0.97      0.97      0.97      1767
+
+done
+wandb: Waiting for W&B process to finish... (success).
+wandb:
+wandb: Run history:
+wandb: accuracy ▁▆▃█▇█████
+wandb:       f1 ▁▆▃█▇█████
+wandb:
+wandb: Run summary:
+wandb:              accuracy 0.97397
+wandb: classification_report                     ...
+wandb:                    f1 0.97365
+wandb:
+wandb: 🚀 View run misunderstood-vortex-225 at: https://wandb.ai/zbmed/AQUAS/runs/gg49iumv
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240620_083952-gg49iumv/logs
+
+
 ## "dmis-lab/biobert-v1.1"
 ### 10 Epochs
 
-    class scientific       0.99      1.00      0.99       367
- class popular scientific       0.97      0.98      0.98       473
-     class disinformation       0.97      0.99      0.98       469
-class alternative science       1.00      0.97      0.98       458
+    [10] Accuracy: 0.9728, F1-score: 0.9726, Classification_report:                           precision    recall  f1-score   support
 
-                micro avg       0.98      0.98      0.98      1767
-                macro avg       0.98      0.99      0.98      1767
-             weighted avg       0.98      0.98      0.98      1767
-              samples avg       0.98      0.98      0.98      1767
+         class scientific       0.96      1.00      0.98       359
+ class popular scientific       0.99      0.95      0.97       472
+     class disinformation       0.95      0.99      0.97       476
+class alternative science       1.00      0.96      0.98       460
 
+                micro avg       0.97      0.97      0.97      1767
+                macro avg       0.97      0.97      0.97      1767
+             weighted avg       0.97      0.97      0.97      1767
+              samples avg       0.97      0.97      0.97      1767
 
+done
+wandb: Waiting for W&B process to finish... (success).
+wandb:
 wandb: Run history:
-wandb: accuracy ▁██
-wandb:       f1 ▁██
+wandb: accuracy ▁▇▇▇██████
+wandb:       f1 ▁▇▇▇██████
 wandb:
 wandb: Run summary:
-wandb:              accuracy 0.98302
+wandb:              accuracy 0.97284
 wandb: classification_report                     ...
-wandb:                    f1 0.98306
+wandb:                    f1 0.97256
 wandb:
-wandb: 🚀 View run lunar-eon-213 at: https://wandb.ai/zbmed/AQUAS/runs/diddfw49
+wandb: 🚀 View run dazzling-capybara-224 at: https://wandb.ai/zbmed/AQUAS/runs/3afbfoyv
 wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20240616_155744-diddfw49/logs
+wandb: Find logs at: ./wandb/run-20240620_065623-3afbfoyv/logs
 
 
 
@@ -122,28 +142,59 @@ wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other fil
 
 
 ## scibert
-     class scientific       0.97      1.00      0.98       372
- class popular scientific       0.97      0.91      0.94       467
-     class disinformation       0.99      0.86      0.92       471
-class alternative science       0.86      0.97      0.91       457
+[10] Accuracy: 0.9768, F1-score: 0.9777, Classification_report:                           precision    recall  f1-score   support
 
-                micro avg       0.94      0.93      0.94      1767
-                macro avg       0.95      0.94      0.94      1767
-             weighted avg       0.95      0.93      0.94      1767
-              samples avg       0.93      0.93      0.93      1767
+         class scientific       0.96      1.00      0.98       355
+ class popular scientific       0.96      0.99      0.97       464
+     class disinformation       0.99      0.97      0.98       470
+class alternative science       1.00      0.96      0.98       478
+
+                micro avg       0.98      0.98      0.98      1767
+                macro avg       0.98      0.98      0.98      1767
+             weighted avg       0.98      0.98      0.98      1767
+              samples avg       0.98      0.98      0.98      1767
 
 done
 wandb: Waiting for W&B process to finish... (success).
 wandb:
 wandb: Run history:
-wandb: accuracy ▅▁█
-wandb:       f1 ▅▁█
+wandb: accuracy ▆▁████████
+wandb:       f1 ▇▁████████
 wandb:
 wandb: Run summary:
-wandb:              accuracy 0.93605
+wandb:              accuracy 0.9768
 wandb: classification_report                     ...
-wandb:                    f1 0.93657
+wandb:                    f1 0.97769
 wandb:
-wandb: 🚀 View run hardy-wind-217 at: https://wandb.ai/zbmed/AQUAS/runs/vhxyxktu
-wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20240617_145914-vhxyxktu/logs
+wandb: 🚀 View run rural-night-223 at: https://wandb.ai/zbmed/AQUAS/runs/3idg5xnq
+
+
+
+
+##SPECTER
+[10] Accuracy: 0.9813, F1-score: 0.9827,
+Classification_report:
+           precision    recall  f1-score   support
+
+         class scientific       1.00      1.00      1.00       364
+ class popular scientific       0.98      0.97      0.97       464
+     class disinformation       0.98      0.96      0.97       474
+class alternative science       0.97      1.00      0.99       465
+
+                micro avg       0.98      0.98      0.98      1767
+                macro avg       0.98      0.98      0.98      1767
+             weighted avg       0.98      0.98      0.98      1767
+              samples avg       0.98      0.98      0.98      1767
+
+done
+wandb: Waiting for W&B process to finish... (success).
+wandb: / 0.406 MB of 0.406 MB uploaded (0.000 MB deduped)
+wandb: Run history:
+wandb: accuracy ▇██▇▁▇████
+wandb:       f1 ▇██▇▁▇████
+wandb:
+wandb: Run summary:
+wandb:              accuracy 0.98132
+wandb: classification_report                     ...
+wandb:                    f1 0.98267
+🚀 View run worthy-feather-220 at: https://wandb.ai/zbmed/AQUAS/runs/l9c9huok

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-__description__ = ("harvest articles from ")
+__description__ = ("harvest articles from https://www.ijrh.org")
 __author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>"
 __copyright__ = "2023 by Eva Seidlmayer"
 __license__ = "ISC license"
@@ -9,13 +9,12 @@ __email__ = "seidlmayer@zbmed.de"
 __version__ = "1 "
 
 
-import pdftotext
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import re
 from pypdf import PdfReader
-
+import PyPDF2
 
 def get_urls(url):
     # Requests URL and get response object
@@ -38,23 +37,42 @@ def get_urls(url):
 
 def download_pdf(complete_link):
     # Get response object for link
-    response = requests.get(complete_link)
+    path = "data/PDF_dummy.pdf"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5'}
+    response = requests.get(complete_link, headers=headers)
 
     # Write content in pdf file
-    path = "data/PDF_dummy.pdf"
-    pdf = open(path, 'wb')
-    pdf.write(response.content)
-    pdf.close()
-    return path
+    if response.status_code == 200:
+        with open(path, 'wb') as f:
+            f.write(response.content)
+            return path
+    else:
+        print(f"Failed to download PDF. HTTP Status Code: {response.status_code}")
+
+def get_page_number(path):
+    print('check number of pages')
+    file = open(path, 'rb')
+    pdfReader = PyPDF2.PdfReader(file)
+    page_number = len(pdfReader.pages)
+    return page_number
 
 
-def pdf_to_text(path):
+
+def pdf_to_text(path, page_number):
     # load pdf
     print('convert pdf to txt')
     try:
-        reader = PdfReader(path, strict=False)
-        page = reader.pages[0]
-        pdf_text = page.extract_text()
+        with open(path, 'rb') as file:
+            reader = PyPDF2.PdfReader(file)
+            pdf_text = ''
+
+            for page_num in range(page_number):
+                page = reader.pages[page_num]
+                pdf_text += page.extract_text()+ '\n'
+
         return pdf_text
 
     except Exception as e:
@@ -62,13 +80,6 @@ def pdf_to_text(path):
         print('WARNING NO PDF')
         return None
 
-    '''
-    with open(path, 'rb') as f:
-        
-        pdf = pdftotext.PDF(f)
-        pdf_txt = "\n\n".join(pdf)
-    return pdf_txt
-    '''
 
 def clean_text(pdf_txt):
     cleaned_txt = ' '.join(pdf_txt.split())
@@ -110,12 +121,14 @@ def main():
 
             print("Downloading file: ", complete_link)
             path = download_pdf(complete_link)
-            pdf_txt = pdf_to_text(path)
+            page_number = get_page_number(path)
+
+            pdf_txt = pdf_to_text(path, page_number)
             cleaned_txt = clean_text(pdf_txt)
             #doi = identify_doi(cleaned_txt)
             df = compile_infos(cleaned_txt, df, url, complete_link)
     print("All PDF files downloaded")
-    df.to_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/raw_content/alternative_Indian-research-Homeopathy_PDF-2024-06-03.csv', index=False)
+    df.to_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/raw_content/alternative_Indian-research-Homeopathy_PDF-2024-08-06.csv', index=False)
     print('done')
 
 

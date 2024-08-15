@@ -10,16 +10,10 @@ __version__ = "1 "
 
 
 import pandas as pd
-from nltk.corpus import inaugural
-from spacy.lang.en import English
-from spacy.lang.en.stop_words import STOP_WORDS
 import textstat
-import sys
-from spacy.language import Language
-import nlp
 
 
-df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_2024-06-13.csv')
+df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_all-infos_2024-08-06_LSoLF-24-v2.csv')
 all_text = df['text'].dropna()
 
 
@@ -55,7 +49,7 @@ for i, text in sc_txt.items():
     value = textstat.flesch_reading_ease(text)
     sc_txt_value += value
     number += 1
-print('Flesch reading score for scientific texts:', sc_txt_value/i)
+print('1. Flesch reading score for scientific texts:', sc_txt_value/i)
 
 
 pop_df = df.loc[df['category_id'] == 'popular']
@@ -67,7 +61,7 @@ for i, text in pop_text.items():
     pop_value += value
     number +=1
 
-print('Flesch reading score for pop texts:', pop_value/i)
+print('2. Flesch reading score for pop texts:', pop_value/i)
 
 
 
@@ -79,7 +73,7 @@ for i, text in disinfo_txt.items():
     value = textstat.flesch_reading_ease(text)
     disinfo_value += value
     number += 1
-print('Flesch reading score for disino texts:', disinfo_value/i)
+print('3. Flesch reading score for disino texts:', disinfo_value/i)
 
 alternative_science_df = df.loc[df['category_id'] == 'alternative_science']
 alt_txt = alternative_science_df['text'].dropna()
@@ -89,10 +83,10 @@ for i, text in alt_txt.items():
     value = textstat.flesch_reading_ease(text)
     alt_txt_value += value
     number += 1
-print('Flesch reading score for alt texts:', alt_txt_value/i)
+print('4. Flesch reading score for alt texts:', alt_txt_value/i)
 
 
-
+''''
 alternative_science_df = df.loc[df['category_id'] == 'alternative_science']
 alt_txt = alternative_science_df['text']
 alt_txt_list = []
@@ -111,7 +105,7 @@ print('Flesch reading score for pop texts:', textstat.flesch_reading_ease(pop_te
 print('Flesch reading score for disinfo texts:', textstat.flesch_reading_ease(disinfo_txt))
 print('Flesch reading score for alt science texts:', textstat.flesch_reading_ease(alt_txt))
 
-
+'''
 
 '''
 #remove stoppwords
@@ -127,7 +121,7 @@ for word in token_list:
 print(len(filtered_sentence))
 print(len(token_list))
 '''
-
+'''
 nlp = English()  # or spacy.load('a_model')
 nlp.add_pipe("simple_corpus_stats")
 
@@ -162,3 +156,4 @@ print(*corpus_stats.vocabulary.most_common(5), sep="\n")
 
 mean_doc_length = sum(corpus_stats.doc_lengths) / corpus_stats.corpus_length
 print(f"Mean doc length: {mean_doc_length:.1f}")
+'''

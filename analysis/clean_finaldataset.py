@@ -40,7 +40,7 @@ def clean_harvardHealthPublishing(base_url):
     df['text'] = df['text'].str.replace('Staying Healthy   Resources   Blog   COVID-19 Updates       Close menu    Close    Main Content', '')
     df['text'] = df['text'].str.replace("Dupuytren's contracture of the hand        Moving from couch to 5K        How — and why — to fit more fiber and fermented food into your meals        Tick season is expanding: Protect yourself against Lyme disease        What? Another medical form to fill out?        How do trees and green spaces enhance our health?", '')
     df['text'] = df['text'].str.replace("  A muscle-building obsession in boys: What to know and do         Ad Watch: New drug, old song, clever tagline        Concussion in children: What to know and do        What color is your tongue? What's healthy, what's not?      / ", '')
-    df['text'] = df['text'].str.replace('Contributor\; ', '')
+    df['text'] = df['text'].str.replace("Contributor\; ", '')
     df['text'] = df['text'].str.replace("Harvard Women's Health Watch", '')
     df['text'] = df['text'].str.replace('Harvard Heart Letter', '')
     df['text'] = df['text'].str.replace('Sign Me Up', '')
@@ -87,12 +87,15 @@ def clean_MedlinePlus(base_url, col_list):
     df.to_csv(base_url + '/cleaned/popular_MedlinePlus_text_cleaned.csv', index= False)
 
 def clean_JEBIM(base_url, col_list):
-    df_1 = pd.read_csv(base_url+'before_cleaning/alternative_sagejournalofevidencebasedintegrativemedicine_text.csv', usecols=col_list)
-    df_2 = pd.read_csv(base_url + 'before_cleaning/alternative_sagejournalofevidencebasedintegrativemedicine-2.csv', usecols=col_list)
-    df = pd.concat([df_1, df_2], axis=0, ignore_index=True).drop_duplicates()
+    df = pd.read_csv(base_url + 'before_cleaning/FSoLS-24-v2/alternative_sagejournalofevidencebasedintegrativemedicine_text_2024-07-05.csv', usecols=col_list)
+    #df_2 = pd.read_csv(base_url + 'before_cleaning/alternative_sagejournalofevidencebasedintegrativemedicine-2.csv', usecols=col_list)
+    #df = pd.concat([df_1, df_2], axis=0, ignore_index=True).drop_duplicates()
+    df = df.drop_duplicates()
+    print(df.head())
     df['text'] = df['text'].str.replace("Original Article", '')
     df['text'] = df['text'].str.replace('Topical Review Article', '')
     df['text'] = df['text'].str.replace('Review Article', '')
+    df['text'] = df['text'].str.replace('Original Article', '')
     df['text'] = df['text'].str.replace('Creative Commons Non Commercial CC BYNC This article is distributed under the terms of the Creative Commons AttributionNonCommercial 4.0 Licens e httpscreativecommons.orglicensesbync4.0 which permits noncommercial use reproduction and distribution of the work without furth er permission provided the original work is attributed as specified on the SAGE and Open Access pages httpsus.sagepub.comenusnamopenaccessatsage', '')
     df['text'] = df['text'].str.replace('Creative Commons Non Commercial CC BYNC This article is distributed under the terms of the Creative Commons AttributionNonCommercial 4.0 Licens e httpwww.creativecommons.orglicensesbync4.0 which permits noncommercial use reproduction and distribution of the work without fu rther permission provided the original work is attributed as specified on the SAGE and Open Access pages httpsus.sagepub.comenusnamopenacces satsage', '')
     df['text'] = df['text'].str.replace('Creative Commons Non Commercial CC BYNC This article is distributed under the terms of the Creative Commons AttributionNonCommercial 3.0 Licens e httpwww.creativecommons.orglicensesbync3.0 which permits noncommercial use reproduction and distribution of the work without fu rther permission provided the original work is attributed as specified on the SAGE and Open Access pages httpsus.sagepub.comenusnamopenacces satsage.', '')
@@ -107,18 +110,19 @@ def clean_JEBIM(base_url, col_list):
     df['text'].replace(to_replace='(?<=Reprints and permission).*?(?=comhomecam)', value= '', regex=True)
     df['text'] = df['text'].str.replace('httpsus\.sagepub\.comenusnamopenacces satsage', '')
 
-    df.to_csv(base_url + '/cleaned/alternative_JEBIM_text_cleaned.csv', index= False)
+    df.to_csv(base_url + '/cleaned/alternative_JEBIM_text_cleaned_FSoLS-24-v2.csv', index= False)
 
-def clean_CMT(base_url):
-    df = pd.read_csv(base_url+'before_cleaning/alternative_CompMedTherapies_texts_2024-06-05.csv').drop_duplicates()
+def clean_CMT(base_url, col_list):
+    df = pd.read_csv(base_url+'before_cleaning/FSoLS-24-v2/2024-07-05_alternative_CompMedTherapies_texts_test.csv', usecols=col_list).drop_duplicates()
     #### ? delete items: STUDY PROTOCOL, MEETING ABSTRACTS, REVIEW Open Access, POSTER PRESENTATION, POSTER PRESENTATION ?
     #### delete terms: "alternative" ?
     #### delete: "BMC Complementary and Alternative Medicine"
+    print(df.head())
     df['text'] = df['text'].str.replace("RESEARCH ARTICLE Open Access", '')
     df['text'] = df['text'].str.replace('The Authors', '')
     df['text'] = df['text'].str.replace('This is an Open Access article distributed under the terms of the Creative Commons Attribution License httpcreativecommons.orglicensesby2.0 which permits unrestricted use distribution and reproduction in any medium provided the original work is properly cited.', '')
 
-    df.to_csv(base_url + '/cleaned/alternative_CMT_text_cleaned.csv', index= False)
+    df.to_csv(base_url + '/cleaned/alternative_CMT_text_cleaned_FSoLS-24-v2.csv', index= False)
 
 def clean_homeoJ(base_url):
     df = pd.read_csv(base_url+'before_cleaning/alternative_homeopathicjournal_text_2024-06-05.csv')
@@ -152,7 +156,7 @@ def clean_goethe(base_url):
     df.to_csv(base_url + '/cleaned/alternative_goethe_text_cleaned.csv', index= False)
 
 def clean_IJRH(base_url):
-    df = pd.read_csv(base_url+'before_cleaning/alternative_Indian-researchHomeopathy_text.csv')
+    df = pd.read_csv(base_url+'before_cleaning/FSoLS-24-v2/alternative_Indian-researchHomeopathy_text_FSoLS-24-v2.csv')
 
     df['text'] = df['text'].str.replace(r"\© \d{4} Indian Journal of Research in Homoeopathy \| Published by Wolters Kluwer \- Medknow\d{1,3}", '', regex=True)
     df['text'] = df['text'].str.replace(r'Indian Journal of Research in Homoeopathy', '', regex=True)
@@ -161,7 +165,7 @@ def clean_IJRH(base_url):
     df['text'] = df['text'].str.replace('medknow', '')
     df['text'] = df['text'].str.replace(r' \[Downloaded free from http\:\/\/www\.ijrh\.org on .+]', '', regex= True)
 
-    df.to_csv(base_url + '/cleaned/alternative_IJRH_text_cleaned.csv', index= False)
+    df.to_csv(base_url + '/cleaned/alternative_IJRH_text_cleaned_FoLS-24-v2.csv', index= False)
 
 def clean_naturalnews(base_url):
     df = pd.read_csv(base_url+'before_cleaning/disinfo_naturalnews_2024-05-24.csv')
@@ -197,7 +201,7 @@ def clean_HIN(base_url):
     df.to_csv(base_url + '/cleaned/disinfo_healthimpactnews_text_cleaned.csv', index=False)
 
 def clean_mercola(base_url):
-    df = pd.read_csv(base_url + 'before_cleaning/disinfo_mercola_2024-05-28.csv')
+    df = pd.read_csv(base_url + 'before_cleaning/FSoLS-24-v2/disinfo_mercola_FSoLS-24-v2.csv')
     df.drop_duplicates(inplace=True)
 
     df['text'] = df['text'].str.replace("['", '')
@@ -215,7 +219,7 @@ def clean_mercola(base_url):
     df['text'] = df['text'].apply(lambda x: x.split('\-\-Expand full comment')[0])
     df['text'] = df['text'].apply(lambda x: x.split('Expand full comment')[0])
 
-    df.to_csv(base_url + '/cleaned/disinfo_mercola_text_cleaned.csv', index=False)
+    df.to_csv(base_url + '/cleaned/disinfo_mercola_text_cleaned_4SoLF-24-v2.csv', index=False)
 
 def clean_HealthDOTNews(base_url):
     df = pd.read_csv(base_url + 'before_cleaning/disinfo_HealthDOTNews_text.csv')
@@ -254,13 +258,13 @@ def main():
     #clean_WH(base_url)
     #clean_MedlinePlus(base_url, col_list)
     #clean_JEBIM(base_url, col_list)
-    clean_CMT(base_url)
+    #clean_CMT(base_url, col_list)
     #clean_homeoJ(base_url)
     #clean_goethe(base_url)
     #clean_IJRH(base_url)
     #clean_naturalnews(base_url)
     #clean_HIN(base_url)
-    #clean_mercola(base_url)
+    clean_mercola(base_url)
     #clean_HealthDOTNews(base_url)
     #clean_infowars(base_url)
 

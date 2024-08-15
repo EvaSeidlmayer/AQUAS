@@ -82,64 +82,87 @@ new: 1) scientific (specialized?) 2) non-scientific
 
 # Data Sets 
 ## Data Set, third approach: topic wise
-| topic       | scientific | popular_scientific                                 | alternative_scientific                                       | disinformativ                                  | smalest amount*4 |
-|-------------|--------|----------------------------------------------------|--------------------------------------------------------------|------------------------------------------------|------------------|
-| cumin       | **2** PMC | 4 WebMD, 0 HHP, 2 MH, 0 WH, 0 MPM        **[6]**   | 15 JEBIM, 30 CMT,  0 HomeoJour, 0 Goethe, 0 IJRH   [45]      | 4 NN,  10 HIN, 1 MCL, 0 H.N, 0 IW  [15]        | 2                |
-| dementia    | 1166 PMC | 122 WebMD, 22 HHP, 5 MH, 6 WH, 19 MPM              | 33 JEBIM, 172 CMT, 12 HomeoJour, 1 Goethe, 2 IJRH            | 8 NN,  49 HIN, 18 MCL, 5 H.N, 1 IW  **[81]**   | 81               |
-| heart attack | 902 PMC | 84 WebMD, 6 HHP, 12 MH, 10 WH, 9 MPM               | 45 JEBIM, 45 CMT, 3 HomeoJour, 0 Goethe, 0 IJRH              | 18 NN, 22 HIN, 19 MCL, 2 H.N, 0 IW    **[61]** | 61               |
-| insomnia    | 130 PMC | 132 WebMD, 11 HHP, 0 MH, 6 WH, 5 MPM               | 40 JEBIM,84 CMT, 16 HomeoJour, 3 Goethe, 0 IJRH              | 32 NN, - HIN, 9 MCL, 0 H.N, 0 IW     **[41]**  | 41               |
-| menopause   | 388 PMC | 129 WebMD, 9 HHP, 0 MH, 5 WH, 4 MPM                | 12 JEBIM,42 CMT, 25 HomeoJour, 2 Goethe, 2 IJRH              | 10 NN,  21 HIN, 5 MCL, 2 H.N, 1 IW    **[38]** | 38               |
-| stroke      | 1162 PMC | 117 WebMD, 1 HHP, 6 MH, 3 WH, 22 MPM               | 46 JEBIM,40 CMT, 28 HomeoJour, 0 Goethe,  4 IJRH  **[118]**  | 130 NN,  23 HIN, 18 MCL, 5 H.N, 1 IW           | 118              |
-| tobacco     | 133 PMC | 0 WebMD, 1 HHP, 6 MH, 1 WH, 5 MPM      **[13]**    | 61 JEBIM, 25 CMT, 19 HomeoJour, 1 Goethe, 0 IJRH             | 24 NN, 3 HIN, 4 MCL, 1 H.N, 0 IW               | 13               |
-| turmeric    | **28** PMC | 31 WebMD, 3 HHP, 10 MH, 5 WH, 0 MPM  **[49]**      | 11 JEBIM,  121 CMT, 1 HomeoJour, 0 Goethe, 1 IJRH  [134]     | 71 NN, 2 HIN, 7 MCL, 6 H.N, 0 IW  [86]         | 28               |           
-| measles     | 139 PMC | 34 WebMD, 5 HHP, 3 MH, 1 WH, 14 MPM                | 8 JEBIM, 6 CMT, 8 HomeoJour, 2 Goethe, 1 IJRH   **[25]**     | 16 NN, 63 HIN, 3 MCL, - H.N., 0 IW             | 25               |
-| inflammation | 2582 PMC | 32 WebMD, 21 HHP, 37 MH, 19 WH, 13 MPM       [122] | 31 JEBIM, 364 CMT, 122 HomeoJour, 5 Goehte, 11 IJRH          | 8 NN,  21 HIN, 53 MCL, - H.N., 1 IW   **[83]** | 83               |
-| vaccination | 2907 PMC | 18 WebMD, 53 HHP,50 MH, 42 WH, 29 MPM              | 17 JEBIM, 15 CMT, 13 HomeoJour,  2 Goethe, 4 IJRH **[51]**   | 46 NN, 94 HIN, 37 MCL,  - H.N., 10 IW          | 51               |
-| transgender | 121 PMC | 21 WebMD, 10 HHP, 35 MH, 19 WH, 0 MPM              | 1 JEBIM,  - CMT, 0 HomeoJour, 0 Goethe, 0 IJRH      **[1]**  | 72 NN, 10 HIN, 1 MCL, - H.N., 5 IW             | 1                |
-| abortion    | 215 PMC | 18 WebMD, 3 HHP, 9 MH, 37 WH, 0 WPM                | 12 JEBIM, 13 CMT,  15 HomeoJour, 1 Goethe, 0 IJRH   **[41]** | 48 NN, 29 HIN, 1MCL, - H.N., 2 IW              | 41               |
-| sum         | 2058 PMC | 742 WebMD, 145 HHP, 175 MH, 155 WH, 120 MPM        | 334 JEBIM,  958 CMT, 262 HomeoJour, 18 Goethe, IJRH          | 560 NN, 347 HIN, 175 MCL, 21 H.N, 26 IW        | 664              |
-| complete    | 2058   | 1337                                               | 1574                                                         | 1129                                           | 2656             |
+| topic          | scientific | popular_scientific                                        | alternative_scientific                                           | disinformativ                                        | smalest amount*4 |
+|----------------|--------|-----------------------------------------------------------|------------------------------------------------------------------|------------------------------------------------------|---------------|
+| cumin          | **2** PMC | 4 WebMD, 0 HHP, 2 MH, 0 WH, 0 MPM, 1 Mayo        **[7]**  | 15 JEBIM, 30 CMT,  0 HomeoJour, 0 Goethe, 0 IJRH   [45]          | 4 NN,  10 HIN, 1 MCL, 0 H.N, 0 IW  [15]              | 2           |
+| dementia       | 1166 PMC | 122 WebMD, 22 HHP, 5 MH, 6 WH, 19 MPM                     | 33 JEBIM, 172 CMT, 12 HomeoJour, 1 Goethe, 5 IJRH       [223]    | 8 NN,  49 HIN, 23 MCL, 5 H.N, 1 IW  **[86]**  <-     | [86]          |
+| heart attack   | 902 PMC | 84 WebMD, 6 HHP, 12 MH, 10 WH, 9 MPM                      | 45 JEBIM, 45 CMT, 3 HomeoJour, 0 Goethe, 0 IJRH         [93]     | 18 NN, 22 HIN, 30 MCL, 2 H.N, 0 IW    **[72]** <-    | [72]          |
+| insomnia       | 130 PMC | 132 WebMD, 11 HHP, 0 MH, 6 WH, 5 MPM                      | 40 JEBIM,84 CMT, 16 HomeoJour, 3 Goethe, 7 IJRH           [152]  | 32 NN, - HIN, 11 MCL, 0 H.N, 0 IW     **[43]**  <-   | [43]          |
+| menopause      | 388 PMC | 129 WebMD, 9 HHP, 0 MH, 5 WH, 4 MPM                       | 12 JEBIM,42 CMT, 25 HomeoJour, 2 Goethe, 6 IJRH           [87]   | 10 NN,  21 HIN, 6 MCL, 2 H.N, 1 IW    **[40]**  <-   | [40]          |
+| stroke         | 1162 PMC | 117 WebMD, 1 HHP, 6 MH, 3 WH, 22 MPM                      | 46 JEBIM,40 CMT, 28 HomeoJour, 0 Goethe,  12 IJRH  **[126]**  <- | 130 NN,  23 HIN, 32 MCL, 5 H.N, 1 IW     [191]       | [126]         |
+| tobacco        | 133 PMC | 0 WebMD, 1 HHP, 6 MH, 1 WH, 5 MPM, 8 Mayo      **[21]**   <- | 61 JEBIM, 25 CMT, 19 HomeoJour, 1 Goethe, 6 IJRH         [112]   | 24 NN, 3 HIN, 6 MCL, 1 H.N, 0 IW              [34]   | [21] <-       |
+| turmeric       | **28** PMC | 31 WebMD, 3 HHP, 10 MH, 5 WH, 0 MPM, 4 Mayo  **[53]** <-  | 11 JEBIM,  121 CMT, 1 HomeoJour, 0 Goethe, 2 IJRH  [135]         | 71 NN, 2 HIN, 11 MCL, 6 H.N, 0 IW  [90]              | [53] <-       |           
+| measles        | 139 PMC | 34 WebMD, 5 HHP, 3 MH, 1 WH, 14 MPM                       | 8 JEBIM, 6 CMT, 8 HomeoJour, 2 Goethe, 1 IJRH   **[25]**         | 16 NN, 63 HIN, 5 MCL, - H.N., 0 IW          [84]     | 25            |
+| inflammation   | 2582 PMC | 32 WebMD, 21 HHP, 37 MH, 19 WH, 13 MPM       [122]        | 31 JEBIM, 364 CMT, 122 HomeoJour, 5 Goehte, 11 IJRH       [533]  | 8 NN,  21 HIN, 87 MCL, - H.N., 1 IW   **[117]**  <-- | [117]         |
+| vaccination    | 2907 PMC | 18 WebMD, 53 HHP,50 MH, 42 WH, 29 MPM                     | 17 JEBIM, 15 CMT, 13 HomeoJour,  2 Goethe, 14 IJRH **[61]** <-   | 46 NN, 94 HIN, 45 MCL,  - H.N., 10 IW     [195]      | 61            |
+| transgender    | 121 PMC | 21 WebMD, 10 HHP, 35 MH, 19 WH, 0 MPM                     | 1 JEBIM,  - CMT, 0 HomeoJour, 0 Goethe, 0 IJRH      **[1]**      | 72 NN, 10 HIN, 1 MCL, - H.N., 5 IW          [88]     | 1             |
+| abortion       | 215 PMC | 18 WebMD, 3 HHP, 9 MH, 37 WH, 0 WPM                       | 12 JEBIM, 13 CMT,  15 HomeoJour, 1 Goethe, 3 IJRH   **[44]** <-  | 48 NN, 29 HIN, 1 MCL, - H.N., 2 IW         [80]      | 44            |
+| climate change ||                                                           |                                                                  |                                                      |
+| pandemic       ||                                                           |                                                                  |                                                      |
+| adrenochrome   ||                                                           |                                                                  |                                                      |
+| urotherapy     ||                                                           |                                                                  |                                                      |
+| chakra         ||                                                           |                                                                  |                                                      |
+| sum            | 2058 PMC | 742 WebMD, 145 HHP, 175 MH, 155 WH, 120 MPM               | 334 JEBIM,  958 CMT, 262 HomeoJour, 18 Goethe, IJRH              | 560 NN, 347 HIN, 175 MCL, 21 H.N, 26 IW              | 664           |
+| complete       | 2058   | 1337                                                      | 1574                                                             | 1129                                                 | 2656          |
 
 
 
 -scientific
-  - PMC = PubMed Central (10% most cited-by)  
-    - Cuminum [B01.875.800.575.912.250.075.233]
-    - Dementia [C10.228.140.380, F03.615.400] 
-    - Myocardial Infarction [C14.280.647.500, C14.907.585.500, C23.550.513.355.750, C23.550.717.489.750]
-    - Sleep Initiation and Maintenance Disorders [C10.886.425.800.800, F03.870.400.800.800]
-    - Menopause [G08.686.157.500, G08.686.841.249.500]
-    - Stroke [C10.228.140.300.775, C14.907.253.855]
-    - Tobacco Use [F01.145.958] / Tobacco Smoking [F01.145.805.375,  F01.145.958.875]
-    - Curcuma [B01.875.800.575.912.250.618.937.900.166]
-    - Measles [C01.925.782.580.600.500.500]
-    - Inflammation [C23.550.470]
-    - Vaccines [D20.215.894]
-    - Transgender Persons [M01.270.988.750]
-    - Abortion, Induced [E04.520.050]
+  - PMC = PubMed Central (10% most cited-by)
+    - via XML
+      - Cuminum [B01.875.800.575.912.250.075.233]
+      - Dementia [C10.228.140.380, F03.615.400] 
+      - Myocardial Infarction [C14.280.647.500, C14.907.585.500, C23.550.513.355.750, C23.550.717.489.750]
+      - Sleep Initiation and Maintenance Disorders [C10.886.425.800.800, F03.870.400.800.800]
+      - Menopause [G08.686.157.500, G08.686.841.249.500]
+      - Stroke [C10.228.140.300.775, C14.907.253.855]
+      - Tobacco Use [F01.145.958] / Tobacco Smoking [F01.145.805.375,  F01.145.958.875]
+      - Curcuma [B01.875.800.575.912.250.618.937.900.166]
+      - Measles [C01.925.782.580.600.500.500]
+      - Inflammation [C23.550.470]
+      - Vaccines [D20.215.894]
+      - Transgender Persons [M01.270.988.750]
+      - Abortion, Induced [E04.520.050]
 - popular_scientific
   - WebMD: Web MD https://www.webmd.com/
+    - HTML/beautifulsoup
   - HHP =  Harvard Health Publishing - Harvard Medical School: https://www.health.harvard.edu/ 
+    - HTML/beautifulsoup
   - MH = Men's Health: https://www.menshealth.com
+    - HTML/beautifulsoup
   - WH = Women's Health: https://www.womenshealthmag.com
-    - cleaning "Related Story"?
+    - HTML/beautifulsoup
+    - cleaning "Related Story"? 
   - MPM = Medline Plus Magazin:  https://magazine.medlineplus.gov
-    - CDC = 
+    - HTML/beautifulsoup
+  - Mayo = Mayo Clinic https://www.mayoclinic.org/
+    - only checkted for: cumin, tobacco, turmeric
+    - manually from websites 
+  - CDC = 
 
 - alternative scientific
   - JEBIM = Journal of evidence based integrative medicine
+    - PDF/PyPDF2 all pages
   - CMT = BMC Complementary Medicine and Therapies
-    - texts complete?
+    - PDF/PyPDF2 all pages
   - HomeoJour = Homeopathic Journal: https://www.homoeopathicjournal.com/archives
+    - PDF/pdftotext all pages
   - Goethe = School of Spiritual Science Medical Section at the Goetheanum https://medsektion-goetheanum.org/en/research/publications/journal-contributions-on-research-in-anthroposophic-medicine-2017-2019
+    - PDF/pdftotext all pages
   - IJRH = Indian Journal of Research in Homeopathy: https://www.ijrh.org/
+    - PDF/pypdf.PDFReader
 - 
-- disinformatation
+- disinformation
   - NN = Natural News
+    - HTML/beautiful soup
   - HIN = Health Impact News
+    - HTML/beautiful soup
   - MCL = Mercola's Censored Library (harvesting continues)
+    - HTML/beautiful soup
   - H.N = Health.News (harvesting continues)
+    - HTML/beautiful soup
   - IW = https://www.infowars.com/category/4/  category 4 "health"
+    - HTML/beautiful soup
 
 
 - not harvested yet:  

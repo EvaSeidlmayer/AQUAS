@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-__description__ = "aggregate data from all categories to one set"
+__description__ = "FSoLS 2023 aggregate data from all categories to one set"
 __author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>"
 __copyright__ = "2023 by Eva Seidlmayer"
 __license__ = "ISC license"

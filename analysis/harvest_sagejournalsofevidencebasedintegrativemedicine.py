@@ -13,36 +13,51 @@ __version__ = "1 "
 import requests
 import pandas as pd
 import re
-from pypdf import PdfReader
 import urllib
 import glob
+import PyPDF2
 
 
 
 def download_pdf(url):
-    path = "data/2024-05-02_dummy_anthropo-PDF.pdf"
-    req = urllib.request.Request(url)
-    req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0')
-    req.add_header('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8')
-    req.add_header('Accept-Language', 'en-US,en;q=0.5')
+    path = "data/2024-07-08_dummy_anthropo-PDF.pdf"
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+               'Accept-Language': 'en-US,en;q=0.5'}
+    response = requests.get(url, headers = headers)
 
-    r = urllib.request.urlopen(req).read().decode('utf-8')
-    with open(path, 'w', encoding="utf-8") as f:
-        f.write(r)
+    if response.status_code == 200:
+        with open(path, 'wb') as f:
+            f.write(response.content)
+            return path
+    else:
+        print(f"Failed to download PDF. HTTP Status Code: {response.status_code}")
 
 
-    return path
 
 
-def pdf_to_text(path):
+def get_page_number(path):
+    print('check number of pages')
+    file = open(path, 'rb')
+    pdfReader = PyPDF2.PdfReader(file)
+    page_number = len(pdfReader.pages)
+    print(page_number)
+    return page_number
+
+
+def pdf_to_text(pdf, page_number):
     # load pdf
     print('convert pdf to txt')
-    print(path)
     try:
-        reader = PdfReader(path, strict=False)
-        page = reader.pages[0]
-        pdf_text = page.extract_text()
-        print(pdf_text)
+        with open(pdf, 'rb') as file:
+            reader = PyPDF2.PdfReader(file)
+            pdf_text = ''
+
+            for page_num in range(page_number):
+                page = reader.pages[page_num]
+                pdf_text += page.extract_text() + '\n'
+
+
         return pdf_text
 
 
@@ -64,13 +79,13 @@ def clean_text(pdf_txt):
 
 
 
-def compile_infos(pdf_txt, df, text_id, pdf, tag):
+def compile_infos(pdf_txt, df, text_id, url, tag):
     row = pd.DataFrame({'category_id':'alternative_science',
                         'text_id':text_id,
                         'tags': tag,
                         'venue':'',
-                        'data_source':'JEBIM',
-                        'url': pdf,
+                        'data-source':'JEBIM',
+                        'url': url,
                         'text':pdf_txt}, index=[0])
     df = pd.concat([df, row], ignore_index=True)
     return df
@@ -78,37 +93,39 @@ def compile_infos(pdf_txt, df, text_id, pdf, tag):
 
 def main():
     # initiate df with information columns
-    df = pd.DataFrame(columns=['category-id', 'text_id', 'tags', 'venue', 'data-source', 'url', 'text'])
-
+    df = pd.DataFrame(columns=['category_id', 'text_id', 'tags', 'venue', 'data-source', 'url', 'text'])
     '''
-    # read csv with URLS
-    urls_df = pd.read_csv(
-        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/urls/alternative_sagejournalofevidencebasedintegrativemedicine_urls-2.csv').reset_index()
-
-    # loop through each document-url
-    for index, row in urls_df.iterrows():
-        i += 1
-
-        url = row[2]
-        print(url)
-        text_id = url.split('pdf/')[1].split('?')[0]
-        tag = row[1]
-
-        # download pdf in dummy
-        #path = download_pdf(url)
-     '''
-    pdfs = glob.glob('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/raw_content/JBIM-2/vergessen/*')
+    pdfs = glob.glob('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/raw_content/JEBIM/*')
     for pdf in pdfs:
         tag = ''
-        text_id = pdf.split('JBIM-2/')[1]
-        pdf_txt = pdf_to_text(pdf)
-        print(pdf_txt)
+        text_id = pdf.split('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/raw_content/JEBIM/')[1]
+        '''
+
+    input_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/urls/alternative_sagejornalofevidencebasedintegrativemedicne_urls_all.csv')
+
+    for index, infos in input_df.iterrows():
+
+        tag = infos[0]
+        url = infos[1]
+        text_id = url.split('https://journals.sagepub.com/doi/pdf/')[1].split('?download=true')[0]
+        print('text_id', text_id)
+        print('tag', tag)
+        print('url', url)
+
+        path = download_pdf(url)
+    # get number of pages of pdf
+        page_number = get_page_number(path)
+        print(page_number)
+
+        pdf_txt = pdf_to_text(path, page_number)
+
+
         cleaned_txt = clean_text(pdf_txt)
 
-        df = compile_infos(cleaned_txt, df, text_id, pdf, tag)
+        df = compile_infos(cleaned_txt, df, text_id, url, tag)
 
 
-    df.to_csv('data/data-set-topic-wise_2024/content/alternative_sagejournalofevidencebasedintegrativemeicine_text-3_2024-06-11.csv ', mode ='a', index=False, header=False)
+    df.to_csv('data/data-set-topic-wise_2024/content/raw_content/FSoLS-24-v2/alternative_sagejournalofevidencebasedintegrativemedicine_all_text_2024-07-08.csv', mode ='a', index=False, header=False)
     print('done')
 
 

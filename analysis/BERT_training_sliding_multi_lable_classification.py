@@ -8,13 +8,13 @@ __license__ = "ISC license"
 __email__ = "seidlmayer@zbmed.de"
 __version__ = "1 "
 
-BERT_MODEL_IDENTIFIER = "bert-base-uncased"
+#BERT_MODEL_IDENTIFIER = "bert-base-uncased"
 #BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
 #BERT_MODEL_IDENTIFIER = 'models/bertbase_t10k_e7_lr3e-5_mlclass'
 #---> line 392 replace again!!!!
 #BERT_MODEL_IDENTIFIER = "allenai/scibert_scivocab_uncased"
-#BERT_MODEL_IDENTIFIER = 'allenai/specter'
-EPOCH_AMOUNT = 10
+BERT_MODEL_IDENTIFIER = 'allenai/specter'
+EPOCH_AMOUNT = 5
 
 import pandas as pd
 from transformers import (
@@ -57,8 +57,8 @@ def tokenize(texts):
     tokenizer = BertTokenizer.from_pretrained(BERT_MODEL_IDENTIFIER)
 
     # set max_length
-    #max_length = 512
-    max_length = 10000
+    max_length = 512
+    #max_length = 1000
     # max_length = 15000
 
     # Tokenize the text data
@@ -415,7 +415,7 @@ def main():
         model.save_pretrained(filename)
 
 
-    model.save_pretrained("models/bert-base_t10k_e10_lr3e-5_mlclass")
+    model.save_pretrained("models/FSoLS-24-v2_SPECTER_512tokenz_e5_lr3e-5_mlclass")
     print("done")
 
 if __name__ == "__main__":

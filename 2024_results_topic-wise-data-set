@@ -198,3 +198,58 @@ wandb:              accuracy 0.98132
 wandb: classification_report                     ...
 wandb:                    f1 0.98267
 🚀 View run worthy-feather-220 at: https://wandb.ai/zbmed/AQUAS/runs/l9c9huok
+
+
+
+
+
+## bart-base 1000k 10epochen
+[10] Accuracy: 0.2575, F1-score: 0.0000, Classification_report:                           precision    recall  f1-score   support
+
+         class scientific       0.00      0.00      0.00       359
+ class popular scientific       0.00      0.00      0.00       455
+     class disinformation       0.00      0.00      0.00       478
+class alternative science       0.00      0.00      0.00       475
+
+                micro avg       0.00      0.00      0.00      1767
+                macro avg       0.00      0.00      0.00      1767
+             weighted avg       0.00      0.00      0.00      1767
+              samples avg       0.00      0.00      0.00      1767
+
+done
+wandb: Waiting for W&B process to finish... (success).
+wandb: / 0.396 MB of 0.396 MB uploaded (0.000 MB deduped)
+wandb: Run history:
+wandb: accuracy ▂▅▅███▆█▂▁
+wandb:       f1 ▃▄▄███▅█▁▁
+wandb:
+wandb: Run summary:
+wandb:              accuracy 0.2575
+wandb: classification_report                     ...
+wandb:                    f1 0.0
+wandb:
+wandb: 🚀 View run trim-bush-242 at: https://wandb.ai/zbmed/AQUAS/runs/x545rj5r
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240624_104023-x545rj5r/logs
+
+
+## bert-base 5000 tokens, 10 epochen
+
+
+
+done
+wandb: Waiting for W&B process to finish... (success).
+wandb: | 0.401 MB of 0.401 MB uploaded (0.000 MB deduped)
+wandb: Run history:
+wandb: accuracy ▁▃▄▆▅▇▆██▆
+wandb:       f1 ▁▄▃▇▆▇▇██▅
+wandb:
+wandb: Run summary:
+wandb:              accuracy 0.79513
+wandb: classification_report                     ...
+wandb:                    f1 0.61599
+wandb:
+wandb: 🚀 View run vague-oath-241 at: https://wandb.ai/zbmed/AQUAS/runs/7uj7bjoz
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240622_105542-7uj7bjoz/logs
+

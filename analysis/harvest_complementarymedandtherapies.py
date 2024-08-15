@@ -13,7 +13,7 @@ __version__ = "1 "
 import requests
 import pandas as pd
 import re
-from pypdf import PdfReader
+import PyPDF2
 
 
 
@@ -26,29 +26,43 @@ def download_pdf(url, i):
 
 
     # Write content in pdf file dummy
-    path = "data/2024-04-11_dummy_anthropo-PDF.pdf"
+    path = "data/2024-07-02_dummy_anthropo-PDF.pdf"
     pdf = open(path, 'wb')
     pdf.write(response.content)
     pdf.close()
 
     return path
 
+def get_page_number(path):
+    print('check number of pages')
+    file = open(path, 'rb')
+    pdfReader = PyPDF2.PdfReader(file)
+    page_number = len(pdfReader.pages)
+    print(page_number)
+    return page_number
 
-def pdf_to_text(path):
-    # load pdf
+def pdf_to_text(path, page_number):
     print('convert pdf to txt')
-    try:
-        reader = PdfReader(path, strict=False)
 
-        page = reader.pages[0]
-        pdf_text = page.extract_text()
-        return pdf_text
+    try:
+        with open(path, 'rb') as file:
+            reader = PyPDF2.PdfReader(file)
+            pdf_text = ''
+
+            for page_num in range(page_number):
+                page = reader.pages[page_num]
+                pdf_text += page.extract_text() + '\n'
+            print(pdf_text)
+            return pdf_text
 
 
     except Exception as e:
         print(e)
         print('WARNING NO PDF')
         return None
+
+
+
 
 
 def clean_text(pdf_txt):
@@ -64,7 +78,7 @@ def compile_infos(pdf_txt, df, text_id, url, tag):
                         'text_id':text_id,
                         'tags': tag,
                         'venue':'',
-                        'data_source':'CompMedTherapies',
+                        'data-source':'CompMedTherapies',
                         'url': url,
                         'text':pdf_txt}, index=[0])
     df = pd.concat([df, row], ignore_index=True)
@@ -74,24 +88,29 @@ def compile_infos(pdf_txt, df, text_id, url, tag):
 def main():
 
     # read csv with URLS
-    urls_df = pd.read_csv(
-        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/urls/alternative_complementarymedandtherapies_urls-2.csv').reset_index()
+    urls_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/urls/alternative_complementarymedandtherapies_urls.csv', sep=',')
+    #urls_df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/urls/alternative_complementarymedandtherapies_urls-2.csv', sep=',')
     i = 0
 
     #initiate df with information columns
     df = pd.DataFrame(columns=['category-id','text_id','tags','venue','data-source','url','text'])
-
     # loop through each document-url
     for index, row in urls_df.iterrows():
         i += 1
-        url = row[2]
-        text_id = url.split('pdf/')[1].split('?')[0]
-        tag = row[1]
+
+
+        url = str(row[1])
+        text_id = url.split('pdf/')[1]
+        tag = str(row[0])
 
         # download pdf in dummy
         path = download_pdf(url, i)
+
+        # get number of pages of pdf
+        page_number = get_page_number(path)
+
         # parse pdf to string
-        pdf_txt = pdf_to_text(path)
+        pdf_txt = pdf_to_text(path, page_number)
         #print(pdf_txt)
 
         if pdf_txt is None:
@@ -103,10 +122,11 @@ def main():
 
         # compile information  df
         df = compile_infos(cleaned_txt, df, text_id, url, tag)
-        print(df)
+
+
 
     #print(df)
-    df.to_csv('data/data-set-topic-wise_2024/content/alternative_CompMedTherapies_texts-2.csv', mode ='a', index=False, header=False)
+    df.to_csv('data/data-set-topic-wise_2024/content/before_cleaning/2024-07-05_alternative_CompMedTherapies_texts_test.csv', mode ='a', index=False, header=False)
     print('done')
 
 

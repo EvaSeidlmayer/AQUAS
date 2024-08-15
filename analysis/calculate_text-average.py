@@ -1,23 +1,43 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+__description__ = "calculation of average text length"
+__author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>"
+__copyright__ = "2024 by Eva Seidlmayer"
+__license__ = "ISC license"
+__email__ = "seidlmayer@zbmed.de"
+__version__ = "1 "
+
+
+import pandas as pd
 
 
 
+def calculate_avarage_text_length(lengths_id, i, df_id):
+    for index, row in df_id.iterrows():
+        try:
+            length = len(row['text'])
+            lengths_id += length
+            i += 1
+        except Exception as e:
+            print(e)
 
 
-def average_text_length(strings):
-    # Step 1: Compute the length of each string
-    lengths = [len(string) for string in strings]
+        average_length = lengths_id/i
 
-    # Step 2: Sum all the lengths
-    total_length = sum(lengths)
+        return average_length
 
-    # Step 3: Divide the total length by the number of strings
-    if len(strings) == 0:
-        return 0  # To handle division by zero if the list is empty
-    average_length = total_length / len(strings)
+def main():
+    df = pd.read_csv(
+        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_all-infos_2024-08-06_LSoLF-24-v2.csv')
+    ids = ['scientific', 'popular', 'alternative_science', 'disinfo']
 
-    return average_length
+    for id in ids:
+        lengths_id = 0
+        i = 0
+        df_id = df.loc[df['category_id'] == f'{id}']
+        average_length = calculate_avarage_text_length(lengths_id, i, df_id)
+        print(f"average text length of {id}:", average_length)
 
-
-# Example usage:
-strings = ["hello", "world", "Python", "is", "great"]
-print(average_text_length(strings))  # Output: 4.8
+if __name__ == '__main__':
+    main()

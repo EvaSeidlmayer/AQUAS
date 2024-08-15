@@ -18,19 +18,18 @@ import gensim
 import pandas as pd
 
 # Set file names for train and test data
-df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_2024-06-13.csv')
+df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_all-infos_2024-08-06_LSoLF-24-v2.csv', usecols=['text'])
 df.dropna(inplace=True)
-scientific_df = df.loc[df['category_id'] == 'scientific']
-pop_df = df.loc[df['category_id'] == 'popular']
-disinfo_df = df.loc[df['category_id'] == 'disinfo']
-alternative_science_df = df.loc[df['category_id'] == 'alternative_science']
+
+
+
 
 print('len corpus dataframe', len(df))
 
 text = df['text'].tolist()
 
-test_file = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_2024-06-13.csv')
-test_file = df['text'].tolist()
+#test_file = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_all-infos_2024-07-23_LSoLF-24-v2.csv')
+#test_file = df['text'].tolist()
 
 
 
@@ -44,12 +43,13 @@ def read_corpus(text, tokens_only=False):
             yield gensim.models.doc2vec.TaggedDocument(tokens, [i])
 
 train_corpus = list(read_corpus(text))
-test_corpus = list(read_corpus(test_file, tokens_only=True))
+print('TRAIN', train_corpus[:20])
+#test_corpus = list(read_corpus(test_file, tokens_only=True))
+#print('TEST', test_corpus[:20])
 
 
-print(train_corpus[:2])
 
-model = gensim.models.doc2vec.Doc2Vec(vector_size=60, min_count=2, epochs=400)
+#model = gensim.models.doc2vec.Doc2Vec(vector_size=60, min_count=2, epochs=400)
 model = gensim.models.doc2vec.Doc2Vec(vector_size=60, min_count=2, epochs=5)
 
 # Build a vocabulary
@@ -64,7 +64,7 @@ second_ranks = []
 for doc_id in range(len(train_corpus)):
     inferred_vector = model.infer_vector(train_corpus[doc_id].words)
     vecs.append(inferred_vector)
-corpus_matrix_MEDLINE1 = pd.DataFrame(vecs)
-print(type(corpus_matrix_MEDLINE1))
-pickle.dump(corpus_matrix_MEDLINE1, open('data/data-set-topic-wise_2024/2024-06-18_gensim_embedding_.p', 'wb'))
+corpus_matrix = pd.DataFrame(vecs)
+print(type(corpus_matrix))
+pickle.dump(corpus_matrix, open('data/data-set-topic-wise_2024/2024-08-7_FSoLS-24-v2_gensim_embedding_.p', 'wb'))
 print('matrix created and dumped')

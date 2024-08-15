@@ -19,7 +19,7 @@ __author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>"
 __copyright__ = "2024 by Eva Seidlmayer"
 __license__ = "ISC license"
 __email__ = "seidlmayer@zbmed.de"
-__version__ = "1 "
+__version__ = "FSoLS 2024-v1 "
 
 
 import pandas as pd
@@ -44,18 +44,19 @@ def load_datasets(base_url, col_list):
     MH_df = pd.read_csv(base_url+'/cleaned/popular_MH_text_cleaned.csv', usecols= col_list).drop_duplicates()
     WH_df = pd.read_csv(base_url+'/cleaned/popular_WH_text_cleaned.csv', usecols=col_list).drop_duplicates()
     MP_df = pd.read_csv(base_url+'/cleaned/popular_MedlinePlus_text_cleaned.csv',  usecols=col_list).drop_duplicates()
+    Mayo_df =pd.read_csv(base_url+'/cleaned/popular_mayoclinic_texts_FSoLS-24-v2.csv', usecols=col_list).drop_duplicates()
 
 
-    popular_df_list = [webmd_df, hhp_df, MH_df, WH_df, MP_df]
+    popular_df_list = [webmd_df, hhp_df, MH_df, WH_df, MP_df,Mayo_df]
     popular_df = pd.concat(popular_df_list, axis=0)
 
 
 ## alternative science
-    JBIM_df= pd.read_csv(base_url+'/cleaned/alternative_JEBIM_text_cleaned.csv', usecols=col_list)
-    CMT_df =pd.read_csv(base_url+'/cleaned/alternative_CMT_text_cleaned.csv', usecols=col_list)
+    JBIM_df= pd.read_csv(base_url+'/cleaned/alternative_JEBIM_text_cleaned_FSoLS-24-v2.csv', usecols=col_list)
+    CMT_df =pd.read_csv(base_url+'/cleaned/alternative_CMT_text_cleaned_FSoLS-24-v2.csv', usecols=col_list)
     HomeoJ_df = pd.read_csv(base_url+'/cleaned/alternative_homeoJ_text_cleaned.csv', usecols=col_list)
     Goethe_df = pd.read_csv(base_url+'/cleaned/alternative_goethe_text_cleaned.csv', usecols=col_list)
-    IJRH_df = pd.read_csv(base_url+'/cleaned/alternative_IJRH_text_cleaned.csv', usecols=col_list)
+    IJRH_df = pd.read_csv(base_url+'/cleaned/alternative_IJRH_text_cleaned_FoLS-24-v2.csv', usecols=col_list)
 
 
     alt_df_list= [JBIM_df, CMT_df, HomeoJ_df, Goethe_df, IJRH_df]
@@ -64,7 +65,7 @@ def load_datasets(base_url, col_list):
 ## disinformation
     NN_df = pd.read_csv(base_url+'/cleaned/disinfo_NaturalNews_text_cleaned.csv', usecols=col_list)
     HIN_df  = pd.read_csv(base_url+'/cleaned/disinfo_healthimpactnews_text_cleaned.csv', usecols=col_list)
-    Mercola_df = pd.read_csv(base_url+'/cleaned/disinfo_mercola_text_cleaned.csv', usecols=col_list)
+    Mercola_df = pd.read_csv(base_url+'/cleaned/disinfo_mercola_text_cleaned_4SoLF-24-v2.csv', usecols=col_list)
     HN_df = pd.read_csv(base_url+'/cleaned/disinfo_healthDOTnews_text_cleaned.csv', usecols=col_list)
     IW_df = pd.read_csv(base_url+'/cleaned/disinfo_infowars_text_cleaned.csv', usecols=col_list)
 
@@ -73,14 +74,15 @@ def load_datasets(base_url, col_list):
     
     return scientific_df, popular_df, alternative_df, disinfo_df
 
-def filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP):
+def filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo):
     pop_df = popular_df.loc[popular_df['tags'] == f'{topic}']
     pop_df_WebMD = pop_df.loc[pop_df['data-source'] == 'WebMD'].head(number_WebMD)
     pop_df_HHP = pop_df.loc[pop_df['data-source'] =='HarvardMedicalSchool'].head(number_HHP)
     pop_df_MH = pop_df.loc[pop_df['data-source'] == 'MensHealth'].head(number_MH)
     pop_df_WH = pop_df.loc[pop_df['data-source']== 'WomensHealth'].head(number_WH)
     pop_df_MP = pop_df.loc[pop_df['data-source'] == 'MedlinePlus'].head(number_MP)
-    filtered_popular_df = pd.concat([pop_df_WebMD, pop_df_HHP, pop_df_MH, pop_df_WH, pop_df_MP], axis=0, ignore_index=True)
+    pop_df_Mayo = pop_df.loc[pop_df['data-source'] == 'mayoclinic'].head(number_Mayo)
+    filtered_popular_df = pd.concat([pop_df_WebMD, pop_df_HHP, pop_df_MH, pop_df_WH, pop_df_MP, pop_df_Mayo], axis=0, ignore_index=True)
     return filtered_popular_df
 
 
@@ -114,12 +116,13 @@ def filter_for_cumin(scientific_df, popular_df, alternative_df, disinfo_df):
     filtered_scientific_df = scientific_df.loc[scientific_df['tags'] =='cumin'].head(2)
 
     ## popular
-    number_WebMD = 1
+    number_WebMD = 0
     number_HHP = 0
     number_MH = 1
     number_WH = 0
     number_MP = 0
-    filtered_popular_df = filter_popular(popular_df, topic,number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 1
+    filtered_popular_df = filter_popular(popular_df, topic,number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative-science
     number_JEBIM = 1
@@ -147,28 +150,29 @@ def filter_for_dementia(scientific_df, popular_df, alternative_df, disinfo_df):
 
     ## scientific
     #filtered_scientific_df = scientific_df.loc[scientific_df['tags']=='dementia']
-    filtered_scientific_df = scientific_df[scientific_df['tags'].str.contains('dementia', case=False, na=False)].head(81)
+    filtered_scientific_df = scientific_df[scientific_df['tags'].str.contains('dementia', case=False, na=False)].head(86)
 
     ## popular
-    number_WebMD =29
+    number_WebMD =34
     number_HHP = 22
     number_MH = 5
     number_WH = 6
     number_MP = 19
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
     number_JEBIM = 33
-    number_CMT = 33
+    number_CMT = 38
     number_homeoj = 12
     number_goethe = 1
     number_ijrh = 2
     filtered_alternative_df = filter_alternative(alternative_df, topic,  number_JEBIM, number_CMT, number_goethe, number_homeoj,
                                      number_ijrh)
     ## disinformation
-    number_NN =14
+    number_NN =8
     number_HIN =49
-    number_MCL =18
+    number_MCL =23
     number_HN =5
     number_IW =1
     filtered_disinformation_df = filter_disinformation(disinfo_df, topic, number_NN, number_HIN, number_MCL, number_HN,
@@ -181,19 +185,20 @@ def filter_for_heartattack(scientific_df,popular_df, alternative_df, disinfo_df)
     topic = 'heartattack'
 
     ## scientific
-    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'heartattack'].head(61)
+    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'heartattack'].head(72)
 
     ## popular
-    number_WebMD = 24
+    number_WebMD = 35
     number_HHP = 6
     number_MH = 12
     number_WH = 10
     number_MP = 9
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
-    number_JEBIM = 29
-    number_CMT =  29
+    number_JEBIM = 35
+    number_CMT =  34
     number_homeoj = 3
     number_goethe = 0
     number_ijrh = 0
@@ -203,7 +208,7 @@ def filter_for_heartattack(scientific_df,popular_df, alternative_df, disinfo_df)
     ## disinformation
     number_NN = 18
     number_HIN =22
-    number_MCL =19
+    number_MCL =30
     number_HN =2
     number_IW =0
     filtered_disinformation_df = filter_disinformation(disinfo_df, topic, number_NN, number_HIN, number_MCL, number_HN,
@@ -216,19 +221,20 @@ def filter_for_insomnia(scientific_df,popular_df, alternative_df, disinfo_df):
     topic = 'insomnia'
 
     ## scientific
-    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'insomnia'].head(41)
+    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'insomnia'].head(43)
 
     ## popular
-    number_WebMD = 19
+    number_WebMD = 21
     number_HHP = 11
     number_MH = 0
     number_WH = 6
     number_MP = 5
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
-    number_JEBIM = 14
-    number_CMT = 14
+    number_JEBIM = 15
+    number_CMT = 15
     number_homeoj =10
     number_goethe = 3
     number_ijrh = 0
@@ -238,7 +244,7 @@ def filter_for_insomnia(scientific_df,popular_df, alternative_df, disinfo_df):
     ## disinformation
     number_NN = 32
     number_HIN =0
-    number_MCL =9
+    number_MCL =11
     number_HN =0
     number_IW =0
     filtered_disinformation_df = filter_disinformation(disinfo_df, topic, number_NN, number_HIN, number_MCL, number_HN,
@@ -251,29 +257,30 @@ def filter_for_menopause(scientific_df,popular_df, alternative_df, disinfo_df):
     topic = 'menopause'
 
     ## scientific
-    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'menopause'].head(38)
+    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'menopause'].head(40)
 
     ## popular
-    number_WebMD = 20
+    number_WebMD = 22
     number_HHP = 9
     number_MH = 0
     number_WH = 5
     number_MP = 4
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
     number_JEBIM = 10
     number_CMT = 14
     number_homeoj = 10
     number_goethe = 2
-    number_ijrh = 2
+    number_ijrh = 4
     filtered_alternative_df = filter_alternative(alternative_df, topic,  number_JEBIM, number_CMT, number_goethe,
                                                  number_homeoj,
                                                  number_ijrh)
     ## disinformation
-    number_NN = 41
+    number_NN = 10
     number_HIN =21
-    number_MCL =5
+    number_MCL =6
     number_HN =2
     number_IW =1
     filtered_disinformation_df = filter_disinformation(disinfo_df, topic, number_NN, number_HIN, number_MCL, number_HN,
@@ -286,29 +293,30 @@ def filter_for_stroke(scientific_df,popular_df, alternative_df, disinfo_df):
     topic = 'stroke'
 
     ## scientific
-    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'stroke'].head(118)
+    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'stroke'].head(126)
 
     ## popular
-    number_WebMD = 86
+    number_WebMD = 94
     number_HHP = 1
     number_MH = 6
     number_WH = 3
     number_MP = 22
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
     number_JEBIM =46
     number_CMT =40
     number_homeoj =28
     number_goethe =0
-    number_ijrh =4
+    number_ijrh =12
     filtered_alternative_df = filter_alternative(alternative_df, topic,  number_JEBIM, number_CMT, number_goethe,
                                                  number_homeoj,
                                                  number_ijrh)
     ## disinformation
     number_NN =71
     number_HIN =23
-    number_MCL =18
+    number_MCL =26
     number_HN =5
     number_IW =1
     filtered_disinformation_df = filter_disinformation(disinfo_df, topic, number_NN, number_HIN, number_MCL, number_HN,
@@ -321,7 +329,7 @@ def filter_for_tobacco(scientific_df,popular_df, alternative_df, disinfo_df):
     topic = 'tobacco'
 
     ## scientific
-    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'tobacco'].head(13)
+    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'tobacco'].head(21)
 
     ## popular
     number_WebMD = 0
@@ -329,21 +337,22 @@ def filter_for_tobacco(scientific_df,popular_df, alternative_df, disinfo_df):
     number_MH = 6
     number_WH = 1
     number_MP = 5
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 8
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
     number_JEBIM = 4
-    number_CMT = 4
-    number_homeoj =4
+    number_CMT = 5
+    number_homeoj =5
     number_goethe =1
-    number_ijrh =0
+    number_ijrh =6
     filtered_alternative_df = filter_alternative(alternative_df, topic,  number_JEBIM, number_CMT, number_goethe,
                                                  number_homeoj,
                                                  number_ijrh)
     ## disinformation
-    number_NN =5
+    number_NN =11
     number_HIN =3
-    number_MCL =4
+    number_MCL =6
     number_HN =1
     number_IW =0
     filtered_disinformation_df = filter_disinformation(disinfo_df, topic, number_NN, number_HIN, number_MCL, number_HN,
@@ -364,7 +373,8 @@ def filter_for_turmeric(scientific_df,popular_df, alternative_df, disinfo_df):
     number_MH = 10
     number_WH = 6
     number_MP = 0
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
     number_JEBIM = 11
@@ -400,7 +410,8 @@ def filter_for_measles(scientific_df,popular_df, alternative_df, disinfo_df):
     number_MH = 3
     number_WH = 1
     number_MP = 8
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
     number_JEBIM =8
@@ -428,20 +439,21 @@ def filter_for_inflammation(scientific_df,popular_df, alternative_df, disinfo_df
     topic = 'inflammation'
 
     ## scientific
-    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'inflammation'].head(83)
+    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'inflammation'].head(117)
 
     ## popular
-    number_WebMD = 19
-    number_HHP = 19
-    number_MH = 18
-    number_WH = 18
+    number_WebMD = 32
+    number_HHP = 21
+    number_MH = 32
+    number_WH = 19
     number_MP = 13
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
-    number_JEBIM =22
-    number_CMT =23
-    number_homeoj =22
+    number_JEBIM =31
+    number_CMT =40
+    number_homeoj =30
     number_goethe =5
     number_ijrh =11
     filtered_alternative_df = filter_alternative(alternative_df, topic,  number_JEBIM, number_CMT, number_goethe,
@@ -450,7 +462,7 @@ def filter_for_inflammation(scientific_df,popular_df, alternative_df, disinfo_df
     ## disinformation
     number_NN =8
     number_HIN =21
-    number_MCL =53
+    number_MCL =87
     number_HN =0
     number_IW =1
     filtered_disinformation_df = filter_disinformation(disinfo_df, topic, number_NN, number_HIN, number_MCL, number_HN,
@@ -463,29 +475,30 @@ def filter_for_vaccination(scientific_df,popular_df, alternative_df, disinfo_df)
     topic = 'vaccination'
 
     ## scientific
-    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'vaccination'].head(51)
+    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'vaccination'].head(61)
 
     ## popular
-    number_WebMD = 10
-    number_HHP = 11
+    number_WebMD = 18
+    number_HHP = 13
     number_MH = 10
     number_WH = 10
     number_MP = 10
-    filtered_popular_df= filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df= filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
     number_JEBIM =17
     number_CMT =15
     number_homeoj =13
     number_goethe =2
-    number_ijrh =4
+    number_ijrh =14
     filtered_alternative_df = filter_alternative(alternative_df, topic,  number_JEBIM, number_CMT, number_goethe,
                                                  number_homeoj,
                                                  number_ijrh)
 
     ## disinformation
-    number_NN =14
-    number_HIN =15
+    number_NN =18
+    number_HIN =19
     number_MCL =14
     number_HN =0
     number_IW =10
@@ -507,7 +520,8 @@ def filter_for_transgender(scientific_df,popular_df, alternative_df, disinfo_df)
     number_MH = 0
     number_WH = 0
     number_MP = 0
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
     number_JEBIM =1
@@ -534,28 +548,29 @@ def filter_for_abortion(scientific_df,popular_df, alternative_df, disinfo_df):
     topic = 'abortion'
 
     ## scientific
-    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'abortion'].head(41)
+    filtered_scientific_df = scientific_df.loc[scientific_df['tags'] == 'abortion'].head(44)
 
     ## popular
     number_WebMD = 14
     number_HHP = 3
     number_MH = 9
-    number_WH = 15
+    number_WH = 18
     number_MP = 0
-    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP)
+    number_Mayo = 0
+    filtered_popular_df = filter_popular(popular_df, topic, number_WebMD, number_HHP, number_MH, number_WH, number_MP, number_Mayo)
 
     ## alternative science
     number_JEBIM =12
     number_CMT =13
-    number_homeoj =14
+    number_homeoj =12
     number_goethe =1
-    number_ijrh =0
+    number_ijrh =3
     filtered_alternative_df = filter_alternative(alternative_df, topic,  number_JEBIM, number_CMT, number_goethe,
                                                  number_homeoj,
                                                  number_ijrh)
 
     ## disinformation
-    number_NN =19
+    number_NN =22
     number_HIN =19
     number_MCL =1
     number_HN =0
@@ -618,7 +633,7 @@ def main():
     all_df = pd.concat(all_df_list, axis=0, ignore_index=True)
     #all_df = all_df[['category_id', 'text']]
     print(all_df.shape)
-    all_df.to_csv(base_url+'/final_set/final-set_super-balanced_all-infos_2024-06-13.csv', index=False)
+    all_df.to_csv(base_url+'/final_set/final-set_super-balanced_all-infos_2024-08-06_LSoLF-24-v2.csv', index=False)
 
 
 if __name__ == '__main__':

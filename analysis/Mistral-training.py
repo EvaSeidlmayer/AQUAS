@@ -123,7 +123,7 @@ def train_epoch(model, optimizer, train_inputs, train_labels, train_masks):
     train_loader = torch.utils.data.DataLoader(
         list(zip(train_inputs, train_labels, train_masks)), batch_size=1, shuffle=True
     )
-
+    # batch_size mal mit 512
 
 
     # training for one epoch

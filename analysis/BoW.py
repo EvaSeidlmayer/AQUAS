@@ -21,28 +21,34 @@ from xgboost import XGBClassifier
 from sklearn.svm import SVC
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import RandomForestClassifier
+from scipy.sparse import issparse
+from collections import Counter
 
 def load_dataset(input_file_csv):
     # Load dataset
-    df = pd.read_csv(input_file_csv, sep=",")
+
+    df = pd.read_csv(input_file_csv, sep=",", usecols = ['text', 'category_id'])
     df = df.replace(r'^\s*$', np.nan, regex=True)
-    df = df.dropna()
+    #df = df.dropna()
     df = df.sample(frac=1)
     df = df.astype(str)
     texts = df["text"].to_list()
     labels = df["category_id"].to_list()
+    category_counts = Counter(labels)
+    print('dddd', category_counts)
     print("data input lists created")
     return texts, labels
 
 def vectorize_text(texts):
     vectorizer = CountVectorizer() # converts texts into a matrix of token counts
     X = vectorizer.fit_transform(texts)
-    return X
+    return X, vectorizer
 
 def binarize_ml_targets(labels):
     mlb = MultiLabelBinarizer() #transforms list of labels in a binary matrix
+    labels = [[label] for label in labels]  # Convert each label into a list
     y = mlb.fit_transform(labels)
-    return y
+    return y, mlb
 
 def main():
     parser = argparse.ArgumentParser()
@@ -53,11 +59,11 @@ def main():
     texts, labels = load_dataset(args.input_file_csv)
 
 # Convert text to Bag-of-Words representation
-    X = vectorize_text(texts)
+    X, vectorizer = vectorize_text(texts)
     print('texts vectorized')
 
 # Binarize the multi-label targets
-    y = binarize_ml_targets(labels)
+    y, mlb = binarize_ml_targets(labels)
     print('labels binarized')
 
 # Split data into training and test sets
@@ -65,28 +71,49 @@ def main():
     print('dataset split')
 
 # Initialize  and train  classifier
-    #classifier = OneVsRestClassifier(LogisticRegression(max_iter=500)) #fits one classifier per label and allows for multi-label classification
-    #classifier = OneVsRestClassifier(XGBClassifier())
+    #classifier = OneVsRestClassifier(LogisticRegression(max_iter=500, multi_class='multinomial', solver='lbfgs')) #fits one classifier per label and allows for multi-label classification
+    #model = LogisticRegression(max_iter=1000, multi_class='multinomial', solver='lbfgs')    #classifier = OneVsRestClassifier(XGBClassifier())
     #classifier = OneVsRestClassifier(SVC(kernel='linear')) #Support Vector Machine
     #classifier = OneVsRestClassifier(AdaBoostClassifier())
     classifier = OneVsRestClassifier(RandomForestClassifier())
     classifier.fit(X_train, y_train) # train classifier
     print('classifier trained')
 
-# evaluate: make prediction
+
+    # evaluate: make prediction
     y_pred = classifier.predict(X_test)
     print('prediction made')
 
 # calculate f-1 score (weighted)
-    mlb = MultiLabelBinarizer() #transforms list of labels in a binary matrix
-
     f1 = f1_score(y_test, y_pred, average= 'weighted')
-    #target_class = ["class scientific", "class popular scientific", "class disinformative", "class alternative scientific"]
-    target_class = mlb.classes
-    class_rep = classification_report(y_test, y_pred, target_names=target_class)
+    class_rep = classification_report(y_test, y_pred, target_names=mlb.classes_)
 
     print(f"F1 Score (Weighted): {f1}")
     print("\nClassification Report:\n", class_rep)
+
+# understand the importance of words
+    top_n = 50
+    feature_names = vectorizer.get_feature_names_out()
+    print('feature names', feature_names)
+
+    # For each category, display the top N most important words
+    for i, clf in enumerate(classifier.estimators_):
+        category_name = mlb.classes_[i]
+        feature_importance = clf.coef_.flatten()
+    # Sort the features by their importance (absolute value) for the current category
+        sorted_indices = np.argsort(np.abs(feature_importance))[::-1]
+
+
+         # Get the top N words for this category
+        top_features = [(feature_names[idx], feature_importance[idx]) for idx in sorted_indices[:top_n]]
+
+
+            # Display the top words with their coefficients
+        print(f"\nCategory xxx: {category_name}")
+        for word, coef in top_features:
+            print(f"Word: {word}, Coefficient: {coef:.4f}")
+
+
 
 
 if __name__ == "__main__":

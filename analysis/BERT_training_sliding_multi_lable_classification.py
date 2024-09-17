@@ -12,8 +12,8 @@ __version__ = "1 "
 #BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
 #BERT_MODEL_IDENTIFIER = 'models/bertbase_t10k_e7_lr3e-5_mlclass'
 #---> line 392 replace again!!!!
-#BERT_MODEL_IDENTIFIER = "allenai/scibert_scivocab_uncased"
-BERT_MODEL_IDENTIFIER = 'allenai/specter'
+BERT_MODEL_IDENTIFIER = "allenai/scibert_scivocab_uncased"
+#BERT_MODEL_IDENTIFIER = 'allenai/specter'
 EPOCH_AMOUNT = 5
 
 import pandas as pd
@@ -411,11 +411,11 @@ def main():
         print(
             f"[{epoch+1}] Accuracy: {acc:.4f}, F1-score: {f1:.4f}, Classification_report:{class_rep}"
         )
-        filename = f"models/bertbase_t512_e{epoch+1}_lr3e-5_mlclass"
-        model.save_pretrained(filename)
+        #filename = f"models/biobase_t512_e{epoch+1}_lr3e-5_mlclass"
+        #model.save_pretrained(filename)
 
 
-    model.save_pretrained("models/FSoLS-24-v2_SPECTER_512tokenz_e5_lr3e-5_mlclass")
+    model.save_pretrained("models/FSoLS-24-v4_scibert_512tokenz_e5_lr3e-5_mlclass")
     print("done")
 
 if __name__ == "__main__":

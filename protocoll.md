@@ -240,3 +240,246 @@ Do 24.08.2023 23:14)  - Aich/Parde 2022 dataset requested per email Aug-28-2023
     - "balance was interpreted, it seems, as giving equal weight to both sides, rather than giving 'accurate' weight to both sides." (oreskes/conway 19)
     - while global warming was scientifically established in 1997. the media still wanted to give a balanced view. the kyoto protocol ws refused by the senat "scientifically, global warming was an established fact. Politicaly, global warming was dead" (oreskey/conway: 215)
 - due to six factors: 1) democratization of content creation, 2) rapid news cycle and economic incentives, 3) wide and immediate reach and interactivity, 4) organic and intentionally created filter bibbles, 5) algorithmic curation and lack of transparanciy, and 6) scale and anonymity in online accounts (AKERS, J. et al. Technology-Enabled Disinformation: Summary, Lessons, and Recommendations. arXiv.org, [S. l.], v. 1, 2019. Available at:https://arxiv.org/abs/1812.09383. Access onMay 28,2020. (cited from Santos-d’amorim/miranda 2021)) 
+
+
+# cleaning 
+- category "alternative" - not just find&replace by "alterative_science" - this will change the word in the text as well!
+- no cleaning of "infowars" in the text since it is used as a reference there. 
+- British Medical Journal: Cleaning of    "Br Med J Clin Res Ed      British Medical Journal Clinical research ed.      02670623      6805607      1498437          Letter        Measles eradication policies.        22        5        1982      284      6328      1559      1560"
+but not when it is referneced in the text (e.g. "A two and a halfyear study conducted by Kripkel Langer and Kline called Hypnotics sleeping pills association with mortality or cancer a matched cohort study was published by the British Medical Journal BMJ in February 2012.")
+- "BMJ Open" was deleted
+- BMJ: deleted as simple literature fragments or literature citation, such as "  BMJ Case Rep      BMJ Case Rep      bmjcr      bmjcasereports        BMJ Case Reports      1757790X        BMJ Publishing Group        BMA House Tavistock Square London WC1H 9JR      33622754      7907863      bcr2020240536      10.1136bcr2020240536          Case Report          2474          1330          508          232          200          220        Acute confusional state as a prognostic sign of COVID19 largevessel occlusion LVO          httporcid.org0000000152399533            Deliwala            Smit Sunil            Hussain            Murtaza            Ponnapalli            Anoosha            Awuah            Dominic            Dawood            Thair          httporcid.org0000000167634508            Bachuwa            Ghassan      Internal Medicine Hurley Medical Center Flint Michigan USA        Correspondence to Dr Ghassan Bachuwa gbachuw2hurleymc.com        2021        23        2        2021        23        2        2021      14      2      e240536          05          2          2021         BMJ Publishing Group Limited 2021. No commercial reuse. See rights and permissions. Published by BMJ.        2021          This article is made freely available for use in accordance with BMJs website terms and conditions for the duration of the covid19 pandemic or until otherwise determined by BMJ. You may use download and print the article for any lawful noncommercial purpose including text and data mining provided that all copyright notices and trade marks are retained.          httpsbmj.comcoronavirususage  ";
+  - also deleted from DOI: "10.1136bmjgh2021007211 " -> "10.1136gh2021007211 "
+- BMJ was not deleted when it is a part of a sentence: e.g. "A 2021 BMJ Open meta-analysis suggested that drinking several cups of coffee a day was linked to a lower risk of developing prostate cancer. The study found that each additional cup of coffee a day reduced relative risk by 1 percent."
+-  ".com" alle webseiten rausnehmen??
+- "naturalnews":
+  - deleted between author statement and articel, e.g.; "High protein intake puts extreme dieters at risk for heart attack and stroke by Raw Michelle NaturalNews A study from Sweden recently found concerning health implications for individuals"
+  - not, when it is part of" a sentence, e.g.: "Today NaturalNews publishes The Great HPV Vaccine Hoax Exposed a special report that cites from numerous FDA documents and clinical studies to show that HPV vaccines are not only ineffective they may actually be dangerous As revealed in the special report the Gardasil vaccine has been linked to a 44.6 increase in precancerous lesions in some women raising serious doubts over the sensibility of mandatory vaccination policies.", or "A NaturalNews investigation has revealed that the FDA knew as early as 2003 that Human Papilloma Virus HPV was not linked to cervical cancer." 
+  -  "naturalnews.com printable article" deleted
+- "Harvard Medical School" complete Website derivat removed 
+  - "Recent Blog Articles                     Free Healthbeat Signup  Get the latest in health news delivered to your inbox!                Sign Up                   Footer        Facebook    Twitter    Linkedin    YouTube        My Account    Customer Service      Log in       Order Now    Online Learning Courses      Digital Subscriptions      Special Health Reports      Print Subscriptions       More    About Us      Permissions      Content Licensing      Topics      Trademark Notice                               © 2024 ® of The President and Fellows of Harvard College                  Do not sell my personal information | Privacy Policy and Terms of Use      Scroll To Top           Close    Thanks for visiting. Don't miss your FREE gift. The Best Diets for Cognitive Fitness, is yours absolutely FREE when you sign up to receive Health Alerts from Harvard Medical School Sign up to get tips for living a healthy lifestyle, with ways to  fight inflammation and improve cognitive health, plus the latest advances in preventative medicine, diet and exercise, pain relief, blood pressure and cholesterol management, and more.           I want to get healthier                   This site is protected by reCAPTCHA and the Google         Privacy Policy and         Terms of Service apply.               Close   Health Alerts from Harvard Medical School Get helpful tips and guidance for everything from fighting inflammation to finding the best diets for weight loss...from exercises to build a stronger core to advice on treating cataracts. PLUS, the latest news on medical advances and breakthroughs from Harvard Medical School experts.   BONUS! Sign up now and get a FREE copy of theBest Diets for Cognitive Fitness             I want to get healthier                   This site is protected by reCAPTCHA and the Google         Privacy Policy and         Terms of Service apply.                Close      Stay on top of latest health news from Harvard Medical School. Plus, get a FREE copy of the Best Diets for Cognitive Fitness.            Sign me up                   This site is protected by reCAPTCHA and the Google         Privacy" 
+  - "Share This Page  Share this page to Facebook    Share this page to Twitter    Share this page via Email     Print This Page  Click to Print  "
+- "infowars" 
+  - deleted when it is website derivate, eg.: "Increase in Deaths Following Covid Vaccination — Study  News1,236% Increase in Deaths Following Covid Vaccination — StudySean Miller | InfowarsMay 28th 2024, 8:12 am When the county's death data is applied nationwide, researchers estimate"
+- " This site requires JavaScript to run correctly. Please turn on JavaScript or unblock scripts'" -deleted
+- "inkFacebookEmailNoteOtherShareCommentsTopNewCommunityNo"
+- Open access license " licensesby4.0."/"Creative Commons":
+  - "This is an open access article under the terms of the    licensesbyncnd4.0 License which permits use and distribution in any medium provided the original work is properly cited the use is noncommercial and no modifications or adaptations are made.", "licensesby4.0 Open Access This article is licensed under a Creative Commons Attribution 4.0 International License which permits use sharing adaptation distribution and reproduction in any medium or format as long as you give appropriate credit to the original authors and the source provide a link to the Creative Commons licence and indicate if changes were made.", "licensesby4.0 Open Access This article is licensed under a Creative Commons Attribution 4.0 International License which permits use sharing adaptation distribution and reproduction in any medium or format as long as you give appropriate credit to the original authors and the source provide a link to the Creative Commons license and indicate if changes were made. The images or other third party material in this article are included in the articles Creative Commons license unless indicated otherwise in a credit line to the material. If material is not included in the articles Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use you will need to obtain permission directly from the copyright holder. To view a copy of this license visit    licensesby4.0.", "licensesby4.0 Licensee MDPI Basel Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution CC BY license  licensesby4.0."
+  - - "  The images or other third party material in this article are included in the articles Creative Commons licence unless indicated otherwise in a credit line to the material. If material is not included in the articles Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use you will need to obtain permission directly from the copyright holder. To view a copy of this licence visit    licensesby4.0. The Creative Commons Public Domain Dedication waiver    publicdomainzero1.0 applies to the data made available in this article unless otherwise stated in a credit line to the data.", "licensesby4.0 Open AccessThis article is licensed under a Creative Commons Attribution 4.0 International License which permits use sharing adaptation distribution and reproduction in any medium or format as long as you give appropriate credit to the original authors and the source provide a link to the Creative Commons licence and indicate if changes were made. The images or other third party material in this article are included in the articles Creative Commons licence unless indicated otherwise in a credit line to the material. If material is not included in the articles Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use you will need to obtain permission directly from the copyright holder. To view a copy of this licence visit    licensesby4.0. The Creative Commons Public Domain Dedication waiver    publicdomainzero1.0 applies to the data made available in this article unless otherwise stated in a credit line to the data."
+  - "This is an open access article under the terms of the    licensesby4.0 License which permits use distribution and reproduction in any medium provided the original work is properly cited."
+  - "This is an Open Access article distributed under the terms of the Creative Commons Attribution License    licenses by 2.0   which permits unrestricted use  distribution  and reproduction in any medium  provided the original work is properly cited.", "This is an open access journal, and articles are distributed under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License, which allows others to remix, tweak, and build upon the work non-commercially, as long as appropriate credit is given and the new creations are licensed under the identical terms."
+  - " Open Access This article is licensed under a Creative Commons Attribution 4.0 International License  which permits use  sharing  adaptation  distribution and reproduction in any medium or format  as long as you give appropriate credit to the original author s  and the source  provide a link to the Creative Commons licence  and indicate if changes were made. The images or other third party material in this article are included in the article s Creative Commons licence  unless indicated otherwise in a credit line to the material. If material is not included in the article s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use  you will need to obtain permission directly from the copyright holder. To view a copy of this licence  visit   licenses by 4.0  . The Creative Commons Public Domain Dedication waiver  publicdomain zero 1.0    applies to the data made available in this article  unless otherwise stated in a credit line to the data. "
+- "Continued from previous page"
+- website:
+  - "httpscreativecommons.org" deleted
+  - "httpsorcid.org" delted
+  - "httpdx.doi.org" deleted
+  - other .org domain such as httpwww.cancer.org, tobaccoatlas.org, anhusa.org, chiropractic.org, facit.org .... deleted
+  - "httpwww.beatingcancergently.com", naturalnews.com, face.com, time.com, ageofautism.com, httpwww.sciencedirect.com
+  - .com - deleted
+  - .gov deleted
+  - .ca deleted
+  - www.biomedcentral.com deleted
+  - doi.org
+  - html: harryimosflmver721downloads.html, nistjaroffarticle09565106953800.html, scenarios.html, lebengesundheitsfoerderungundpraeventionimpfungenprophylaxeschweizerischerimpfplan.html, virusquestionsandanswers.html,  acupuncture.html
+  - "Save Article" deleted
+- PDF
+  - "___tion" -> connected "tion"
+  - "__tive" -> connected "tive"
+  - "__ ammatory" -> "inflammatory" etc
+  - "__ing" ->"aginging"
+  - "__ment" "treatment"
+  - "__ity"
+  - "sig__" -> "signiture"
+  - "acupunc___ture" -> "acupuncture "
+  - "Experi__ments" -> "Experiments"
+  - "clin__ical" -> "clinical"
+  - "pharmaceuti_cal" -> "pharmaceutical"
+  - "sig_nificant" -> "significant"
+  - "you\" -> "you", "it\" -> "it" -> "dont't", "Alzheimer\'s" -> "Alzheimer's" -> "body\'s" -> "body's"
+- deleted "NEXT ARTICLE >>Disclaimer: The entire contents of this website are based upon the opinions of Dr. Mercola, unless otherwise noted. Individual articles are based upon the opinions of the respective author, who retains copyright as marked.The information on this website is not intended to replace a one-on-one relationship with a qualified health care professional and is not intended as medical advice. It is intended as a sharing of knowledge and information from the research and experience of Dr. Mercola and his community. Dr. Mercola encourages you to make your own health care decisions based upon your research and in partnership with a qualified health care professional. The subscription fee being requested is for access to the articles and information posted on this site, and is not being paid for any individual medical advice.If you are pregnant, nursing, taking medication, or have a medical condition, consult your health care professional before using products based on this content."
+- deleted "Disclaimer: The entire contents of this website are based upon the opinions of Dr. Mercola, unless otherwise noted. Individual articles are based upon the opinions of the respective author, who retains copyright as marked.The information on this website is not intended to replace a one-on-one relationship with a qualified health care professional and is not intended as medical advice. It is intended as a sharing of knowledge and information from the research and experience of Dr. Mercola and his community. Dr. Mercola encourages you to make your own health care decisions based upon your research and in partnership with a qualified health care professional. The subscription fee being requested is for access to the articles and information posted on this site, and is not being paid for any individual medical advice.If you are pregnant, nursing, taking medication, or have a medical condition, consult your health care professional before using products based on this content."
+- deleted:  "Copy linkFacebookEmailNotesOtherDiscover", "Copy linkFacebookEmailNotesOtherDiscover", "Copy linkFacebookEmailNotesOther", "Copy linkFacebookEmailNoteOtherDiscover", "Copy linkFacebookEmailNoteOtherShare", "Copy linkFacebookEmailNoteOther"
+- delteted: "Copy linkFacebookEmailNotesOtherShareCommentsTopNewCommunityNo postsReady for more?Subscribe© 2023 Privacy ∙ Terms ∙ Collection notice Start WritingGet the appSubstack is the home for great writingOur use of cookies\n  We use necessary cookies to make our site work. We also set performance and functionality cookies that help us make\n  improvements by measuring traffic on our site. For more detailed information about the cookies we use, please see our\n  privacy policy.\n  ✖  ""]""
+- deleted everything after "Sources  Update History Share View privacy policy"    e.g. "Sources  Update History Share View privacy policy copyright and trust info Share View privacy policy copyright and trust info  Next Therapy Dogs for Cancer PatientsMore on CancerUnderstanding Cancer BasicsHow to Spot the Early Warning Signs of CancerMost Common Cancers and Their Symptoms Recommended FEATURED Top doctors in  Find more top doctors on Search Related LinksCancer HomeBladder CancerBrain CancerBreast CancerCervical CancerColorectal CancerLeukemia  LymphomaLung CancerMelanomaMultiple MyelomaOvarian CancerPancreatic CancerProstate CancerCancer NewsCancer ReferenceCancer SlideshowsCancer QuizzesCancer VideosFind an OncologistBook Take Control of Your Cancer RiskCancer AZMore Cancer TopicsPoliciesPrivacy PolicyCookie PolicyEditorial PolicyAdvertising PolicyCorrection PolicyTerms of UseAboutContact UsAbout WebMDCareersNewsletterCorporateWebMD Health ServicesSite MapAccessibilityOur AppsWebMD MobileWebMD AppPregnancyBabyAllergyFor AdvertisersAdvertise with UsAdvertising Policy  2005  2024 WebMD LLC an Internet Brands company. All rights reserved. WebMD does not provide medical advice diagnosis or treatment. See additional information."
+- mercola "share this post" two times in texts of mercola. after second "share this post" text was removed
+- deleted "Share This Story Choose Your Platform Join the DiscussionCancel reply"
+- alt: deleted: "Publish with BioMed Central " and following text
+- deleted "This is an Open Access article distributed under the terms of the Creative Commons Attribution License    licenses by 2.0   which permits unrestricted use  distribution  and reproduction in any medium  provided the original work is properly credited.", "This is an Open Access article distributed under the terms of the Creative Commons Attribution License   creativecommons. org licenses by 2.0    which permits unrestricted use  distribution  and reproduction in any medium  provided the orig inal work is properly cited.", "This is an Open Access article distributed under the terms of the Creative Commons Attribution License   creativecommons. org licenses by 2.0    which permits unrestricted use  distribution  and reproduction in any medium  provided the original work is properly cited.", "This is an Open Access article distributed under the terms of the Creative Commons Attribution License    licenses by 2.0   which permits unrestricted use  distribution  and reproduction in any medium  provided the original work is properly cited."
+- "BMC Complementary and Alternative Medicine "
+- "1472 6882" - ID of MNC Complementary and alternative medicine
+- "SearchAbout My BookmarksMVP ExclusivesShopHealthFitnessWorkoutsWeight LossEntertainmentSex &amp; RelationshipsLifeTechnology &amp; GearStyleNutritionGroomingVideoNewsletterFollowPromotions Supply KitSubscribeOther EditionsPrivacy NoticeTerms Of UseSkip to ContentFitnessHealthGearStyleGroomingSubscribesign inGuide to TherapyBest Running ShortsBiohack Your SkinBest Food ScalesMuscle Building at 50Nutrition"
+- "usepackageamssymb" and "usepackageamsfonts" deletd; "documentclass12ptminimalusepackageamsmathusepackagewasysym" left ->  math formula
+- "enddocument" deleted
+-  "Additional file" delted
+- " Article reuse guidelines sagepub.comjournalspermissions" delted
+- fragment of PDF reader
+  - "Page (0-99) of (1-99)" deleted
+  - "page number not for citation purposes" delted
+- "issuecopyrightstatement" deleted
+- "All Rights Reserved."
+- "copyright"
+- "NEXT ARTICLE >>Disclaimer: The entire contents of this website are based upon the opinions of Dr. Mercola, unless otherwise noted. Individual articles are based upon the opinions of the respective author, who retains copyright as marked.The information on this website is not intended to replace a one-on-one relationship with a qualified health care professional and is not intended as medical advice. It is intended as a sharing of knowledge and information from the research and experience of Dr. Mercola and his community. Dr. Mercola encourages you to make your own health care decisions based upon your research and in partnership with a qualified health care professional. The subscription fee being requested is for access to the articles and information posted on this site, and is not being paid for any individual medical advice. If  you are pregnant, nursing, taking medication, or have a medical condition, consult your health care professional before using products based on this content.
+- "Read thefull article here."
+- "share This Story Choose Your Platform Comments are closed"
+- Harvard Medical School: " About the Authors    Toni Golen, MD, ......" deleted
+- MedlinePlus: "Image credit Adobe Stock", "Image credit courtesy of David Goff   July 12 2018" -> deleted
+- MedlinePlus: "What you need to know" deleted
+- "Cite this article as " deleted
+- "Access this article online Website:    Quick Respon Code:" deleted
+- DOI
+  - doi: 10.\d{4,9}/[-._;()-/:A-Z0-9]+
+  - doi 10.\d{4,9}[-._;()/:A-Z0-9]+
+  - doi 10.\d{4,9} \d{4,9}.\d{4,9}
+  - doi 10.\d{4,9} [-._;()/:A-Z0-9]+ [-._;()/:A-Z0-9]+
+  - doi 10.\d{4,9}  [-._;()/:A-Z0-9]+ [-._;()/:A-Z0-9]+ [-._;()/:A-Z0-9]+
+
+# interpretation
+- "usepackageamssymb" -> is used when special signs are used for mathemathical formula 
+
+- disinfo
+  - "ppis" : "proton pump inhibitors (PPIs)"
+  - "rfr" : "radiofrequency radiation (RFR)"
+  - "lupron" : "Puberty-blocking medications like Lupron"
+  - "vaers" """Vaccine Adverse Events Reporting System (VAERS)"
+  - "emf" : "electromagnetic field (EMF)"
+  - democrats -> political opposition against US party of democrats
+  - "near-infrared" -> ''
+  - " nanoplastics" -> ''
+  - "microplastics" -> ''
+  - " plastics" -> ''
+  - "e-cigarettes" -> ''
+  -" all-cause" -> ''
+  - cellphone > ''
+  - "astaxanthin" -> ''
+  - "doi" -> ''
+  - "stress-related" -> ' '
+  - " earns" -> ''
+  - " ng/ml" -> ''
+  - "Gerberding" -> "Julie Gerberding"
+  - "Huff " -> "Ethan Huff "
+  - " whistleblower" -> ''
+  - " infanticide" -> ''
+  - "ssaovap1" -> "SSAOVAP1 "
+  - "ssao" -> SSAO
+  - "pcv20" -> PCV20
+  - "psci" -> "PSCI"
+  - "iph" -> IPH
+  - "advs" -> AdVs
+  - "hcws" -> "HCWs"
+  - "bmdm " -> BMDM
+  - "igg22" -> "IgG22"
+  - "rfr" -> "radiofrequency radiation (RFR) "
+  - "tams" -> "Tumorassociated macrophages TAMs"
+  - "dmcao" -> "Electrocoagulation of the left distal middle cerebral artery dMCA"
+  - " gardasil " -> '' vaccination again human papiloma virus
+  - "smallpox " -> '' vaccine
+  - " armhand " -> ''
+  - "headlines" -> ' ' no website atarvismus
+  - "headline" -> ' ' actually, no, website derivate
+  
+
+
+- alt
+  - "ovx" -> "OVX group"
+  - "axSpA"
+  - "axial spondyloarthritis (axSpA)"
+  - "afib"
+  - "homoeopathic" -> '' correct spelling!
+  - "homeopathic" -> ''
+  - "homoeopathy" -> ''
+  - "fig" -> ''
+  - "0.05" -> ''
+  - "repertory" -> ''
+  - "vol" -> ''
+  - "anthroposophic" -> ''
+  - 0.001
+  - "nhp" -> "NHP"
+  - "cal" -> ?
+  - "dcm" -> 'DCM'
+  - " mcao" -> MCAO
+  - 'thj' -> "THJ"
+  - "shr" -> "SHR"
+  - "gv20" -> "GV20"
+  - "psr" ->"PSR
+  - "pm014" -> "PM014"
+  - "mistletoe" -> ''
+  - "dysmenorrhoea" -> ''
+  - leucorrhoea -> ''
+  - "acupoints" -> ''
+  - "rafieiankopaei" -> "Mahmoud RafieianKopaei "
+  - "hahnemann" -> "Dr Samuel Hahnemann "
+  - " propolis " -> ''
+  - "signicant" -> ''
+  - "acad" -> abbr. in bibliography
+  - "viscum" -> '' "viscum album"
+  - " climaxis" -> ''
+- 
+- pop
+  - "lewine" """Howard E. LeWine"
+  -  "Salamon" -> "Maureen Salamon"
+  - "Gadir" -> Azza Gadir
+  - "Whyte" -> "John Whyte"
+  - "fasciits" -> "Fasciitis nodularis" 
+  - "Sjgrens" -> "Sjgrens syndrome"
+  - "Shmerling" -> "Robert Shmerling" 
+  - "Raniere" -> "Keith Raniere"
+  - "Zeichner" -> "Joshua Zeichner"
+  - "Restivo" -> "Jenette Restivo"
+  - "Jenette" -> "Jenette Restivo"
+  -  "golen" -> Toni Golen
+  - "peloton" -> ''
+  - "cosentyx" -> COSENTYX®
+  - "pimple" -> ''
+  - "ozempic" -> Ozempic
+  - "plantar" -> ''
+  - "colostrum" ->  ''
+  - "m.d." -> "Doctor of Medicine"
+  - "afib" -> "atrial fibrillation AFib "
+  - "spondyloarthritis" -> "axial spondyloarthritis (axSpA)"
+  - "axspa" -> "axial spondyloarthritis (axSpA)"
+  - "nr-axspa" -> non-radiographic axial spondyloarthritis (nr-axSpA)
+  - "fasciitis" -> ''
+  - " freelance" -> ''
+  - "lbd" -> "LBD"
+  - "nightshades" -> ''
+  - "hiphop" -> ''
+
+- sci
+  - "postcr" -> "postCR"
+  - postuc -> postUC 
+  - "postuc" -> "postUC"
+  - "postac" -> "postAC"
+  - "preuc" -> "preUC"
+  - "preac" -> "preAC"
+  - "HCWs"
+  - "irf3" -> "IRF3"
+  - "etal" -> et al.
+  - "monthsprecr" """monthspreCR" 
+  - "hdac3" -> "Hdac3"
+  - "evs " -> "EVs "
+  - "aldh2" -> "ALDH2"
+  - "crao" -> "CRAO"
+  - "ssaovap1" -> "SSAOVAP1"
+  - "rtg4510" -> "rTg4510 Mice"
+  - "fgf23" -> "FGF23"
+  - "vte" -> "VTE"
+  - "asu" -> "ASU"
+  -  "a42" -> "A42"
+  - "aldh2" -> "ALDH2"
+  - " hdac3" -> "Hdac3" 
+  - "hhf" -> "HHF"
+  - "t2d" -> "T2D"
+  - -"pni" -> "PNI"
+  - "r62" -> "R62"
+  - "suvr" -> "SUVR"
+  - "stemi" -> "STEMI"
+  - "timi" -> "TEMI"
+  - "phaeocaulis" -> ''
+  - "documentclass12ptminimalusepackageamsmathusepackagewasysym" -> math formula 
+  - "monthsprecr" -> "monthspreCR"
+  - "ntail" -> "NTAIL"
+  - p0.001
+  - 0.05
+  - "fig" -> ''
+  - "supplementary" -> ''

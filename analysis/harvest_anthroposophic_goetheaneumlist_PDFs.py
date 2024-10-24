@@ -14,7 +14,7 @@ import requests
 import pandas as pd
 import re
 from csv import writer
-
+from papermage.recipes import CoreRecipe
 
 
 def download_pdf(url, i):
@@ -29,7 +29,7 @@ def download_pdf(url, i):
 
     return path
 
-
+'''
 def pdf_to_text(path):
     # load pdf
     print('convert pdf to txt')
@@ -42,10 +42,23 @@ def pdf_to_text(path):
     except pdftotext.Error:
         print('WARNING NO PDF')
         return None
+'''
+def pdf_to_text(path):
+    recipe = CoreRecipe
+    doc = recipe.run(path)
+    txt = []
+    for page in doc.pages:
+        for row in page.rows:
+            txt.append(row)
 
+    # benjamin tipp: .text()
 
-def clean_text(pdf_txt):
-    cleaned_txt = ' '.join(pdf_txt.split())
+    txt = str(txt)
+    pdf_text = ''.join(str(txt))
+    return pdf_text
+
+def clean_text(pdf_text):
+    cleaned_txt = ' '.join(pdf_text.split())
     cleaned_txt = re.sub('[^a-zA-Z0-9 \n\.]', '', cleaned_txt)
 
     return cleaned_txt
@@ -92,16 +105,16 @@ def main():
             continue
 
         # preprocess string
-        cleaned_txt = clean_text(pdf_txt)
+        cleaned_text = clean_text(pdf_txt)
 
         # get doi
         text_id = row['doi']
 
         # compile information  df
-        df = compile_infos(cleaned_txt, df, text_id, url, i)
+        df = compile_infos(cleaned_text, df, text_id, url, i)
 
     #print(df)
-    df.to_csv('data/alternative_PAAM-goetheaneum-PDF-2023-10-07.csv', mode ='a', index=False, header=False)
+    df.to_csv('data/alternative_PAAM-goetheaneum-PDF-2024-09-30.csv', mode ='a', index=False, header=False)
     print('done')
 
 

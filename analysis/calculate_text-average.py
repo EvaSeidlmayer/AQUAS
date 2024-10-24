@@ -29,7 +29,7 @@ def calculate_avarage_text_length(lengths_id, i, df_id):
 
 def main():
     df = pd.read_csv(
-        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_all-infos_2024-08-06_LSoLF-24-v2.csv')
+        '/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_all-infos_2024-10-21_LSoLF-24-v4.csv')
     ids = ['scientific', 'popular', 'alternative_science', 'disinfo']
 
     for id in ids:

@@ -25,16 +25,6 @@ import nltk
 import ssl
 
 
-'''
-try:
-    _create_unverified_https_context = ssl._create_unverified_context
-except AttributeError:
-    pass
-else:
-    ssl._create_default_https_context = _create_unverified_https_context
-
-nltk.download()
-'''
 
 def load_dataset(input_file_csv):
     # Load dataset
@@ -131,7 +121,7 @@ def main():
         print(f'counted frequency of {name}')
 
         category_text_df['TF'] = category_text_df['count'] /sum(category_text_df['count'])
-        category_text_df.to_csv(f'2024-09-06_{name}_tfidf_FSoLS-24-v4.csv', index=False)
+        category_text_df.to_csv(f'2024-10-21_{name}_tfidf_FSoLS-24-v4.csv', index=False)
         print('calculated TF of', name)
 
 

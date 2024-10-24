@@ -28,13 +28,13 @@ import math
 
 def load_dfs():
     science_df = pd.read_csv(
-        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/tfidf/2024-09-06_science_flat_list_prepared_tfidf_FSoLS-24-v4.csv')
+        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/tfidf/2024-10-21_science_flat_list_prepared_tfidf_FSoLS-24-v4.csv')
     pop_df = pd.read_csv(
-        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/tfidf/2024-09-06_popular_flat_list_prepared_tfidf_FSoLS-24-v4.csv')
+        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/tfidf/2024-10-21_popular_flat_list_prepared_tfidf_FSoLS-24-v4.csv')
     alt_science_df = pd.read_csv(
-        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/tfidf/2024-09-06_alt_science_flat_list_prepared_tfidf_FSoLS-24-v4.csv')
+        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/tfidf/2024-10-21_alt_science_flat_list_prepared_tfidf_FSoLS-24-v4.csv')
     disinfo_df = pd.read_csv(
-        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/tfidf/2024-09-06_disinfo_flat_list_prepared_tfidf_FSoLS-24-v4.csv')
+        '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/tfidf/2024-10-21_disinfo_flat_list_prepared_tfidf_FSoLS-24-v4.csv')
     return science_df, pop_df, alt_science_df, disinfo_df
 
 def merge_dfs(science_df, pop_df, alt_science_df, disinfo_df):
@@ -85,8 +85,8 @@ def visualize_sci(all_df):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 3))
 
     # barplot:
-    ax1.barh(TF_sci["word"], TF_sci["TF_sci"], color="#386cb0", edgecolor="#386cb0")
-    ax2.barh(TF_IDF_sci["word"], TF_IDF_sci["TF-IDF_sci"], color="#f0027f", edgecolor="#f0027f")
+    ax1.barh(TF_sci["word"], TF_sci["TF_sci"], color="#f0027f", edgecolor="#f0027f")
+    ax2.barh(TF_IDF_sci["word"], TF_IDF_sci["TF-IDF_sci"], color="#386cb0", edgecolor="#386cb0")
 
     # title:
     ax1.set_title("FSoLS-24-v4 Scientific texts TF")
@@ -96,17 +96,19 @@ def visualize_sci(all_df):
     for ax in fig.axes:  # iterate over ax1, ax2, ax3 to:
         ax.invert_yaxis()  # invert the y axis;
         ax.grid(False)  # eliminate grid;
-        ax.title.set_color('white')  # set title font color to white;
-        ax.tick_params(axis='x', colors='white')  # set x axis font color to white;
-        ax.tick_params(axis='y', colors='white')  # set y axis font color to white;
-        ax.set_facecolor('#2E3031')  # set ax background color to #2E3031;
+        ax.title.set_color('black')  # set title font color to white;
+        ax.tick_params(axis='x', colors='black')  # set x axis font color to white;
+        ax.tick_params(axis='y', colors='black')  # set y axis font color to white;
+        ax.set_facecolor('#00000000')  # set ax background color to #2E3031;
         ax.spines["top"].set_visible(False)  # eliminate spines;
         ax.spines["right"].set_visible(False)
         ax.spines["left"].set_visible(False)
-        ax.spines['bottom'].set_color('white')
+        #ax.spines['bottom'].set_color('white')
+        ax.spines['bottom'].set_color('black')
 
     # fig background color:
-    fig.patch.set_facecolor('#2E3031')
+    #fig.patch.set_facecolor('#2E3031')
+    fig.patch.set_facecolor('#00000000')
     # layout:
     fig.tight_layout()
     plt.show()
@@ -122,8 +124,8 @@ def visualize_pop(all_df):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 3))
 
     # barplot:
-    ax1.barh(TF_pop["word"], TF_pop["TF_pop"], color="#386cb0", edgecolor="#386cb0")
-    ax2.barh(TF_IDF_pop["word"], TF_IDF_pop["TF-IDF_pop"], color="#f0027f", edgecolor="#f0027f")
+    ax1.barh(TF_pop["word"], TF_pop["TF_pop"], color="#f0027f", edgecolor="#f0027f")
+    ax2.barh(TF_IDF_pop["word"], TF_IDF_pop["TF-IDF_pop"], color="#386cb0", edgecolor="#386cb0")
 
     # title:
     ax1.set_title("FSoLS-24-v4 Popular scientific texts TF")
@@ -133,17 +135,18 @@ def visualize_pop(all_df):
     for ax in fig.axes:  # iterate over ax1, ax2, ax3 to:
         ax.invert_yaxis()  # invert the y axis;
         ax.grid(False)  # eliminate grid;
-        ax.title.set_color('white')  # set title font color to white;
-        ax.tick_params(axis='x', colors='white')  # set x axis font color to white;
-        ax.tick_params(axis='y', colors='white')  # set y axis font color to white;
-        ax.set_facecolor('#2E3031')  # set ax background color to #2E3031;
+        ax.title.set_color('black')  # set title font color to white;
+        ax.tick_params(axis='x', colors='black')  # set x axis font color to white;
+        ax.tick_params(axis='y', colors='black')  # set y axis font color to white;
+        ax.set_facecolor('#00000000')  # set ax background color to #2E3031;
         ax.spines["top"].set_visible(False)  # eliminate spines;
         ax.spines["right"].set_visible(False)
         ax.spines["left"].set_visible(False)
-        ax.spines['bottom'].set_color('white')
+        # ax.spines['bottom'].set_color('white')
+        ax.spines['bottom'].set_color('black')
 
     # fig background color:
-    fig.patch.set_facecolor('#2E3031')
+    fig.patch.set_facecolor('#00000000')
     # layout:
     fig.tight_layout()
     plt.show()
@@ -159,8 +162,8 @@ def visualize_alt(all_df):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 3))
 
     # barplot:
-    ax1.barh(TF_alt["word"], TF_alt["TF_alt"], color="#386cb0", edgecolor="#386cb0")
-    ax2.barh(TF_IDF_alt["word"], TF_IDF_alt["TF-IDF_alt"], color="#f0027f", edgecolor="#f0027f")
+    ax1.barh(TF_alt["word"], TF_alt["TF_alt"], color="#f0027f", edgecolor="#f0027f")
+    ax2.barh(TF_IDF_alt["word"], TF_IDF_alt["TF-IDF_alt"], color="#386cb0", edgecolor="#386cb0")
 
     # title:
     ax1.set_title("FSoLS-24-v4 Alternative scientific texts TF")
@@ -170,17 +173,18 @@ def visualize_alt(all_df):
     for ax in fig.axes:  # iterate over ax1, ax2, ax3 to:
         ax.invert_yaxis()  # invert the y axis;
         ax.grid(False)  # eliminate grid;
-        ax.title.set_color('white')  # set title font color to white;
-        ax.tick_params(axis='x', colors='white')  # set x axis font color to white;
-        ax.tick_params(axis='y', colors='white')  # set y axis font color to white;
-        ax.set_facecolor('#2E3031')  # set ax background color to #2E3031;
+        ax.title.set_color('black')  # set title font color to white;
+        ax.tick_params(axis='x', colors='black')  # set x axis font color to white;
+        ax.tick_params(axis='y', colors='black')  # set y axis font color to white;
+        ax.set_facecolor('#00000000')  # set ax background color to #2E3031;
         ax.spines["top"].set_visible(False)  # eliminate spines;
         ax.spines["right"].set_visible(False)
         ax.spines["left"].set_visible(False)
-        ax.spines['bottom'].set_color('white')
+        # ax.spines['bottom'].set_color('white')
+        ax.spines['bottom'].set_color('black')
 
     # fig background color:
-    fig.patch.set_facecolor('#2E3031')
+    fig.patch.set_facecolor('#00000000')
     # layout:
     fig.tight_layout()
     plt.show()
@@ -193,12 +197,12 @@ def visualize_dis(all_df):
     TF_dis = all_df[["word", "TF_dis"]].sort_values(by="TF_dis", ascending=False).head(25)
 
     # plot:
-
+    fig, (ax1) = plt.subplots()
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 3))
 
     # barplot:
-    ax1.barh(TF_dis["word"], TF_dis["TF_dis"], color="#386cb0", edgecolor="#386cb0")
-    ax2.barh(TF_IDF_dis["word"], TF_IDF_dis["TF-IDF_dis"], color="#f0027f", edgecolor="#f0027f")
+    ax1.barh(TF_dis["word"], TF_dis["TF_dis"], color="#f0027f", edgecolor="#f0027f")
+    ax2.barh(TF_IDF_dis["word"], TF_IDF_dis["TF-IDF_dis"], color="#386cb0", edgecolor="#386cb0")
 
     # title:
     ax1.set_title("FSoLS-24-v4 Disinformative texts TF")
@@ -208,17 +212,18 @@ def visualize_dis(all_df):
     for ax in fig.axes:  # iterate over ax1, ax2, ax3 to:
         ax.invert_yaxis()  # invert the y axis;
         ax.grid(False)  # eliminate grid;
-        ax.title.set_color('white')  # set title font color to white;
-        ax.tick_params(axis='x', colors='white')  # set x axis font color to white;
-        ax.tick_params(axis='y', colors='white')  # set y axis font color to white;
-        ax.set_facecolor('#2E3031')  # set ax background color to #2E3031;
+        ax.title.set_color('black')  # set title font color to white;
+        ax.tick_params(axis='x', colors='black')  # set x axis font color to white;
+        ax.tick_params(axis='y', colors='black')  # set y axis font color to white;
+        ax.set_facecolor('#00000000')  # set ax background color to #2E3031;
         ax.spines["top"].set_visible(False)  # eliminate spines;
         ax.spines["right"].set_visible(False)
         ax.spines["left"].set_visible(False)
-        ax.spines['bottom'].set_color('white')
+        # ax.spines['bottom'].set_color('white')
+        ax.spines['bottom'].set_color('black')
 
     # fig background color:
-    fig.patch.set_facecolor('#2E3031')
+    fig.patch.set_facecolor('#00000000')
     # layout:
     fig.tight_layout()
     plt.show()
@@ -234,7 +239,7 @@ def main():
     visualize_pop(all_df)
     visualize_alt(all_df)
     visualize_dis(all_df)
-    #print(all_df.head(25))
+    print(all_df.head(25))
 
 
 

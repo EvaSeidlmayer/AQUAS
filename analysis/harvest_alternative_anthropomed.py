@@ -16,7 +16,7 @@ import pandas as pd
 import re
 
 from pypdf import PdfReader
-
+from papermage.recipes import CoreRecipe
 
 
 def download_pdf(url, i):
@@ -35,7 +35,7 @@ def download_pdf(url, i):
 
     return path
 
-
+'''
 def pdf_to_text(path):
     # load pdf
     print('convert pdf to txt')
@@ -46,12 +46,30 @@ def pdf_to_text(path):
         pdf_text = page.extract_text()
         #print(pdf_text)
         return pdf_text
-
-
+    
     except Exception as e:
         print(e)
         print('WARNING NO PDF')
         return None
+'''
+
+def pdf_to_text(path):
+
+    recipe = CoreRecipe()
+    doc = recipe.run(path)
+    text = []
+
+    for page in doc.pages:
+        #for row in page:
+        text.append(page)
+        print(type(page))
+        print('vvvvv', text)
+    pdf_txt = ''.join(text)
+    return pdf_txt
+
+    #print(doc.pages)
+
+
 
 
 def clean_text(pdf_txt):
@@ -112,7 +130,7 @@ def main():
         df = compile_infos(cleaned_txt, df, text_id, url, i)
 
     #print(df)
-    df.to_csv('data/data-set-topic-wise_2024/content/alternative_antropomed_alltexts.csv ', mode ='a', index=False, header=False)
+    df.to_csv('data/data-set-topic-wise_2024/content/alternative_antropomed_alltexts_2024-10.csv', mode ='a', index=False, header=False)
     print('done')
 
 

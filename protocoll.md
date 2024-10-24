@@ -242,7 +242,7 @@ Do 24.08.2023 23:14)  - Aich/Parde 2022 dataset requested per email Aug-28-2023
 - due to six factors: 1) democratization of content creation, 2) rapid news cycle and economic incentives, 3) wide and immediate reach and interactivity, 4) organic and intentionally created filter bibbles, 5) algorithmic curation and lack of transparanciy, and 6) scale and anonymity in online accounts (AKERS, J. et al. Technology-Enabled Disinformation: Summary, Lessons, and Recommendations. arXiv.org, [S. l.], v. 1, 2019. Available at:https://arxiv.org/abs/1812.09383. Access onMay 28,2020. (cited from Santos-d’amorim/miranda 2021)) 
 
 
-# cleaning 
+# cleaning of FSoLS-24-v4
 - category "alternative" - not just find&replace by "alterative_science" - this will change the word in the text as well!
 - no cleaning of "infowars" in the text since it is used as a reference there. 
 - British Medical Journal: Cleaning of    "Br Med J Clin Res Ed      British Medical Journal Clinical research ed.      02670623      6805607      1498437          Letter        Measles eradication policies.        22        5        1982      284      6328      1559      1560"
@@ -377,6 +377,7 @@ but not when it is referneced in the text (e.g. "A two and a halfyear study cond
   - " armhand " -> ''
   - "headlines" -> ' ' no website atarvismus
   - "headline" -> ' ' actually, no, website derivate
+  - -
   
 
 

@@ -18,9 +18,11 @@ import gensim
 import pandas as pd
 
 # Set file names for train and test data
-df = pd.read_csv('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_all-infos_2024-08-06_LSoLF-24-v2.csv', usecols=['text'])
+df = pd.read_csv(
+    '/AQUS/AQUAS/data/data-set-topic-wise_2024/content/final_set/final-set_super-balanced_all-infos_2024-10-21_LSoLF-24-v4.csv', usecols=['text'])
+print('1.', df.shape)
 df.dropna(inplace=True)
-
+print('2.', df.shape)
 
 
 
@@ -66,5 +68,7 @@ for doc_id in range(len(train_corpus)):
     vecs.append(inferred_vector)
 corpus_matrix = pd.DataFrame(vecs)
 print(type(corpus_matrix))
-pickle.dump(corpus_matrix, open('data/data-set-topic-wise_2024/2024-08-7_FSoLS-24-v2_gensim_embedding_.p', 'wb'))
-print('matrix created and dumped')
+#pickle.dump(corpus_matrix, open('data/data-set-topic-wise_2024/2024-10-16_FSoLS-24-v4_gensim_embedding_.p', 'wb'))
+#print('matrix created and dumped')
+model.save('data/data-set-topic-wise_2024/2024-10-17_FSoLS-24-v4_gensim_embedding_.p')
+print('Model saved')

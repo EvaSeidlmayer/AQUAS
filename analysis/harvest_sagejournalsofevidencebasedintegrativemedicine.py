@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 __description__ = ("retrieve text from PDF-URLs "
-                   "Journal of Evidence-Based Integrative Medicine")
+                   "Journal of Evidence-Based Integrative Medicine / JEBIM")
 __author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>"
 __copyright__ = "2024 by Eva Seidlmayer"
 __license__ = "ISC license"
@@ -16,6 +16,8 @@ import re
 import urllib
 import glob
 import PyPDF2
+from papermage.recipes import CoreRecipe
+
 
 
 

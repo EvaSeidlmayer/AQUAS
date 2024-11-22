@@ -25,6 +25,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import export_text, plot_tree
+from sklearn.tree import DecisionTreeClassifier
+
 
 
 def load_dataset(input_file_csv):
@@ -60,23 +62,43 @@ def main():
     texts_train, texts_test, labels_train, labels_test = train_test_split(texts, labels, random_state=0)
 
     # Random Forests in `scikit-learn` (with N = 100)
-    rf = RandomForestClassifier(n_estimators=10,
+    rf = RandomForestClassifier(n_estimators=100,
                             random_state=0)
 
     rf.fit(texts_train, labels_train)
 
 
-    estimator = rf.estimators_[0]
+    for number in range(100):
+        estimator = rf.estimators_[number]
+        '''
+        plt.figure(figsize=(20, 10))
+        plot_tree(estimator, filled=True, feature_names=vectorizer.get_feature_names_out(),
+                  class_names=encoder.classes_,
+                  rounded=True)
+        plt.savefig(f'data/data-set-topic-wise_2024/RF_decisiontree/2024-10-29_random-forest-tree_{number}_FSoLS-24-v4.png')
+        '''
+        tree_rules = export_text(estimator, feature_names=vectorizer.get_feature_names_out())
+        text_file =  open(f'data/data-set-topic-wise_2024/RF_decisiontree/2024-10-29_random-forest-tree-rules_{number}_FSoLS-24-v4.text','w')
+        text_file.write(tree_rules)
+
+
+
+
+    #estimator = rf.estimators_[15]
 
     # Plot the tree
-    plt.figure(figsize=(20, 10))
-    plot_tree(estimator, filled=True, feature_names=vectorizer.get_feature_names_out(), class_names=encoder.classes_,
-              rounded=True)
-    plt.show()
+    #plt.figure(figsize=(20, 10))
+    #plot_tree(estimator, filled=True, feature_names=vectorizer.get_feature_names_out(), class_names=encoder.classes_,
+     #         rounded=True)
+    #plt.show()
 
     # Optional: Print tree rules
     tree_rules = export_text(estimator, feature_names=vectorizer.get_feature_names_out())
-    print(tree_rules)
+    print(type(tree_rules))
+
+    dtclf = DecisionTreeClassifier(max_depth=4)
+    dtclf = dtclf.fit(texts_train, labels_train)
+    print(dtclf.feature_importances_)
 
 
     '''

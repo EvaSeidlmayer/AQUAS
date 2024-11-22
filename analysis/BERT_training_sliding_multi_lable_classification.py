@@ -8,13 +8,15 @@ __license__ = "ISC license"
 __email__ = "seidlmayer@zbmed.de"
 __version__ = "1 "
 
-#BERT_MODEL_IDENTIFIER = "bert-base-uncased"
+
+
+BERT_MODEL_IDENTIFIER = "bert-base-uncased"
 #BERT_MODEL_IDENTIFIER = "dmis-lab/biobert-v1.1"
 #BERT_MODEL_IDENTIFIER = 'models/bertbase_t10k_e7_lr3e-5_mlclass'
 #---> line 392 replace again!!!!
-BERT_MODEL_IDENTIFIER = "allenai/scibert_scivocab_uncased"
+#BERT_MODEL_IDENTIFIER = "allenai/scibert_scivocab_uncased"
 #BERT_MODEL_IDENTIFIER = 'allenai/specter'
-EPOCH_AMOUNT = 5
+EPOCH_AMOUNT = 10
 
 import pandas as pd
 from transformers import (
@@ -58,8 +60,6 @@ def tokenize(texts):
 
     # set max_length
     max_length = 512
-    #max_length = 1000
-    # max_length = 15000
 
     # Tokenize the text data
     tokens = tokenizer(
@@ -81,7 +81,7 @@ def convert_labels(labels):
 
 def calc_split_ratio(labels_onehot):
     # 80% training 20% validation
-    split_ratio = int(len(labels_onehot) * 0.2)
+    split_ratio = int(len(labels_onehot) * 0.5)
     print("split_ratio defined")
     return split_ratio
 
@@ -210,9 +210,6 @@ class AQUASSlidingBERT(BertForSequenceClassification):
             input_ids = input_ids[:, :512]
             attention_mask = attention_mask[:, :512]
 
-            # print("\tInput_ids size", input_ids.size())
-            # print("\tattention_mask size", attention_mask.size())
-            # print("\tposition_ids", position_ids)
             outputs = self.bert(
                 input_ids,
                 attention_mask=attention_mask,
@@ -272,7 +269,6 @@ def train_epoch(model, optimizer, train_inputs, train_labels, train_masks):
     # optimizer = tf.keras.optimizers.Adam(learning_rate=2e-5, epsilon=1e-08, clipnorm=1.0)
 
     # bisher: batch size 1, mehr spaeter
-
     train_loader = torch.utils.data.DataLoader(
         list(zip(train_inputs, train_labels, train_masks)), batch_size=1, shuffle=True
     )
@@ -411,11 +407,11 @@ def main():
         print(
             f"[{epoch+1}] Accuracy: {acc:.4f}, F1-score: {f1:.4f}, Classification_report:{class_rep}"
         )
-        #filename = f"models/biobase_t512_e{epoch+1}_lr3e-5_mlclass"
-        #model.save_pretrained(filename)
+        filename = f"models/FSoLS-24-v4_Fewshot_BioBert_t512_e{epoch+1}_lr3e-5_mlclass"
+        model.save_pretrained(filename)
 
 
-    model.save_pretrained("models/FSoLS-24-v4_scibert_512tokenz_e5_lr3e-5_mlclass")
+    model.save_pretrained("models/FSoLS-24-v4_Fewshot_BioBert_t512_e5_lr3e-5_mlclass")
     print("done")
 
 if __name__ == "__main__":

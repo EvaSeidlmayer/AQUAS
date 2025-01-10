@@ -1,0 +1,3 @@
+- JSON Dump does not include complete abstracts
+- request_model.py to loop over abstracts 
+- request_model.py to classify KE abstracts to AQUAS categories

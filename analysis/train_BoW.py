@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-__description__ = "classify FSoLS-24-v2 datatset with BoW"
+__description__ = ("classify FSoLS-24-v2 - FSoLS-25-v5 datatset with BoW")
 __author__ = "Eva Seidlmayer <seidlmayer@zbmed.de>"
-__copyright__ = "2024 by Eva Seidlmayer"
+__copyright__ = "2024-2025 by Eva Seidlmayer"
 __license__ = "ISC license"
 __email__ = "seidlmayer@zbmed.de"
 __version__ = "1 "
@@ -23,6 +23,7 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import RandomForestClassifier
 from scipy.sparse import issparse
 from collections import Counter
+import joblib
 
 def load_dataset(input_file_csv):
     # Load dataset
@@ -35,7 +36,7 @@ def load_dataset(input_file_csv):
     texts = df["text"].to_list()
     labels = df["category_id"].to_list()
     category_counts = Counter(labels)
-    print('dddd', category_counts)
+    print('category counts:', category_counts)
     print("data input lists created")
     return texts, labels
 
@@ -71,13 +72,17 @@ def main():
     print('dataset split')
 
 # Initialize  and train  classifier
-    #classifier = OneVsRestClassifier(LogisticRegression(max_iter=500, multi_class='multinomial', solver='lbfgs')) #fits one classifier per label and allows for multi-label classification
-    #model = LogisticRegression(max_iter=1000, multi_class='multinomial', solver='lbfgs')    #classifier = OneVsRestClassifier(XGBClassifier())
+    classifier = OneVsRestClassifier(LogisticRegression(max_iter=500, multi_class='multinomial', solver='lbfgs')) #fits one classifier per label and allows for multi-label classification
+    #model = LogisticRegression(max_iter=1000, multi_class='multinomial', solver='lbfgs')
+    #classifier = OneVsRestClassifier(XGBClassifier())
     #classifier = OneVsRestClassifier(SVC(kernel='linear')) #Support Vector Machine
     #classifier = OneVsRestClassifier(AdaBoostClassifier())
-    classifier = OneVsRestClassifier(RandomForestClassifier())
+    #classifier = OneVsRestClassifier(RandomForestClassifier())
     classifier.fit(X_train, y_train) # train classifier
-    print('classifier trained')
+    joblib.dump(classifier,
+                '2025-01-10_FSoLF-25-v5_LRG_classifier.pkl')
+    joblib.dump(vectorizer, '2025-01-10_FSoLF-25-v5_LRG_vectorizer.pkl')
+    print('classifier trained and dumped')
 
 
     # evaluate: make prediction

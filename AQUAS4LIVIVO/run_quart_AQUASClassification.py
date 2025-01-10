@@ -64,7 +64,7 @@ HTML_TEMPLATE = HTML_TEMPLATE = """
             border-radius: 4px;
         }
         #chart-container {
-            width: 40%; 
+            width: 90%; 
             max-width: 800px; 
             background-color: #b6e3e5
             margin: 0 auto; /* Center the chart */
@@ -80,15 +80,16 @@ HTML_TEMPLATE = HTML_TEMPLATE = """
 </head>
 <body>
     <h1>NLP strategies to handle disinformation</h1>
-        <p> The increasing prevalence of misinformation and disinformation represents a serious threat to our democratic society. Spread by political lobby groups or companies to manipulate public discourse, it can make it hard for recipients to determine whether the information they are getting is true or false. Disinformation is also prevalent in scientific settings and can therefore have a direct impact on scientists’ work. <b>Experience different methods to explore a questionable texts passage.</b>   </p> 
-        <p>Disinformation are characterized by the <b>1. wrongness of information</b> and by the <b>2. intention to spread misinformation</b>. The intention is motivated by seeking for money and influence and in order to discriminate other competitors.</p>        
+        <p> The increasing prevalence of misinformation and disinformation represents a serious threat to our democratic society. Spread by political lobby groups or companies to manipulate public discourse, it can make it hard for users to determine whether the information they are getting is true or false. Disinformation is also prevalent in scientific settings and can therefore has a direct impact on scientists’ work. <b>Experience different methods to explore a questionable texts passage.</b>   </p> 
+        <p>Disinformation are characterized by the <b>1. corectnes of information</b> and by the <b>2. intention to spread misinformation</b>. The intention is motivated by seeking for money and influence and in order to discriminate other competitors.</p>        
     <div class="container">
         <div class="form-section">
-       
-        <p> Currently it is not easy validate facts in full texts automaticaly. However, we can use <a href='https://en.wikipedia.org/wiki/Named-entity_recognition'>Name Entity Recognition</a> (NER) to identify crucial terms and use  Entity linker service Wikifier to retrieve Wikidata and Wikipedia records in order to verify the proposed informations.</p>
-        <p> Try to annotate the questionable text applying Wikifier Annotator and inform yourself on the . <a href='https://www.wikifier.org/'>Wikifier</a> was implemented by Janez Brank.  </p>
-         <h3>1. Wikifier Annotator</h3>
-         <p> Use Wikifier Annotator for additional information by Wikipedia or Wikidata </p>
+       <h3>1. Wikifier Annotator</h3>
+        <p> Currently it is not easy to validate facts in full texts automatically. However, we can use <a href='https://en.wikipedia.org/wiki/Named-entity_recognition'>Named-entity Recognition</a> (NER) to identify crucial terms and use the <i>entity linker service</i> <b>Wikifier</b> to retrieve <b>Wikidata</b> and <b>Wikipedia</b> records in order to verify the proposed information.</p>
+        <p> Try to annotate the questionable text using <b>Wikifier</b> and inform yourself on the <a href='https://www.wikifier.org/'>Wikifier</a> was implemented by Janez Brank.  </p>  
+         
+         
+         <p> Use Wikifier Annotator for additional information by Wikipedia or Wikidata. The text is cut off after 1000 characters. </p>
         <form action="/" method="POST">
             <textarea name="user_text_A" rows="10" cols="50" placeholder="Enter your text here..."></textarea><br>
             <button type="submit">Submit</button>
@@ -108,7 +109,7 @@ HTML_TEMPLATE = HTML_TEMPLATE = """
                 <li>alternative scientific text style</li>
             </ol>     
         <p>Based on this data set several models had been fine tuned to classifiy similar language styles.  
-        You can choose between standard <a href='https://en.wikipedia.org/wiki/Bag-of-words_model'>Bag of Words</a> methods, such as <a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest</a>,  and  <a href='https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)'>Transformer</a> language models, such as Bert, Scibert, and Specter.</p>    
+        You can choose between standard <a href='https://en.wikipedia.org/wiki/Bag-of-words_model'>Bag of Words</a> methods, such as <a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest</a>, <a href='https://en.wikipedia.org/wiki/Support_vector_machine'>Support Vector Machine</a>,<a href='https://en.wikipedia.org/wiki/Logistic_regression'>Logistic Regression</a> ,  and  <a href='https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)'>Transformer</a> language models, such as Bert, Scibert, and Specter.</p>    
     
         <form action="/" method="POST">
             <textarea name="user_text_B" rows="10" cols="50" placeholder="Enter your text here..."></textarea><br>
@@ -116,7 +117,13 @@ HTML_TEMPLATE = HTML_TEMPLATE = """
                 <input type="radio" name="option" value="option_1" > Random Forest Classifier
             </label>
             <label>
-                <input type="radio" name="option" value="option_2" checked> Fine tuned Bert-base uncased model
+                <input type="radio" name="option" value="option_5" > Support Vector Machine
+            </label>
+            <label>
+                <input type="radio" name="option" value="option_6" > Logistic Regression 
+            </label>
+            <label>
+                <input type="radio" name="option" value="option_2" > Fine tuned Bert-base uncased model
             </label>
             <label>
                 <input type="radio" name="option" value="option_3"> Fine tuned SciBert model
@@ -126,12 +133,13 @@ HTML_TEMPLATE = HTML_TEMPLATE = """
             </label><br>
             <button type="submit">Submit</button>
         </form>
-        
-        <h3>Response:</h3>
-        <pre>{{ response_2 }}</pre>
-           <div id="chart-container">
+            <h3>Response:</h3>
+            <div id="chart-container">
              <canvas id="predictionsChart"></canvas>
             </div>
+            
+            <pre>{{ response_2 }}</pre>
+
         </div>
     </div>
     <div class="footer">
@@ -140,7 +148,7 @@ HTML_TEMPLATE = HTML_TEMPLATE = """
         <p> <b>Contact:</b> Eva Seidlmayer, Dr. phil., M.LIS<br> Data Sciences and Services, Research Fellow<br> ORCID: 0000-0001-7258-0532<br>
         Mastodon: @eta_kivilih | Bluesky: @etakivilih.bsky.social<br> ZB MED – Informations Centre for Life Sciences<br> Gleueler Straße 60<br>
         50931 Cologne <br> Germany<br> <a href ='www.zbmed.de'>www.zbmed.de</a><br> INFORMATION. KNOWLEDGE. LIFE.      </p>
-        <img src="{{ url_for('static', filename='19882D1B-2519-4038-9A0F-6C7957DCBAC2.png') }}" alt="Logo of ZB MED https://www.zbmed.de/en/" style="width:200px;height:125px;">
+        <img src="{{ url_for('static', filename='ZBMED17_e_rgb_cl_www.svg') }}" alt="Logo of ZB MED https://www.zbmed.de/en/" style="width:2000px;height:1250px;">
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
@@ -150,7 +158,7 @@ HTML_TEMPLATE = HTML_TEMPLATE = """
             const data = {
                 labels: labels,
                 datasets: [{
-                    label: 'Predictions',
+                    label: 'of 100%', 
                     data: predictions[0],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -175,7 +183,20 @@ HTML_TEMPLATE = HTML_TEMPLATE = """
                         y: {
                             beginAtZero: true
                         }
+                    },
+                     plugins: {
+                    legend: {
+                        labels: {
+                            color: '#000000',
+                            boxWidth: 20, // Width of the colored box
+                            boxHeight: 20, // Height of the colored box
+                            usePointStyle: true, // Use point style for the legend item
+                            pointStyle: 'rectRounded', // Style of the point (e.g., 'circle', 'rect', 'rectRounded', etc.)
+                            padding: 10 // Padding around the legend item
+                        }
                     }
+                }                   
+                    
                 }
             };
             new Chart(ctx, config);
@@ -211,20 +232,23 @@ async def Call_AQUAS_Bert(text, model, Bert_tokenizer):
         sigmoid = sigmoid_output.tolist()
         pred_sci, pred_pop, pred_dis, pred_alt = sigmoid[0][0], sigmoid[0][1], sigmoid[0][2], sigmoid[0][3]
         print('DAS IST DER sigmoid OUTPUT', pred_sci, pred_pop, pred_dis, pred_alt)
-        output=[]
-        output.append(pred_sci)
-        output.append(pred_pop)
-        output.append(pred_dis)
-        output.append(pred_alt)
-        print(output)
+        outp=[]
+        outpu = []
+        outp.append(pred_sci)
+        outp.append(pred_pop)
+        outp.append(pred_dis)
+        outp.append(pred_alt)
+        outpu.append(outp)
+        output = torch.Tensor(outpu)
+        print('xxxxxxxxxx', output)
 
-    predicted_class = torch.argmax(soft_output, dim=-1).item()
-    predicted_probability = soft_output[0][predicted_class].item()
+    predicted_class = torch.argmax(output, dim=-1).item()
+    predicted_probability = output[0][predicted_class].item()
 
     return {
         'predicted_class': predicted_class+1,
         'predicted_probability': predicted_probability,
-        'probabilities': soft_output.tolist()
+        'probabilities': output.tolist()
     }
 
     #return pred_sci, pred_pop, pred_dis, pred_alt
@@ -257,9 +281,12 @@ RF_classifier = joblib.load(
 RF_vectorizer = joblib.load(
     '/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/BoW/2025-01-06_FSoLF-25-v5_vectorizer.pkl')
 
+SVM_classifier = joblib.load('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/BoW/2025-01-10_FSoLF-25-v5_SVM_classifier.pkl')
+SVM_vectorizer = joblib.load('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/BoW/2025-01-10_FSoLF-25-v5_SVM_vectorizer.pkl')
 
-
-Bertbase_model = AutoModelForSequenceClassification.from_pretrained('/home/ruth/ProgrammingProjects/AQUS/AQUAS/models/FSoLS-24-v5_Bertbase_e3_lr3e-5_mlclass', num_labels = 4)
+LRG_classifier = joblib.load('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/BoW/2025-01-10_FSoLF-25-v5_LRG_classifier.pkl')
+LRG_vectorizer = joblib.load('/home/ruth/ProgrammingProjects/AQUS/AQUAS/data/data-set-topic-wise_2024/BoW/2025-01-10_FSoLF-25-v5_LRG_vectorizer.pkl')
+Bertbase_model = AutoModelForSequenceClassification.from_pretrained('/home/ruth/ProgrammingProjects/AQUS/AQUAS/models/FSoLS-24-v5_Bertbase_e1_lr3e-5_mlclass', num_labels = 4)
 Scibert_model = AutoModelForSequenceClassification.from_pretrained('/home/ruth/ProgrammingProjects/AQUS/AQUAS/models/FSoLS-24-v5_SciBert_e3_lr3e-5_mlclass', num_labels = 4)
 SPECTER_model = AutoModelForSequenceClassification.from_pretrained('/home/ruth/ProgrammingProjects/AQUS/AQUAS/models/FSoLS-24-v5_Specter_e3_lr3e-5_mlclass', num_labels = 4)
 bert_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
@@ -290,6 +317,14 @@ async def input():
             if option == 'option_1':
                 # Process for Option 1
                 results = await Call_AQUAS_RandomForest(text_B, RF_classifier, RF_vectorizer)
+                response_2 = json.dumps(results, indent=2)
+            if option == 'option_5':
+                # Process for Option 1
+                results = await Call_AQUAS_RandomForest(text_B, SVM_classifier, SVM_vectorizer)
+                response_2 = json.dumps(results, indent=2)
+            if option == 'option_6':
+                # Process for Option 1
+                results = await Call_AQUAS_RandomForest(text_B, LRG_classifier, LRG_vectorizer)
                 response_2 = json.dumps(results, indent=2)
             elif option == 'option_2':
                 # Process for Option 2

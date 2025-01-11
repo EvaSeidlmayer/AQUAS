@@ -80,16 +80,16 @@ HTML_TEMPLATE = HTML_TEMPLATE = """
 </head>
 <body>
     <h1>NLP strategies to handle disinformation</h1>
-        <p> The increasing prevalence of misinformation and disinformation represents a serious threat to our democratic society. Spread by political lobby groups or companies to manipulate public discourse, it can make it hard for users to determine whether the information they are getting is true or false. Disinformation is also prevalent in scientific settings and can therefore has a direct impact on scientists’ work. <b>Experience different methods to explore a questionable texts passage.</b>   </p> 
-        <p>Disinformation are characterized by the <b>1. corectnes of information</b> and by the <b>2. intention to spread misinformation</b>. The intention is motivated by seeking for money and influence and in order to discriminate other competitors.</p>        
+        <p> The increasing prevalence of misinformation and disinformation represents a serious threat to our democratic society. Spread by political lobby groups or companies to manipulate public discourse, it can be hard for users to determine whether the information at hand is true or false. Disinformation is also prevalent in scientific settings and can therefore has a direct impact on scientists’ work. <b>Experience different methods to explore a questionable texts passage.</b>   </p> 
+        <p>Disinformation are characterized by the <b>1. (Correctnes) ICH WÜRDE HIER EHER SAGEN Accuracy of information</b> and by the <b>2. Intention to spread misinformation</b>. Their intention is driven by the pursuit of money and influence aiming to discriminate other competitors.</p>        
     <div class="container">
         <div class="form-section">
        <h3>1. Wikifier Annotator</h3>
-        <p> Currently it is not easy to validate facts in full texts automatically. However, we can use <a href='https://en.wikipedia.org/wiki/Named-entity_recognition'>Named-entity Recognition</a> (NER) to identify crucial terms and use the <i>entity linker service</i> <b>Wikifier</b> to retrieve <b>Wikidata</b> and <b>Wikipedia</b> records in order to verify the proposed information.</p>
-        <p> Try to annotate the questionable text using <b>Wikifier</b> and inform yourself on the <a href='https://www.wikifier.org/'>Wikifier</a> was implemented by Janez Brank.  </p>  
+        <p> Currently it is not easy to validate facts in full texts automatically. However, we can use <a href='https://en.wikipedia.org/wiki/Named-entity_recognition'>Named-entity Recognition</a> (NER) to identify crucial terms and use the <i>entity linking service</i> <b>Wikifier</b> to retrieve <b>Wikidata</b> and <b>Wikipedia</b> records in order to verify the proposed information.</p>
+        <p> Try to annotate the questionable text using <b>Wikifier</b> and get more information on the <a href='https://www.wikifier.org/'>Wikifier</a> was implemented by Janez Brank.  </p>  
          
          
-         <p> Use Wikifier Annotator for additional information by Wikipedia or Wikidata. The text is cut off after 1000 characters. </p>
+         <p> Use <b>Wikifier</b> for additional information by Wikipedia or Wikidata. The text is cut off after 1000 characters. </p>
         <form action="/" method="POST">
             <textarea name="user_text_A" rows="10" cols="50" placeholder="Enter your text here..."></textarea><br>
             <button type="submit">Submit</button>
@@ -101,7 +101,7 @@ HTML_TEMPLATE = HTML_TEMPLATE = """
         
     <div class="form-section"> 
         <h3> 2. Four Shades of Life Sciences Intention Classifier </h3>
-        <p>The hypothesis of project AQUAS is that the goals for spreading disinformation (attention, money, influence for political claims) shape syntax and semantic of texts. Applying machine learning techniques a language model can learn the characteristics of texts, specific terms and language styles. In order to train a langugage model, we compiled a dataset on life science documents related to the four categories ("four shades of Life sciences"):</p> 
+        <p>The hypothesis of project AQUAS is that the goals for spreading disinformation (attention, money, influence for political claims) shape syntax and semantic of texts. Applying machine learning techniques HIER FEHLT WAS a language model can learn the characteristics of texts, specific terms and language styles. In order to train a langugage model, we compiled a dataset on life science documents related to the four categories ("four shades of Life sciences"):</p> 
             <ol>
                 <li>scientific text style</li> 
                 <li>popular scientific text style</li>  
